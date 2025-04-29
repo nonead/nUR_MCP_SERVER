@@ -1,2 +1,2 @@
-# nUniversal-Robots-MCP
-Universal-Robots  MCP-Server
+# nUR_MCP_SERVER
+NONEAD Universal-Robots MCP Server
