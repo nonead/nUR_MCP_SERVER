@@ -245,8 +245,8 @@ Windows: %APPDATA%/Claude/claude_desktop_config.json
     {
       "mcpServers": {
         "nUR_MCP_SERVER": {
-          "command": "cmd",
-          "args": ["/c","python","D:\\MyProgram\\MCP_SERVER\\nUR_MCP_SERVER\\main.py"]
+          "command": "python",
+          "args": ["D:\\MyProgram\\MCP_SERVER\\nUR_MCP_SERVER\\main.py"]
         }
       }
     }
@@ -294,10 +294,8 @@ MacOS & Linux:
          "nUR_MCP_Server",
          "Universal-Robots"
        ],
-       "command": "cmd",
+       "command": "python",
        "args": [
-         "/c",
-         "python",
          "D:\\MyProgram\\MCP_SERVER\\nUR_MCP_SERVER\\main.py" 
          ]
         }
@@ -321,8 +319,8 @@ Windows:
     {
       "mcpServers": {
         "nUR_MCP_SERVER": {
-            "command": "cmd",
-            "args": ["/c","python","D:\\MyProgram\\MCP_SERVER\\nUR_MCP_SERVER\\main.py"]
+            "command": "python",
+            "args": ["D:\\MyProgram\\MCP_SERVER\\nUR_MCP_SERVER\\main.py"]
          }
       }
     }

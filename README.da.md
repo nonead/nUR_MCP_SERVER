@@ -262,8 +262,8 @@ pip install -r requirements.txt
 {
   "mcpServers": {
     "nUR_MCP_SERVER": {
-      "command": "cmd",
-      "args": ["/c","python","D:\\MyProgram\\MCP_SERVER\\nUR_MCP_SERVER\\main.py"]
+      "command": "python",
+      "args": ["D:\\MyProgram\\MCP_SERVER\\nUR_MCP_SERVER\\main.py"]
     }
   }
 }
@@ -314,10 +314,8 @@ pip install -r requirements.txt
         "nUR_MCP_Server",
         "Universal-Robots"
       ],
-      "command": "cmd",
+      "command": "python",
       "args": [
-        "/c",
-        "python",
         "D:\\MyProgram\\MCP_SERVER\\nUR_MCP_SERVER\\main.py"
       ]
     }
@@ -344,8 +342,8 @@ pip install -r requirements.txt
 {
   "mcpServers": {
     "nUR_MCP_SERVER": {
-      "command": "cmd",
-      "args": ["/c","python","D:\\MyProgram\\MCP_SERVER\\nUR_MCP_SERVER\\main.py"]
+      "command": "python",
+      "args": ["D:\\MyProgram\\MCP_SERVER\\nUR_MCP_SERVER\\main.py"]
     }
   }
 }
