@@ -20,14 +20,13 @@
 </p>
 
 <p align="center">
-    <a href='https://gitee.com/nonead/nUR_MCP_SERVER'><img src='https://img.shields.io/github/v/release/nonead/nUR_MCP_Server?color=green&label=Latest%20Release' alt="Latest Release"></a>
-    <a href="https://github.com/nonead/nUR_MCP_SERVER/releases/latest"><img src="https://img.shields.io/github/v/release/nonead/nUR_MCP_Server?color=blue&label=Latest%20Release" alt="Latest Release"></a>
+    <a href='https://gitee.com/nonead/nUR_MCP_SERVER/releases/tag/nUR_MCP_Server_0.1.1'><img src='https://img.shields.io/static/v1?label=Gitee%20Latest%20Release&message=0.1.1&color=Blue' alt="Latest Release"></a>
+    <a href="https://github.com/nonead/nUR_MCP_SERVER/releases/latest"><img src="https://img.shields.io/static/v1?label=GitHub%20Latest%20Release&message=0.1.1&color=Green" alt="Latest Release"></a>
     <a href='https://www.python.org/downloads/'><img src='https://img.shields.io/pypi/pyversions/RPALite'></img></a>
     <a href="https://gitee.com/nonead/nUR_MCP_SERVER/wikis/pages">
         <img src="https://img.shields.io/badge/User%20Guide-1e8b93?logo=readthedocs&logoColor=f5f5f5" alt="User Guide"></a>
-    <a href="https://www.apache.org/licenses/LICENSE-2.0"><img height="21" src="https://img.shields.io/badge/License-Apache--2.0-ffffff?labelColor=d4eaf7&color=2e6cc4" alt="license"></a>
+    <a href="./LICENSE"><img height="21" src="https://img.shields.io/static/v1?label=License&message=User-Segmented Dual Licensing&color=blue" alt="license"></a>
      <a href='https://gitee.com/nonead/nUR_MCP_SERVER/stargazers'><img src='https://gitee.com/nonead/nUR_MCP_SERVER/badge/star.svg?theme=dark' alt='star'></img></a>
-
 </p>
 
 ## 1.Hvad er MCP?
@@ -489,7 +488,38 @@ Hvis du bruger denne software, citer venligst som følger:
 
 ## 10. Licens
 
-[Apache License 2.0](LICENSE)
+Dette projekt anvender en User-Segmented Dual Licensing-model.
+
+**Grundlæggende principper**
+* Privatbrugere og organisationer/ virksomheder med ≤10 personer: AGPLv3-licensen gælder automatisk
+* Organisationer/ virksomheder med >10 personer: Kommerciel licens kræves
+
+Definition af "≤10 personer":
+Dette refererer til situationer, hvor det samlede antal personer i din organisation (inklusiv virksomheder, non-profit organisationer, statslige institutioner, uddannelsesinstitutioner mv.), der direkte eller indirekte får adgang til, bruger eller drager fordel af nUR_MCP_SERVER, ikke overstiger 10. Dette inkluderer men er ikke begrænset til udviklere, testpersonale, operatører, slutbrugere og brugere via integrerede systemer.
+
+### 10.1 Open Source-licens (AGPLv3) - Til privatbrugere og organisationer med ≤10 personer
+* Hvis du er privatbruger eller din organisation opfylder "≤10 personer"-definitionen, kan du frit bruge, modificere og redistribuere nUR_MCP_SERVER under AGPLv3-betingelserne. Den fulde AGPLv3-licens kan findes på https://www.gnu.org/licenses/agpl-3.0.html.
+* **Vigtigste forpligtelser:** Som et kernekrav i AGPLv3 skal du give modtagerne adgang til den fulde kildekode under AGPLv3, hvis du distribuerer modificerede versioner af nUR_MCP_Server eller tilbyder det som en netværkstjeneste. Selvom din organisation opfylder "≤10 personer"-kriteriet, bør du overveje en kommerciel licens (se nedenfor), hvis du ønsker at undgå denne kildekode-offentliggørelsesforpligtelse.
+* Læs og forstå alle AGPLv3-vilkår grundigt før brug.
+
+### 10.2 Kommerciel licens - Til organisationer med >10 personer eller brugere, der ønsker at undgå AGPLv3-forpligtelser
+* **Obligatorisk krav:** Hvis din organisation ikke opfylder "≤10 personer"-definitionen (dvs. 11+ personer får adgang til/bruger/drager fordel af softwaren), skal du indgå en kommerciel licensaftale med os før brug af nUR_MCP_SERVER.
+* **Valgfri anvendelse:** Selvom din organisation opfylder "≤10 personer"-kriteriet, kræves en kommerciel licens, hvis din brugssituation ikke overholder AGPLv3-vilkår (især kildekode-offentliggørelsesforpligtelsen) eller hvis du har brug for specifikke kommercielle bestemmelser (såsom garanti, erstatning eller fravær af Copyleft-begrænsninger), som ikke tilbydes under AGPLv3.
+* **Typiske tilfælde, der kræver kommerciel licens (ikke udtømmende):**
+  * Organisationer med >10 personer
+  * (Uanset størrelse) Distribution af modificerede versioner af nUR_MCP_SERVER uden at offentliggøre kildekoden som krævet af AGPLv3
+  * (Uanset størrelse) Tilbud af nUR_MCP_SERVER som en netværkstjeneste (SaaS) uden at give brugere adgang til modificeret kildekode
+  * (Uanset størrelse) Hvis virksomhedspolitikker, kundekontrakter eller projektkrav forbyder brug af AGPLv3-licenseret software eller kræver lukket distribution/fortrolighed
+* **Anskaffelse af kommerciel licens:** Kontakt nUR_MCP_SERVER-udviklingsteamet på service@nonead.com.
+
+### 10.3 Bidrag (Contributions)
+* Vi byder velkommen til bidrag fra fællesskabet til nUR_MCP_SERVER. Alle bidrag til projektet betragtes som leveret under AGPLv3-licensen.
+* Ved at indsende et bidrag (f.eks. en Pull Request) accepterer du, at din kode vil blive gjort tilgængelig for projektet og alle fremtidige brugere (uanset om de vælger AGPLv3 eller kommerciel licens) under AGPLv3-vilkårene.
+* Du accepterer også, at dit bidrag kan inkluderes i versioner af nUR_MCP_SERVER, der distribueres under en kommerciel licens.
+
+### 10.4 Andre vilkår
+* Specifikke betingelser for den kommercielle licens fastsættes i den formelle kommercielle licensaftale.
+* Projektets vedligeholdere forbeholder sig retten til at opdatere denne licenspolitik (inklusive definitioner og tærskler for brugerstørrelse) efter behov. Eventuelle opdateringer vil blive annonceret via projektets officielle kanaler (kodelager, hjemmeside mv.).
 
 ## 11. Kerneudviklingsteam
 

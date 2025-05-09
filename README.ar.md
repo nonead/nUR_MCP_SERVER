@@ -20,14 +20,13 @@
 </p>
 
 <p align="center">
-    <a href='https://gitee.com/nonead/nUR_MCP_SERVER'><img src='https://img.shields.io/github/v/release/nonead/nUR_MCP_Server?color=green&label=Latest%20Release' alt="Latest Release"></a>
-    <a href="https://github.com/nonead/nUR_MCP_SERVER/releases/latest"><img src="https://img.shields.io/github/v/release/nonead/nUR_MCP_Server?color=blue&label=Latest%20Release" alt="Latest Release"></a>
+    <a href='https://gitee.com/nonead/nUR_MCP_SERVER/releases/tag/nUR_MCP_Server_0.1.1'><img src='https://img.shields.io/static/v1?label=Gitee%20Latest%20Release&message=0.1.1&color=Blue' alt="Latest Release"></a>
+    <a href="https://github.com/nonead/nUR_MCP_SERVER/releases/latest"><img src="https://img.shields.io/static/v1?label=GitHub%20Latest%20Release&message=0.1.1&color=Green" alt="Latest Release"></a>
     <a href='https://www.python.org/downloads/'><img src='https://img.shields.io/pypi/pyversions/RPALite'></img></a>
     <a href="https://gitee.com/nonead/nUR_MCP_SERVER/wikis/pages">
         <img src="https://img.shields.io/badge/User%20Guide-1e8b93?logo=readthedocs&logoColor=f5f5f5" alt="User Guide"></a>
-    <a href="https://www.apache.org/licenses/LICENSE-2.0"><img height="21" src="https://img.shields.io/badge/License-Apache--2.0-ffffff?labelColor=d4eaf7&color=2e6cc4" alt="license"></a>
+    <a href="./LICENSE"><img height="21" src="https://img.shields.io/static/v1?label=License&message=User-Segmented Dual Licensing&color=blue" alt="license"></a>
      <a href='https://gitee.com/nonead/nUR_MCP_SERVER/stargazers'><img src='https://gitee.com/nonead/nUR_MCP_SERVER/badge/star.svg?theme=dark' alt='star'></img></a>
-
 </p>
 
 ## 1. ما هو MCP؟
@@ -466,7 +465,39 @@ Windows:
 
 ## 10. الترخيص
 
-[رخصة Apache 2.0](LICENSE)
+يعتمد هذا المشروع نموذج ترخيص مزدوج حسب فئة المستخدم (User-Segmented Dual Licensing).
+
+**المبادئ الأساسية**
+* المستخدمون الأفراد والشركات/المؤسسات التي تضم 10 أشخاص أو أقل: ينطبق عليها ترخيص جنو أفيرو العام العام v3.0 (AGPLv3) افتراضياً
+* الشركات/المؤسسات التي تضم أكثر من 10 أشخاص: يجب الحصول على ترخيص تجاري (Commercial License)
+
+تعريف "10 أشخاص أو أقل":
+يقصد به العدد الإجمالي للأفراد في مؤسستك (بما في ذلك الشركات، المنظمات غير الربحية، الوكالات الحكومية، المؤسسات التعليمية أو أي كيان قانوني) الذين يمكنهم الوصول إلى البرنامج (nUR_MCP_SERVER) أو استخدامه أو الاستفادة منه بشكل مباشر أو غير مباشر، دون تجاوز 10 أشخاص. يشمل ذلك المطورين، المختبرين، المشغلين، المستخدمين النهائيين، المستخدمين عبر الأنظمة المدمجة وغيرهم.
+
+### 10.1 ترخيص المصدر المفتوح (Open Source License): AGPLv3 - للأفراد والمؤسسات التي تضم 10 أشخاص أو أقل
+* إذا كنت مستخدمًا فرديًا أو كانت مؤسستك تستوفي تعريف "10 أشخاص أو أقل" أعلاه، يمكنك استخدام nUR_MCP_SERVER وتعديله وتوزيعه بحرية تحت شروط AGPLv3. النص الكامل للترخيص متاح على https://www.gnu.org/licenses/agpl-3.0.html
+* **الالتزام الرئيسي:** من متطلبات AGPLv3 الأساسية أنه إذا قمت بتعديل nUR_MCP_Server وقدمته كخدمة شبكية أو وزعت نسخة معدلة، يجب عليك توفير الكود المصدري الكامل للمستلمين تحت ترخيص AGPLv3. حتى إذا كنت تستوفي معيار "10 أشخاص أو أقل"، إذا كنت ترغب في تجنب هذا الالتزام بالإفصاح عن الكود المصدري، يجب أن تفكر في الحصول على ترخيص تجاري (انظر أدناه).
+* يرجى قراءة وفهم جميع بنود AGPLv3 بعناية قبل الاستخدام.
+
+### 10.2 الترخيص التجاري (Commercial License) - للمؤسسات التي تضم أكثر من 10 أشخاص أو الراغبين في تجنب التزامات AGPLv3
+* **المتطلب الإلزامي:** إذا كانت مؤسستك **لا** تستوفي تعريف "10 أشخاص أو أقل" أعلاه (أي 11 شخصًا أو أكثر يمكنهم الوصول إلى البرنامج/استخدامه/الاستفادة منه)، **يجب** عليك الاتصال بنا للحصول على ترخيص تجاري قبل استخدام nUR_MCP_SERVER.
+* **الخيار الطوعي:** حتى إذا كانت مؤسستك تستوفي شرط "10 أشخاص أو أقل"، ولكن سيناريو استخدامك **لا يتوافق مع بنود AGPLv3** (خاصةً التزام الإفصاح عن الكود المصدري)، أو كنت بحاجة إلى **شروط تجارية محددة** لا يوفرها AGPLv3 (مثل الضمانات، التعويضات، عدم وجود قيود كوبيليفت وغيرها)، **يجب** عليك أيضًا الحصول على ترخيص تجاري.
+* **الحالات الشائعة التي تتطلب ترخيصًا تجاريًا (على سبيل المثال لا الحصر):**
+  * حجم المؤسسة أكثر من 10 أشخاص
+  * (بغض النظر عن حجم المؤسسة) الرغبة في توزيع نسخ معدلة من nUR_MCP_SERVER دون الكشف عن الكود المصدري للتعديلات وفقًا لـ AGPLv3
+  * (بغض النظر عن حجم المؤسسة) تقديم خدمات شبكية (SaaS) تعتمد على nUR_MCP_SERVER المعدل دون توفير الكود المصدري المعدل لمستخدمي الخدمة وفقًا لـ AGPLv3
+  * (بغض النظر عن حجم المؤسسة) سياسات الشركة، عقود العملاء أو متطلبات المشروع التي تمنع استخدام برامج مرخصة تحت AGPLv3 أو تتطلب التوزيع مغلق المصدر/السرية
+* **الحصول على ترخيص تجاري:** يرجى الاتصال بفريق تطوير nUR_MCP_SERVER عبر البريد الإلكتروني service@nonead.com.
+
+### 10.3 المساهمات (Contributions)
+* نرحب بمساهمات المجتمع في nUR_MCP_SERVER. جميع المساهمات المقدمة لهذا المشروع تعتبر مرخصة تحت AGPLv3.
+* من خلال تقديم مساهمة لهذا المشروع (مثلًا عبر Pull Request)، فإنك توافق على ترخيص كودك تحت AGPLv3 لهذا المشروع وجميع المستخدمين اللاحقين (بغض النظر عما إذا كان هؤلاء المستخدمون يتبعون AGPLv3 أو الترخيص التجاري).
+* كما تفهم وتوافق على أن مساهمتك قد يتم تضمينها في إصدارات nUR_MCP_SERVER المرخصة تجاريًا.
+
+### 10.4 بنود أخرى (Other Terms)
+* تخضع الشروط والأحكام المحددة للترخيص التجاري للاتفاقية التجارية الموقعة.
+* يحتفظ القائمون على المشروع بالحق في تحديث سياسة الترخيص هذه (بما في ذلك تعريفات حجم المستخدم والعتبات) حسب الحاجة. سيتم إعلام التحديثات عبر القنوات الرسمية للمشروع (مثل مستودع الكود، الموقع الرسمي).
+
 
 ## 11. فريق التطوير الأساسي
 

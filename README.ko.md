@@ -20,14 +20,13 @@
 </p>
 
 <p align="center">
-    <a href='https://gitee.com/nonead/nUR_MCP_SERVER'><img src='https://img.shields.io/github/v/release/nonead/nUR_MCP_Server?color=green&label=Latest%20Release' alt="Latest Release"></a>
-    <a href="https://github.com/nonead/nUR_MCP_SERVER/releases/latest"><img src="https://img.shields.io/github/v/release/nonead/nUR_MCP_Server?color=blue&label=Latest%20Release" alt="Latest Release"></a>
+    <a href='https://gitee.com/nonead/nUR_MCP_SERVER/releases/tag/nUR_MCP_Server_0.1.1'><img src='https://img.shields.io/static/v1?label=Gitee%20Latest%20Release&message=0.1.1&color=Blue' alt="Latest Release"></a>
+    <a href="https://github.com/nonead/nUR_MCP_SERVER/releases/latest"><img src="https://img.shields.io/static/v1?label=GitHub%20Latest%20Release&message=0.1.1&color=Green" alt="Latest Release"></a>
     <a href='https://www.python.org/downloads/'><img src='https://img.shields.io/pypi/pyversions/RPALite'></img></a>
     <a href="https://gitee.com/nonead/nUR_MCP_SERVER/wikis/pages">
         <img src="https://img.shields.io/badge/User%20Guide-1e8b93?logo=readthedocs&logoColor=f5f5f5" alt="User Guide"></a>
-    <a href="https://www.apache.org/licenses/LICENSE-2.0"><img height="21" src="https://img.shields.io/badge/License-Apache--2.0-ffffff?labelColor=d4eaf7&color=2e6cc4" alt="license"></a>
+    <a href="./LICENSE"><img height="21" src="https://img.shields.io/static/v1?label=License&message=User-Segmented Dual Licensing&color=blue" alt="license"></a>
      <a href='https://gitee.com/nonead/nUR_MCP_SERVER/stargazers'><img src='https://gitee.com/nonead/nUR_MCP_SERVER/badge/star.svg?theme=dark' alt='star'></img></a>
-
 </p>
 
 ## 1. MCP란?
@@ -466,7 +465,39 @@ nUR MCP 서버를 사용하는 사용자는 매우 높은 안전 의식을 가�
 
 ## 10. 라이선스
 
-[Apache License 2.0](LICENSE)
+본 프로젝트는 사용자 구분형 듀얼 라이선스(User-Segmented Dual Licensing) 모델을 채택합니다.
+
+**기본 원칙**
+* 개인 사용자 및 10인 이하 기업/조직: 기본적으로 GNU Affero 일반 공중 라이선스 v3.0(AGPLv3) 적용
+* 10인 초과 기업/조직: 상용 라이선스(Commercial License) 취득 필수
+
+"10인 이하" 정의:
+귀 조직(회사, 비영리 단체, 정부 기관, 교육 기관 등 모든 법인 포함)에서 본 소프트웨어(nUR_MCP_SERVER) 기능에 접근·사용하거나 어떤 형태로든 직접·간접적으로 이익을 얻는 개인 총수가 10인을 초과하지 않는 경우를 의미합니다. 개발자, 테스터, 운영자, 최종 사용자, 통합 시스템을 통한 간접 이용자 등이 포함되나 이에 국한되지 않습니다.
+
+### 10.1 오픈소스 라이선스(Open Source License): AGPLv3 - 개인 및 10인 이하 조직 대상
+* 귀하가 개인 사용자이거나 귀 조직이 상기 "10인 이하" 정의에 해당할 경우, AGPLv3 조건 하에 nUR_MCP_SERVER를 자유롭게 사용·수정·배포할 수 있습니다. AGPLv3 전문은 https://www.gnu.org/licenses/agpl-3.0.html에서 확인 가능합니다.
+* **주요 의무:** AGPLv3 핵심 요건으로, nUR_MCP_Server를 수정하여 네트워크 서비스로 제공하거나 수정판을 배포할 경우 수령자에게 AGPLv3 라이선스에 따른 전체 소스 코드 제공 의무가 있습니다. "10인 이하" 기준에 해당하더라도 이 소스 코드 공개 의무를 회피하려면 상용 라이선스(하단 참조) 취득을 고려해야 합니다.
+* 사용 전 반드시 AGPLv3 전체 조항을 정독하고 이해하시기 바랍니다.
+
+### 10.2 상용 라이선스(Commercial License) - 10인 초과 조직 또는 AGPLv3 의무 회피 희망 사용자 대상
+* **필수 요건:** 귀 조직이 상기 "10인 이하" 정의에 **해당하지 않는**(즉 11인 이상이 본 소프트웨어에 접근/사용/이익을 얻는) 경우, nUR_MCP_SERVER 사용 전 당사에 연락하여 상용 라이선스를 체결해야 합니다.
+* **선택적 적용:** 귀 조직이 "10인 이하" 조건에 해당하더라도 사용 시나리오가 **AGPLv3 조항을 충족하지 못하는**(특히 소스 코드 공개 의무) 경우, 또는 AGPLv3가 **제공하지 않는** 특정 상용 조항(보증, 배상, Copyleft 제한 없음 등)이 필요한 경우에도 상용 라이선스 체결이 필수입니다.
+* **상용 라이선스가 필요한 일반적 사례(이에 국한되지 않음):**
+  * 조직 규모 10인 초과 시
+  * (조직 규모 무관) 수정한 nUR_MCP_SERVER 버전을 배포하되 AGPLv3에 따른 수정 부분 소스 코드 공개를 원치 않는 경우
+  * (조직 규모 무관) 수정한 nUR_MCP_SERVER를 기반으로 네트워크 서비스(SaaS)를 제공하되 서비스 이용자에게 수정 소스 코드를 제공하지 않으려는 경우
+  * (조직 규모 무관) 회사 정책, 고객 계약 또는 프로젝트 요건 상 AGPLv3 라이선스 소프트 사용이 불가하거나 폐쇄적 배포·기밀 유지가 필요한 경우
+* **상용 라이선스 취득:** nUR_MCP_SERVER 개발 팀에 service@nonead.com으로 연락주시기 바랍니다.
+
+### 10.3 기여(Contributions)
+* nUR_MCP_SERVER에 대한 커뮤니티 기여를 환영합니다. 본 프로젝트에 제출되는 모든 기여는 AGPLv3 라이선스 하에 제공된 것으로 간주됩니다.
+* 본 프로젝트에 기여(예: Pull Request)를 제출함으로써, 귀하의 코드가 AGPLv3 라이선스로 본 프로젝트 및 모든 후속 이용자(궁극적으로 AGPLv3 또는 상용 라이선스를 선택하든지 여부와 무관)에게 제공되는 것에 동의한 것으로 간주합니다.
+* 또한 귀하의 기여가 상용 라이선스 하에 배포되는 nUR_MCP_SERVER 버전에 포함될 수 있음을 이해하고 동의하는 것으로 간주합니다.
+
+### 10.4 기타 조항(Other Terms)
+* 상용 라이선스의 구체적 조건은 체결된 정식 상용 라이선스 계약에 따릅니다.
+* 프로젝트 메인테이너는 필요 시 본 라이선스 정책(사용자 규모 정의 및 임계값 포함)을 갱신할 권리를 보유합니다. 관련 업데이트는 프로젝트 공식 채널(코드 저장소, 공식 웹사이트 등)에서 공지됩니다.
+
 
 ## 11. 개발 핵심 팀
 

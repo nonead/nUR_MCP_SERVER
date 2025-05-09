@@ -1,201 +1,354 @@
-                                Apache License
-                           Version 2.0, January 2004
-                        http://www.apache.org/licenses/
+许可协议
+本项目采用区分用户的双重许可 (User-Segmented Dual Licensing) 模式。
 
-   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+核心原则
+个人用户 和 10人及以下企业/组织: 默认适用 GNU Affero 通用公共许可证 v3.0 (AGPLv3)。
+超过10人的企业/组织: 必须 获取 商业许可证 (Commercial License)。
 
-   1. Definitions.
+定义："10人及以下"
+指在您的组织（包括公司、非营利组织、政府机构、教育机构等任何实体）中，能够访问、使用或以任何方式直接或间接受益于本软件（nUR_MCP_SERVER）功能的个人总数不超过10人。这包括但不限于开发者、测试人员、运营人员、最终用户、通过集成系统间接使用者等。
 
-      "License" shall mean the terms and conditions for use, reproduction,
-      and distribution as defined by Sections 1 through 9 of this document.
+1. 开源许可证 (Open Source License): AGPLv3 - 适用于个人及10人及以下组织
+如果您是个人用户，或者您的组织满足上述"10人及以下"的定义，您可以在 AGPLv3 的条款下自由使用、修改和分发 nUR_MCP_SERVER。AGPLv3 的完整文本可以访问 https://www.gnu.org/licenses/agpl-3.0.html 获取。
+核心义务：*AGPLv3 的一个关键要求是，如果您修改了 nUR_MCP_Server 并通过网络提供服务，或者分发了修改后的版本，您必须以 AGPLv3 许可证向接收者提供相应的完整源代码。即使您符合"10人及以下"的标准，如果您希望避免此源代码公开义务，您也需要考虑获取商业许可证（见下文）。
+使用前请务必仔细阅读并理解 AGPLv3 的所有条款。
+ 2. 商业许可证 (Commercial License) - 适用于超过10人的组织，或希望规避 AGPLv3 义务的用户
+强制要求：*如果您的组织不满足上述"10人及以下"的定义（即有11人或更多人可以访问、使用或受益于本软件），您必须联系我们获取并签署一份商业许可证才能使用 nUR_MCP_SERVER。
+自愿选择：*即使您的组织满足"10人及以下"的条件，但如果您的使用场景无法满足 AGPLv3 的条款要求（特别是关于源代码公开的义务），或者您需要 AGPLv3 未提供的特定商业条款（如保证、赔偿、无 Copyleft 限制等），您也必须联系我们获取并签署一份商业许可证。
+需要商业许可证的常见情况包括（但不限于）：
+  您的组织规模超过10人。
+  （无论组织规模）您希望分发修改过的 nUR_MCP_SERVER 版本，但不希望根据 AGPLv3 公开您修改部分的源代码。
+  （无论组织规模）您希望基于修改过的 nUR_MCP_SERVER 提供网络服务（SaaS），但不希望根据 AGPLv3 向服务使用者提供修改后的源代码。
+  （无论组织规模）您的公司政策、客户合同或项目要求不允许使用 AGPLv3 许可的软件，或要求闭源分发及保密。
+获取商业许可：*请通过邮箱 service@nonead.com 联系 nUR_MCP_SERVER 开发团队洽谈商业授权事宜。
+ 3. 贡献 (Contributions)
+我们欢迎社区对 nUR_MCP_SERVER 的贡献。所有向本项目提交的贡献都将被视为在 AGPLv3 许可证下提供。
+通过向本项目提交贡献（例如通过 Pull Request），即表示您同意您的代码以 AGPLv3 许可证授权给本项目及所有后续使用者（无论这些使用者最终遵循 AGPLv3 还是商业许可）。
+您也理解并同意，您的贡献可能会被包含在根据商业许可证分发的 nUR_MCP_SERVER 版本中。
+ 4. 其他条款 (Other Terms)
+关于商业许可证的具体条款和条件，以双方签署的正式商业许可协议为准。
+项目维护者保留根据需要更新本许可政策（包括用户规模定义和阈值）的权利。相关更新将通过项目官方渠道（如代码仓库、官方网站）进行通知。
 
-      "Licensor" shall mean the copyright owner or entity authorized by
-      the copyright owner that is granting the License.
+==========================
 
-      "Legal Entity" shall mean the union of the acting entity and all
-      other entities that control, are controlled by, or are under common
-      control with that entity. For the purposes of this definition,
-      "control" means (i) the power, direct or indirect, to cause the
-      direction or management of such entity, whether by contract or
-      otherwise, or (ii) ownership of fifty percent (50%) or more of the
-      outstanding shares, or (iii) beneficial ownership of such entity.
+ License Agreement
+ This project adopts a User-Segmented Dual Licensing model.
 
-      "You" (or "Your") shall mean an individual or Legal Entity
-      exercising permissions granted by this License.
+Basic Principles
+Individual users and organizations/companies with ≤10 people: AGPLv3 license applies automatically
+Organizations/companies with >10 people: Commercial license required
 
-      "Source" form shall mean the preferred form for making modifications,
-      including but not limited to software source code, documentation
-      source, and configuration files.
+Definition of "≤10 people":
+This refers to situations where the total number of individuals in your organization (including companies, non-profits, government agencies, educational institutions, etc.) who directly or indirectly access, use, or benefit from nUR_MCP_SERVER does not exceed 10. This includes but is not limited to developers, testers, operators, end-users, and users through integrated systems.
 
-      "Object" form shall mean any form resulting from mechanical
-      transformation or translation of a Source form, including but
-      not limited to compiled object code, generated documentation,
-      and conversions to other media types.
+ 1. Open Source License (AGPLv3) - For individuals and organizations with ≤10 people
+If you're an individual user or your organization meets the "≤10 people" definition, you may freely use, modify, and redistribute nUR_MCP_SERVER under AGPLv3 terms. The full AGPLv3 license can be found at https://www.gnu.org/licenses/agpl-3.0.html.
+Key obligations:*As a core requirement of AGPLv3, you must provide recipients with complete source code under AGPLv3 if you distribute modified versions of nUR_MCP_Server or offer it as a network service. Even if your organization meets the "≤10 people" criteria, you should consider a commercial license (see below) if you wish to avoid this source code disclosure requirement.
+Read and understand all AGPLv3 terms thoroughly before use.
 
-      "Work" shall mean the work of authorship, whether in Source or
-      Object form, made available under the License, as indicated by a
-      copyright notice that is included in or attached to the work
-      (an example is provided in the Appendix below).
+ 2. Commercial License - For organizations with >10 people or users wishing to avoid AGPLv3 obligations
+Mandatory requirement:*If your organization doesn't meet the "≤10 people" definition (i.e., 11+ people access/use/benefit from the software), you must enter a commercial license agreement with us before using nUR_MCP_SERVER.
+Optional application:*Even if your organization meets the "≤10 people" criteria, a commercial license is required if your usage scenario doesn't comply with AGPLv3 terms (especially source code disclosure requirements) or if you need specific commercial provisions (such as warranties, indemnification, or absence of Copyleft restrictions) not offered under AGPLv3.
+Common cases requiring commercial license (non-exhaustive):
+  Organizations with >10 people
+  (Regardless of size) Distributing modified versions of nUR_MCP_SERVER without disclosing source code as required by AGPLv3
+  (Regardless of size) Offering nUR_MCP_SERVER as a network service (SaaS) without providing users access to modified source code
+  (Regardless of size) When company policies, customer contracts, or project requirements prohibit use of AGPLv3-licensed software or require closed distribution/confidentiality
+Obtaining commercial license:*Contact nUR_MCP_SERVER development team at service@nonead.com.
 
-      "Derivative Works" shall mean any work, whether in Source or Object
-      form, that is based on (or derived from) the Work and for which the
-      editorial revisions, annotations, elaborations, or other modifications
-      represent, as a whole, an original work of authorship. For the purposes
-      of this License, Derivative Works shall not include works that remain
-      separable from, or merely link (or bind by name) to the interfaces of,
-      the Work and Derivative Works thereof.
+ 3. Contributions
+We welcome community contributions to nUR_MCP_SERVER. All contributions to the project are considered made under AGPLv3 license.
+By submitting a contribution (e.g., a Pull Request), you agree that your code will be made available to the project and all future users (regardless of whether they choose AGPLv3 or commercial license) under AGPLv3 terms.
+You also agree that your contribution may be included in versions of nUR_MCP_SERVER distributed under a commercial license.
 
-      "Contribution" shall mean any work of authorship, including
-      the original version of the Work and any modifications or additions
-      to that Work or Derivative Works thereof, that is intentionally
-      submitted to Licensor for inclusion in the Work by the copyright owner
-      or by an individual or Legal Entity authorized to submit on behalf of
-      the copyright owner. For the purposes of this definition, "submitted"
-      means any form of electronic, verbal, or written communication sent
-      to the Licensor or its representatives, including but not limited to
-      communication on electronic mailing lists, source code control systems,
-      and issue tracking systems that are managed by, or on behalf of, the
-      Licensor for the purpose of discussing and improving the Work, but
-      excluding communication that is conspicuously marked or otherwise
-      designated in writing by the copyright owner as "Not a Contribution."
+ 4. Other Terms
+Specific commercial license terms are established in the formal commercial license agreement.
+Project maintainers reserve the right to update this license policy (including user size definitions and thresholds) as needed. Any updates will be announced via the project's official channels (code repository, website, etc.).
 
-      "Contributor" shall mean Licensor and any individual or Legal Entity
-      on behalf of whom a Contribution has been received by Licensor and
-      subsequently incorporated within the Work.
+==========================
 
-   2. Grant of Copyright License. Subject to the terms and conditions of
-      this License, each Contributor hereby grants to You a perpetual,
-      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
-      copyright license to reproduce, prepare Derivative Works of,
-      publicly display, publicly perform, sublicense, and distribute the
-      Work and such Derivative Works in Source or Object form.
+ ライセンス契約
+ 本プロジェクトはユーザー区分型デュアルライセンス（User-Segmented Dual Licensing）モデルを採用しています。
 
-   3. Grant of Patent License. Subject to the terms and conditions of
-      this License, each Contributor hereby grants to You a perpetual,
-      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
-      (except as stated in this section) patent license to make, have made,
-      use, offer to sell, sell, import, and otherwise transfer the Work,
-      where such license applies only to those patent claims licensable
-      by such Contributor that are necessarily infringed by their
-      Contribution(s) alone or by combination of their Contribution(s)
-      with the Work to which such Contribution(s) was submitted. If You
-      institute patent litigation against any entity (including a
-      cross-claim or counterclaim in a lawsuit) alleging that the Work
-      or a Contribution incorporated within the Work constitutes direct
-      or contributory patent infringement, then any patent licenses
-      granted to You under this License for that Work shall terminate
-      as of the date such litigation is filed.
+基本原則
+個人ユーザー及び10人以下の企業/組織：デフォルトでGNU Affero 一般公衆ライセンスv3.0（AGPLv3）が適用されます
+10人を超える企業/組織：商用ライセンス（Commercial License）の取得が必須です
 
-   4. Redistribution. You may reproduce and distribute copies of the
-      Work or Derivative Works thereof in any medium, with or without
-      modifications, and in Source or Object form, provided that You
-      meet the following conditions:
+「10人以下」の定義：
+貴組織（会社、非営利団体、政府機関、教育機関等のあらゆる法人を含む）において、本ソフトウェア（nUR_MCP_SERVER）の機能にアクセス、使用、または何らかの形で直接的・間接的に利益を得る個人の総数が10人を超えない場合を指します。これには開発者、テスター、運用者、エンドユーザー、統合システムを介した間接利用者等が含まれますが、これらに限定されません。
 
-      (a) You must give any other recipients of the Work or
-          Derivative Works a copy of this License; and
+ 1. オープンソースライセンス（Open Source License）：AGPLv3 - 個人及び10人以下の組織向け
+貴方が個人ユーザー、または貴組織が上記「10人以下」の定義に該当する場合、AGPLv3の条件下でnUR_MCP_SERVERを自由に使用、改変、配布できます。AGPLv3の全文はhttps://www.gnu.org/licenses/agpl-3.0.htmlで確認できます。
+主要義務：*AGPLv3の重要な要件として、nUR_MCP_Serverを改変してネットワークサービスとして提供、または改変版を配布する場合、受領者に対しAGPLv3ライセンスに基づく完全なソースコードを提供する義務があります。「10人以下」基準に該当する場合でも、このソースコード公開義務を回避したい場合は、商用ライセンス（下記参照）の取得を検討する必要があります。
+使用前に必ずAGPLv3の全条項を精読し理解してください。
 
-      (b) You must cause any modified files to carry prominent notices
-          stating that You changed the files; and
+ 2. 商用ライセンス（Commercial License） - 10人超の組織またはAGPLv3義務を回避したいユーザー向け
+必須要件：*貴組織が上記「10人以下」定義に該当しない（即ち11人以上が本ソフトウェアにアクセス/使用/利益を得る）場合、nUR_MCP_SERVER使用前に当社に連絡し商用ライセンスを締結する必要があります。
+任意選択：*貴組織が「10人以下」条件に該当する場合でも、使用シナリオがAGPLv3条項を満たせない（特にソースコード公開義務）場合、またはAGPLv3が提供しない特定の商用条項（保証、賠償、Copyleft制限なし等）が必要な場合にも商用ライセンス締結が必須です。
+商用ライセンスが必要な一般的なケース（以下に限定されません）：
+  組織規模が10人を超える場合
+  （組織規模不問）改変したnUR_MCP_SERVER版を配布するが、AGPLv3に基づく改変部分のソースコード公開を望まない場合
+  （組織規模不問）改変したnUR_MCP_SERVERを基にネットワークサービス（SaaS）を提供するが、サービス利用者に改変ソースコードを提供したくない場合
+  （組織規模不問）会社方針、顧客契約またはプロジェクト要件上、AGPLv3ライセンスソフトの使用が不可、またはクローズド配布・機密保持が必要な場合
+商用ライセンス取得：*nUR_MCP_SERVER開発チームへservice@nonead.comまでご連絡ください。
 
-      (c) You must retain, in the Source form of any Derivative Works
-          that You distribute, all copyright, patent, trademark, and
-          attribution notices from the Source form of the Work,
-          excluding those notices that do not pertain to any part of
-          the Derivative Works; and
+ 3. 貢献（Contributions）
+nUR_MCP_SERVERへのコミュニティ貢献を歓迎します。本プロジェクトに提出される全ての貢献はAGPLv3ライセンス下で提供されたものとみなされます。
+本プロジェクトへ貢献（例：Pull Request）を提出することで、貴方のコードがAGPLv3ライセンスで本プロジェクト及び全ての後続利用者（最終的にAGPLv3または商用ライセンスを選択するか否かに関わらず）に提供されることに同意したものとみなします。
+また、貴方の貢献が商用ライセンス下で配布されるnUR_MCP_SERVER版に含まれる可能性があることを理解し同意するものとします。
 
-      (d) If the Work includes a "NOTICE" text file as part of its
-          distribution, then any Derivative Works that You distribute must
-          include a readable copy of the attribution notices contained
-          within such NOTICE file, excluding those notices that do not
-          pertain to any part of the Derivative Works, in at least one
-          of the following places: within a NOTICE text file distributed
-          as part of the Derivative Works; within the Source form or
-          documentation, if provided along with the Derivative Works; or,
-          within a display generated by the Derivative Works, if and
-          wherever such third-party notices normally appear. The contents
-          of the NOTICE file are for informational purposes only and
-          do not modify the License. You may add Your own attribution
-          notices within Derivative Works that You distribute, alongside
-          or as an addendum to the NOTICE text from the Work, provided
-          that such additional attribution notices cannot be construed
-          as modifying the License.
+ 4. その他の条項（Other Terms）
+商用ライセンスの具体的条件は締結された正式な商用ライセンス契約に準じます。
+プロジェクトメンテナーは必要に応じて本ライセンスポリシー（ユーザー規模定義及び閾値を含む）を更新する権利を留保します。関連する更新はプロジェクト公式チャネル（コードリポジトリ、公式ウェブサイト等）で通知されます。
 
-      You may add Your own copyright statement to Your modifications and
-      may provide additional or different license terms and conditions
-      for use, reproduction, or distribution of Your modifications, or
-      for any such Derivative Works as a whole, provided Your use,
-      reproduction, and distribution of the Work otherwise complies with
-      the conditions stated in this License.
+==========================
 
-   5. Submission of Contributions. Unless You explicitly state otherwise,
-      any Contribution intentionally submitted for inclusion in the Work
-      by You to the Licensor shall be under the terms and conditions of
-      this License, without any additional terms or conditions.
-      Notwithstanding the above, nothing herein shall supersede or modify
-      the terms of any separate license agreement you may have executed
-      with Licensor regarding such Contributions.
+ 라이선스 계약
+ 본 프로젝트는 사용자 구분형 듀얼 라이선스(User-Segmented Dual Licensing) 모델을 채택합니다.
 
-   6. Trademarks. This License does not grant permission to use the trade
-      names, trademarks, service marks, or product names of the Licensor,
-      except as required for reasonable and customary use in describing the
-      origin of the Work and reproducing the content of the NOTICE file.
+기본 원칙
+개인 사용자 및 10인 이하 기업/조직: 기본적으로 GNU Affero 일반 공중 라이선스 v3.0(AGPLv3) 적용
+10인 초과 기업/조직: 상용 라이선스(Commercial License) 취득 필수
 
-   7. Disclaimer of Warranty. Unless required by applicable law or
-      agreed to in writing, Licensor provides the Work (and each
-      Contributor provides its Contributions) on an "AS IS" BASIS,
-      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-      implied, including, without limitation, any warranties or conditions
-      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
-      PARTICULAR PURPOSE. You are solely responsible for determining the
-      appropriateness of using or redistributing the Work and assume any
-      risks associated with Your exercise of permissions under this License.
+"10인 이하" 정의:
+귀 조직(회사, 비영리 단체, 정부 기관, 교육 기관 등 모든 법인 포함)에서 본 소프트웨어(nUR_MCP_SERVER) 기능에 접근·사용하거나 어떤 형태로든 직접·간접적으로 이익을 얻는 개인 총수가 10인을 초과하지 않는 경우를 의미합니다. 개발자, 테스터, 운영자, 최종 사용자, 통합 시스템을 통한 간접 이용자 등이 포함되나 이에 국한되지 않습니다.
 
-   8. Limitation of Liability. In no event and under no legal theory,
-      whether in tort (including negligence), contract, or otherwise,
-      unless required by applicable law (such as deliberate and grossly
-      negligent acts) or agreed to in writing, shall any Contributor be
-      liable to You for damages, including any direct, indirect, special,
-      incidental, or consequential damages of any character arising as a
-      result of this License or out of the use or inability to use the
-      Work (including but not limited to damages for loss of goodwill,
-      work stoppage, computer failure or malfunction, or any and all
-      other commercial damages or losses), even if such Contributor
-      has been advised of the possibility of such damages.
+ 1. 오픈소스 라이선스(Open Source License): AGPLv3 - 개인 및 10인 이하 조직 대상
+귀하가 개인 사용자이거나 귀 조직이 상기 "10인 이하" 정의에 해당할 경우, AGPLv3 조건 하에 nUR_MCP_SERVER를 자유롭게 사용·수정·배포할 수 있습니다. AGPLv3 전문은 https://www.gnu.org/licenses/agpl-3.0.html에서 확인 가능합니다.
+주요 의무:*AGPLv3 핵심 요건으로, nUR_MCP_Server를 수정하여 네트워크 서비스로 제공하거나 수정판을 배포할 경우 수령자에게 AGPLv3 라이선스에 따른 전체 소스 코드 제공 의무가 있습니다. "10인 이하" 기준에 해당하더라도 이 소스 코드 공개 의무를 회피하려면 상용 라이선스(하단 참조) 취득을 고려해야 합니다.
+사용 전 반드시 AGPLv3 전체 조항을 정독하고 이해하시기 바랍니다.
 
-   9. Accepting Warranty or Additional Liability. While redistributing
-      the Work or Derivative Works thereof, You may choose to offer,
-      and charge a fee for, acceptance of support, warranty, indemnity,
-      or other liability obligations and/or rights consistent with this
-      License. However, in accepting such obligations, You may act only
-      on Your own behalf and on Your sole responsibility, not on behalf
-      of any other Contributor, and only if You agree to indemnify,
-      defend, and hold each Contributor harmless for any liability
-      incurred by, or claims asserted against, such Contributor by reason
-      of your accepting any such warranty or additional liability.
+ 2. 상용 라이선스(Commercial License) - 10인 초과 조직 또는 AGPLv3 의무 회피 희망 사용자 대상
+필수 요건:*귀 조직이 상기 "10인 이하" 정의에 해당하지 않는(즉 11인 이상이 본 소프트웨어에 접근/사용/이익을 얻는) 경우, nUR_MCP_SERVER 사용 전 당사에 연락하여 상용 라이선스를 체결해야 합니다.
+선택적 적용:*귀 조직이 "10인 이하" 조건에 해당하더라도 사용 시나리오가 AGPLv3 조항을 충족하지 못하는(특히 소스 코드 공개 의무) 경우, 또는 AGPLv3가 제공하지 않는*특정 상용 조항(보증, 배상, Copyleft 제한 없음 등)이 필요한 경우에도 상용 라이선스 체결이 필수입니다.
+상용 라이선스가 필요한 일반적 사례(이에 국한되지 않음):
+  조직 규모 10인 초과 시
+  (조직 규모 무관) 수정한 nUR_MCP_SERVER 버전을 배포하되 AGPLv3에 따른 수정 부분 소스 코드 공개를 원치 않는 경우
+  (조직 규모 무관) 수정한 nUR_MCP_SERVER를 기반으로 네트워크 서비스(SaaS)를 제공하되 서비스 이용자에게 수정 소스 코드를 제공하지 않으려는 경우
+  (조직 규모 무관) 회사 정책, 고객 계약 또는 프로젝트 요건 상 AGPLv3 라이선스 소프트 사용이 불가하거나 폐쇄적 배포·기밀 유지가 필요한 경우
+상용 라이선스 취득:*nUR_MCP_SERVER 개발 팀에 service@nonead.com으로 연락주시기 바랍니다.
 
-   END OF TERMS AND CONDITIONS
+ 3. 기여(Contributions)
+nUR_MCP_SERVER에 대한 커뮤니티 기여를 환영합니다. 본 프로젝트에 제출되는 모든 기여는 AGPLv3 라이선스 하에 제공된 것으로 간주됩니다.
+본 프로젝트에 기여(예: Pull Request)를 제출함으로써, 귀하의 코드가 AGPLv3 라이선스로 본 프로젝트 및 모든 후속 이용자(궁극적으로 AGPLv3 또는 상용 라이선스를 선택하든지 여부와 무관)에게 제공되는 것에 동의한 것으로 간주합니다.
+또한 귀하의 기여가 상용 라이선스 하에 배포되는 nUR_MCP_SERVER 버전에 포함될 수 있음을 이해하고 동의하는 것으로 간주합니다.
 
-   APPENDIX: How to apply the Apache License to your work.
+ 4. 기타 조항(Other Terms)
+상용 라이선스의 구체적 조건은 체결된 정식 상용 라이선스 계약에 따릅니다.
+프로젝트 메인테이너는 필요 시 본 라이선스 정책(사용자 규모 정의 및 임계값 포함)을 갱신할 권리를 보유합니다. 관련 업데이트는 프로젝트 공식 채널(코드 저장소, 공식 웹사이트 등)에서 공지됩니다.
 
-      To apply the Apache License to your work, attach the following
-      boilerplate notice, with the fields enclosed by brackets "[]"
-      replaced with your own identifying information. (Don't include
-      the brackets!)  The text should be enclosed in the appropriate
-      comment syntax for the file format. We also recommend that a
-      file or class name and description of purpose be included on the
-      same "printed page" as the copyright notice for easier
-      identification within third-party archives.
+==========================
 
-   Copyright [2009-2025] [Suzhou Nonead Robot S&T Co., Ltd.]
+ สัญญาอนุญาต
+ โครงการนี้ใช้รูปแบบการอนุญาตแบบคู่ที่แบ่งตามผู้ใช้ (User-Segmented Dual Licensing)
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
+หลักการพื้นฐาน
+ผู้ใช้ส่วนบุคคลและองค์กร/องค์กรที่มีไม่เกิน 10 คน: ใช้ GNU Affero General Public License v3.0 (AGPLv3) โดยปริยาย
+องค์กรที่มีมากกว่า 10 คน: ต้องได้รับใบอนุญาตเชิงพาณิชย์ (Commercial License)
 
-       http://www.apache.org/licenses/LICENSE-2.0
+คำจำกัดความของ "ไม่เกิน 10 คน":
+หมายถึงจำนวนบุคคลทั้งหมดในองค์กรของคุณ (รวมถึงบริษัท องค์กรไม่แสวงหาผลกำไร หน่วยงานรัฐบาล สถาบันการศึกษา หรือองค์กรใดๆ) ที่สามารถเข้าถึง ใช้ หรือได้รับประโยชน์จากซอฟต์แวร์นี้ (nUR_MCP_SERVER) ไม่ว่าโดยทางตรงหรือทางอ้อม ไม่เกิน 10 คน ซึ่งรวมถึงแต่ไม่จำกัดเพียงนักพัฒนา ผู้ทดสอบ ผู้ปฏิบัติงาน ผู้ใช้ปลายทาง ผู้ใช้ผ่านระบบที่บูรณาการ เป็นต้น
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License. 
+ 1. ใบอนุญาตโอเพนซอร์ส (Open Source License): AGPLv3 - สำหรับผู้ใช้ส่วนบุคคลและองค์กรไม่เกิน 10 คน
+หากคุณเป็นผู้ใช้ส่วนบุคคล หรือองค์กรของคุณตรงตามคำจำกัดความ "ไม่เกิน 10 คน" ข้างต้น คุณสามารถใช้ แก้ไข และแจกจ่าย nUR_MCP_SERVER ภายใต้เงื่อนไขของ AGPLv3 ได้อย่างอิสระ ข้อความเต็มของ AGPLv3 สามารถดูได้ที่ https://www.gnu.org/licenses/agpl-3.0.html
+ข้อผูกพันหลัก:*ข้อกำหนดสำคัญของ AGPLv3 คือ หากคุณแก้ไข nUR_MCP_Server และให้บริการผ่านเครือข่าย หรือแจกจ่ายเวอร์ชันที่แก้ไขแล้ว คุณต้องให้ซอร์สโค้ดที่สมบูรณ์แก่ผู้รับภายใต้สัญญาอนุญาต AGPLv3 แม้ว่าคุณจะตรงตามเกณฑ์ "ไม่เกิน 10 คน" หากคุณต้องการหลีกเลี่ยงข้อผูกพันในการเปิดเผยซอร์สโค้ดนี้ คุณต้องพิจารณาได้รับใบอนุญาตเชิงพาณิชย์ (ดูด้านล่าง)
+โปรดอ่านและทำความเข้าใจข้อกำหนดทั้งหมดของ AGPLv3 ให้ละเอียดก่อนใช้งาน
+
+ 2. ใบอนุญาตเชิงพาณิชย์ (Commercial License) - สำหรับองค์กรที่มีมากกว่า 10 คน หรือผู้ใช้ที่ต้องการหลีกเลี่ยงข้อผูกพันของ AGPLv3
+ข้อบังคับ:*หากองค์กรของคุณไม่ตรงตามคำจำกัดความ "ไม่เกิน 10 คน" ข้างต้น (หมายความว่ามี 11 คนหรือมากกว่าที่สามารถเข้าถึง ใช้ หรือได้รับประโยชน์จากซอฟต์แวร์นี้) คุณต้องติดต่อเราเพื่อรับและลงนามในใบอนุญาตเชิงพาณิชย์ก่อนจึงจะสามารถใช้ nUR_MCP_SERVER ได้
+ทางเลือกโดยสมัครใจ:*แม้ว่าองค์กรของคุณจะตรงตามเงื่อนไข "ไม่เกิน 10 คน" แต่หากกรณีการใช้งานของคุณไม่สามารถปฏิบัติตามข้อกำหนดของ AGPLv3*ได้ (โดยเฉพาะข้อผูกพันในการเปิดเผยซอร์สโค้ด) หรือคุณต้องการข้อกำหนดเชิงพาณิชย์เฉพาะที่ AGPLv3 ไม่ได้ให้ไว้*(เช่น การรับประกัน การชดเชย การไม่มีข้อจำกัด Copyleft เป็นต้น) คุณก็ต้องติดต่อเราเพื่อรับและลงนามในใบอนุญาตเชิงพาณิชย์
+กรณีทั่วไปที่ต้องมีใบอนุญาตเชิงพาณิชย์ (รวมแต่ไม่จำกัดเพียง):
+  องค์กรของคุณมีขนาดเกิน 10 คน
+  (ไม่ว่าขนาดองค์กร) คุณต้องการแจกจ่ายเวอร์ชัน nUR_MCP_SERVER ที่แก้ไขแล้ว แต่ไม่ต้องการเปิดเผยซอร์สโค้ดส่วนที่คุณแก้ไขตาม AGPLv3
+  (ไม่ว่าขนาดองค์กร) คุณต้องการให้บริการทางเครือข่าย (SaaS) ที่ใช้ nUR_MCP_SERVER ที่แก้ไขแล้ว แต่ไม่ต้องการให้ซอร์สโค้ดที่แก้ไขแก่ผู้ใช้บริการตาม AGPLv3
+  (ไม่ว่าขนาดองค์กร) นโยบายบริษัท สัญญาลูกค้า หรือข้อกำหนดโครงการของคุณไม่อนุญาตให้ใช้ซอฟต์แวร์ที่ได้รับอนุญาตภายใต้ AGPLv3 หรือต้องการการแจกจ่ายแบบปิดและความลับ
+รับใบอนุญาตเชิงพาณิชย์:*โปรดติดต่อทีมพัฒนาของ nUR_MCP_SERVER ที่ service@nonead.com เพื่อเจรจาเรื่องการอนุญาตเชิงพาณิชย์
+
+ 3. การมีส่วนร่วม (Contributions)
+เรายินดีต้อนรับการมีส่วนร่วมจากชุมชนในการพัฒนา nUR_MCP_SERVER การมีส่วนร่วมทั้งหมดที่ส่งมาให้โครงการนี้จะถือว่าได้รับอนุญาตภายใต้สัญญา AGPLv3
+การส่งการมีส่วนร่วมให้กับโครงการนี้ (เช่น ผ่าน Pull Request) หมายความว่าคุณยินยอมให้โค้ดของคุณได้รับอนุญาตภายใต้ AGPLv3 สำหรับโครงการนี้และผู้ใช้ทั้งหมดในอนาคต (ไม่ว่าผู้ใช้เหล่านั้นจะปฏิบัติตาม AGPLv3 หรือใบอนุญาตเชิงพาณิชย์)
+คุณยังเข้าใจและยินยอมว่าการมีส่วนร่วมของคุณอาจถูกรวมไว้ในเวอร์ชัน nUR_MCP_SERVER ที่แจกจ่ายภายใต้ใบอนุญาตเชิงพาณิชย์
+
+ 4. ข้อกำหนดอื่นๆ (Other Terms)
+ข้อกำหนดและเงื่อนไขเฉพาะของใบอนุญาตเชิงพาณิชย์จะเป็นไปตามสัญญาอนุญาตเชิงพาณิชย์ที่ทั้งสองฝ่ายลงนาม
+ผู้ดูแลโครงการสงวนสิทธิ์ในการอัปเดตนโยบายการอนุญาตนี้ (รวมถึงคำจำกัดความและเกณฑ์ขนาดผู้ใช้) ตามความจำเป็น การอัปเดตใดๆ จะแจ้งผ่านช่องทางการสื่อสารอย่างเป็นทางการของโครงการ (เช่น ที่เก็บโค้ด เว็บไซต์อย่างเป็นทางการ)
+
+==========================
+
+ Лицензионное соглашение
+ В этом проекте используется модель двойного лицензирования с сегментацией пользователей (User-Segmented Dual Licensing).
+
+Основные принципы
+Физические лица и предприятия/организации с численностью до 10 человек: по умолчанию применяется GNU Affero General Public License v3.0 (AGPLv3).
+Предприятия/организации с численностью более 10 человек: обязаны получить коммерческую лицензию (Commercial License).
+
+Определение "до 10 человек включительно":
+Под этим понимается общее количество физических лиц в вашей организации (включая компании, некоммерческие организации, государственные учреждения, образовательные учреждения и любые другие юридические лица), которые имеют доступ, используют или каким-либо образом прямо или косвенно получают выгоду от функциональности данного программного обеспечения (nUR_MCP_SERVER), не превышает 10 человек. Это включает, но не ограничивается разработчиками, тестировщиками, операторами, конечными пользователями, пользователями, получающими доступ через интегрированные системы и т.д.
+
+ 1. Открытая лицензия (Open Source License): AGPLv3 - для физических лиц и организаций до 10 человек
+Если вы являетесь физическим лицом или ваша организация соответствует приведенному выше определению "до 10 человек включительно", вы можете свободно использовать, модифицировать и распространять nUR_MCP_SERVER на условиях AGPLv3. Полный текст AGPLv3 доступен по адресу https://www.gnu.org/licenses/agpl-3.0.html.
+Основные обязательства:*Ключевое требование AGPLv3 заключается в том, что если вы модифицировали nUR_MCP_Server и предоставляете его как сетевую услугу или распространяете модифицированную версию, вы обязаны предоставить соответствующий полный исходный код получателям на условиях AGPLv3. Даже если вы соответствуете критерию "до 10 человек включительно", если вы хотите избежать этого обязательства по раскрытию исходного кода, вам следует рассмотреть возможность получения коммерческой лицензии (см. ниже).
+Перед использованием внимательно прочтите и убедитесь, что вы понимаете все условия AGPLv3.
+
+ 2. Коммерческая лицензия (Commercial License) - для организаций с численностью более 10 человек или пользователей, желающих избежать обязательств AGPLv3
+Обязательное требование:*Если ваша организация не*соответствует приведенному выше определению "до 10 человек включительно" (то есть 11 или более человек имеют доступ, используют или получают выгоду от данного программного обеспечения), вы обязаны*связаться с нами для получения и подписания коммерческой лицензии перед использованием nUR_MCP_SERVER.
+Добровольный выбор:*Даже если ваша организация соответствует условию "до 10 человек включительно", но ваш сценарий использования не может соответствовать условиям AGPLv3*(особенно в части обязательств по раскрытию исходного кода), или вам требуются специфические коммерческие условия, не предусмотренные AGPLv3 (например, гарантии, возмещение убытков, отсутствие ограничений Copyleft и т.д.), вы также обязаны*связаться с нами для получения и подписания коммерческой лицензии.
+Типичные случаи, требующие коммерческой лицензии (включая, но не ограничиваясь):
+  Численность вашей организации превышает 10 человек.
+  (Независимо от размера организации) Вы хотите распространять модифицированную версию nUR_MCP_SERVER, но не хотите раскрывать исходный код ваших модификаций в соответствии с AGPLv3.
+  (Независимо от размера организации) Вы хотите предоставлять сетевые услуги (SaaS) на основе модифицированного nUR_MCP_SERVER, но не хотите предоставлять модифицированный исходный код пользователям услуги в соответствии с AGPLv3.
+  (Независимо от размера организации) Политика вашей компании, договоры с клиентами или требования проекта не допускают использование программного обеспечения под лицензией AGPLv3 или требуют закрытого распространения и конфиденциальности.
+Получение коммерческой лицензии:*Пожалуйста, свяжитесь с командой разработчиков nUR_MCP_SERVER по электронной почте service@nonead.com для обсуждения вопросов коммерческого лицензирования.
+
+ 3. Вклад (Contributions)
+Мы приветствуем вклад сообщества в развитие nUR_MCP_SERVER. Весь вклад, предоставленный в этот проект, считается предоставленным под лицензией AGPLv3.
+Отправляя вклад в этот проект (например, через Pull Request), вы соглашаетесь с тем, что ваш код будет лицензирован под AGPLv3 для этого проекта и всех последующих пользователей (независимо от того, следуют ли эти пользователи AGPLv3 или коммерческой лицензии).
+Вы также понимаете и соглашаетесь, что ваш вклад может быть включен в версии nUR_MCP_SERVER, распространяемые под коммерческой лицензией.
+
+ 4. Прочие условия (Other Terms)
+Конкретные условия коммерческой лицензии определяются подписанным коммерческим лицензионным соглашением.
+Разработчики проекта оставляют за собой право обновлять данную лицензионную политику (включая определения и пороговые значения размера пользователей) по мере необходимости. Соответствующие обновления будут объявляться через официальные каналы проекта (например, репозиторий кода, официальный веб-сайт).
+
+==========================
+
+ Contrat de Licence
+ Ce projet adopte un modèle de double licence segmenté par utilisateur (User-Segmented Dual Licensing).
+
+Principes fondamentaux
+Utilisateurs individuels et entreprises/organisations de 10 personnes ou moins : Licence publique générale GNU Affero v3.0 (AGPLv3) appliquée par défaut
+Entreprises/organisations de plus de 10 personnes : Licence commerciale (Commercial License) obligatoire
+
+Définition "10 personnes ou moins" :
+Désigne le nombre total de personnes physiques au sein de votre organisation (y compris sociétés, organisations à but non lucratif, agences gouvernementales, établissements d'enseignement ou toute autre entité) ayant accès, utilisant ou bénéficiant directement/indirectement des fonctionnalités du logiciel (nUR_MCP_SERVER), n'excédant pas 10 personnes. Cela inclut notamment les développeurs, testeurs, opérateurs, utilisateurs finaux, utilisateurs via systèmes intégrés, etc.
+
+ 1. Licence open source (Open Source License) : AGPLv3 - Pour particuliers et organisations ≤10 personnes
+Si vous êtes un utilisateur individuel ou si votre organisation répond à la définition "≤10 personnes", vous pouvez utiliser, modifier et distribuer nUR_MCP_SERVER librement sous AGPLv3. Le texte complet est disponible sur https://www.gnu.org/licenses/agpl-3.0.html
+Obligation clé :*AGPLv3 impose que si vous modifiez nUR_MCP_Server et le fournissez comme service réseau ou distribuez une version modifiée, vous devez fournir le code source complet aux destinataires sous AGPLv3. Même pour les structures ≤10 personnes, si vous souhaitez éviter cette obligation de divulgation, une licence commerciale (voir ci-dessous) est nécessaire.
+Lisez attentivement toutes les clauses d'AGPLv3 avant utilisation.
+
+ 2. Licence commerciale (Commercial License) - Pour organisations >10 personnes ou souhaitant éviter les obligations AGPLv3
+Exigence impérative :*Si votre organisation ne*répond pas*à la définition "≤10 personnes" (≥11 personnes accédant/utilisant/bénéficiant du logiciel), vous devez*obtenir une licence commerciale pour utiliser nUR_MCP_SERVER.
+Choix volontaire :*Même pour les organisations ≤10 personnes, si votre usage ne respecte pas*AGPLv3 (notamment l'obligation de divulgation du code source) ou nécessite des clauses commerciales non fournies*par AGPLv3 (garanties, indemnisation, absence de restriction Copyleft...), une licence commerciale est requise.
+Cas typiques nécessitant une licence commerciale (liste non exhaustive) :
+  Organisation >10 personnes
+  (Taille indifférente) Distribution de versions modifiées sans divulguer le code source modifié comme exigé par AGPLv3
+  (Taille indifférente) Fourniture de services SaaS basés sur nUR_MCP_SERVER modifié sans partager le code source modifié aux utilisateurs
+  (Taille indifférente) Politique d'entreprise, contrats clients ou exigences projet interdisant les logiciels sous AGPLv3 ou requérant distribution propriétaire/confidentialité
+Obtenir une licence :*Contactez l'équipe de développement à service@nonead.com.
+
+ 3. Contributions
+Nous encourageons les contributions communautaires. Toute contribution soumise au projet est réputée fournie sous AGPLv3.
+En soumettant une contribution (ex : Pull Request), vous acceptez que votre code soit licencié sous AGPLv3 pour ce projet et tous les utilisateurs ultérieurs (qu'ils suivent AGPLv3 ou la licence commerciale).
+Vous acceptez aussi que votre contribution puisse être incluse dans des versions commerciales de nUR_MCP_SERVER.
+
+ 4. Autres dispositions
+Les termes précis des licences commerciales sont définis dans les contrats signés.
+Les mainteneurs se réservent le droit de modifier cette politique de licence (y compris les seuils). Les mises à jour seront communiquées via les canaux officiels (dépôt de code, site web).
+
+==========================
+
+ Acuerdo de Licencia
+ Este proyecto adopta un modelo de doble licencia segmentado por usuario (User-Segmented Dual Licensing).
+
+Principios básicos
+Usuarios individuales y empresas/organizaciones ≤10 personas: Licencia Pública General GNU Affero v3.0 (AGPLv3) por defecto
+Empresas/organizaciones >10 personas: Requiere licencia comercial (Commercial License)
+
+Definición "≤10 personas":
+Número total de individuos en su organización (incluyendo empresas, ONGs, agencias gubernamentales, instituciones educativas o cualquier entidad) que acceden, usan o se benefician directa/indirectamente del software (nUR_MCP_SERVER), sin exceder 10 personas. Incluye desarrolladores, testers, operadores, usuarios finales, etc.
+
+ 1. Licencia open source (Open Source License): AGPLv3 - Para particulares y organizaciones ≤10 personas
+Si es usuario individual o su organización cumple la definición "≤10 personas", puede usar, modificar y distribuir nUR_MCP_SERVER bajo AGPLv3. Texto completo en https://www.gnu.org/licenses/agpl-3.0.html
+Obligación clave:*AGPLv3 exige que si modifica nUR_MCP_Server y lo provee como servicio web o distribuye versiones modificadas, debe proporcionar el código fuente completo bajo AGPLv3. Incluso para organizaciones ≤10 personas, si desea evitar esta obligación, necesita licencia comercial (ver abajo).
+Lea atentamente todos los términos de AGPLv3 antes de usar.
+
+ 2. Licencia comercial (Commercial License) - Para organizaciones >10 personas o que deseen evitar obligaciones AGPLv3
+Requisito obligatorio:*Si su organización no*cumple "≤10 personas" (≥11 personas accediendo/usando/beneficiándose del software), debe*obtener licencia comercial.
+Opción voluntaria:*Incluso para organizaciones ≤10 personas, si su uso no cumple*AGPLv3 (especialmente divulgación de código) o necesita términos comerciales no provistos*por AGPLv3 (garantías, indemnización, sin restricciones Copyleft...), requiere licencia comercial.
+Casos comunes que necesitan licencia comercial (no limitado a):
+  Organización >10 personas
+  (Tamaño irrelevante) Distribuir versiones modificadas sin revelar código fuente modificado según AGPLv3
+  (Tamaño irrelevante) Ofrecer SaaS basado en nUR_MCP_SERVER modificado sin compartir código modificado
+  (Tamaño irrelevante) Políticas corporativas, contratos o requisitos que prohíban software AGPLv3 o requieran distribución cerrada/confidencialidad
+Obtener licencia:*Contacte al equipo de desarrollo en service@nonead.com.
+
+ 3. Contribuciones
+Aceptamos contribuciones comunitarias. Todas las contribuciones se consideran licenciadas bajo AGPLv3.
+Al contribuir (ej: Pull Request), acepta licenciar su código bajo AGPLv3 para este proyecto y todos los usuarios posteriores (ya sea bajo AGPLv3 o licencia comercial).
+También acepta que su contribución pueda incluirse en versiones comerciales de nUR_MCP_SERVER.
+
+ 4. Otros términos
+Los términos específicos de licencias comerciales se rigen por contratos firmados.
+Los mantenedores se reservan el derecho de actualizar esta política (incluyendo umbrales). Actualizaciones se anunciarán en canales oficiales (repositorio, sitio web).
+
+==========================
+
+ اتفاقية الترخيص
+ يعتمد هذا المشروع نموذج ترخيص مزدوج حسب فئة المستخدم (User-Segmented Dual Licensing).
+
+المبادئ الأساسية
+المستخدمون الأفراد والشركات/المؤسسات التي تضم 10 أشخاص أو أقل: ينطبق عليها ترخيص جنو أفيرو العام العام v3.0 (AGPLv3) افتراضياً
+الشركات/المؤسسات التي تضم أكثر من 10 أشخاص: يجب الحصول على ترخيص تجاري (Commercial License)
+
+تعريف "10 أشخاص أو أقل":
+يقصد به العدد الإجمالي للأفراد في مؤسستك (بما في ذلك الشركات، المنظمات غير الربحية، الوكالات الحكومية، المؤسسات التعليمية أو أي كيان قانوني) الذين يمكنهم الوصول إلى البرنامج (nUR_MCP_SERVER) أو استخدامه أو الاستفادة منه بشكل مباشر أو غير مباشر، دون تجاوز 10 أشخاص. يشمل ذلك المطورين، المختبرين، المشغلين، المستخدمين النهائيين، المستخدمين عبر الأنظمة المدمجة وغيرهم.
+
+ 1. ترخيص المصدر المفتوح (Open Source License): AGPLv3 - للأفراد والمؤسسات التي تضم 10 أشخاص أو أقل
+إذا كنت مستخدمًا فرديًا أو كانت مؤسستك تستوفي تعريف "10 أشخاص أو أقل" أعلاه، يمكنك استخدام nUR_MCP_SERVER وتعديله وتوزيعه بحرية تحت شروط AGPLv3. النص الكامل للترخيص متاح على https://www.gnu.org/licenses/agpl-3.0.html
+الالتزام الرئيسي:*من متطلبات AGPLv3 الأساسية أنه إذا قمت بتعديل nUR_MCP_Server وقدمته كخدمة شبكية أو وزعت نسخة معدلة، يجب عليك توفير الكود المصدري الكامل للمستلمين تحت ترخيص AGPLv3. حتى إذا كنت تستوفي معيار "10 أشخاص أو أقل"، إذا كنت ترغب في تجنب هذا الالتزام بالإفصاح عن الكود المصدري، يجب أن تفكر في الحصول على ترخيص تجاري (انظر أدناه).
+يرجى قراءة وفهم جميع بنود AGPLv3 بعناية قبل الاستخدام.
+
+ 2. الترخيص التجاري (Commercial License) - للمؤسسات التي تضم أكثر من 10 أشخاص أو الراغبين في تجنب التزامات AGPLv3
+المتطلب الإلزامي:*إذا كانت مؤسستك لا*تستوفي تعريف "10 أشخاص أو أقل" أعلاه (أي 11 شخصًا أو أكثر يمكنهم الوصول إلى البرنامج/استخدامه/الاستفادة منه)، يجب*عليك الاتصال بنا للحصول على ترخيص تجاري قبل استخدام nUR_MCP_SERVER.
+الخيار الطوعي:*حتى إذا كانت مؤسستك تستوفي شرط "10 أشخاص أو أقل"، ولكن سيناريو استخدامك لا يتوافق مع بنود AGPLv3*(خاصةً التزام الإفصاح عن الكود المصدري)، أو كنت بحاجة إلى شروط تجارية محددة*لا يوفرها AGPLv3 (مثل الضمانات، التعويضات، عدم وجود قيود كوبيليفت وغيرها)، يجب*عليك أيضًا الحصول على ترخيص تجاري.
+الحالات الشائعة التي تتطلب ترخيصًا تجاريًا (على سبيل المثال لا الحصر):
+  حجم المؤسسة أكثر من 10 أشخاص
+  (بغض النظر عن حجم المؤسسة) الرغبة في توزيع نسخ معدلة من nUR_MCP_SERVER دون الكشف عن الكود المصدري للتعديلات وفقًا لـ AGPLv3
+  (بغض النظر عن حجم المؤسسة) تقديم خدمات شبكية (SaaS) تعتمد على nUR_MCP_SERVER المعدل دون توفير الكود المصدري المعدل لمستخدمي الخدمة وفقًا لـ AGPLv3
+  (بغض النظر عن حجم المؤسسة) سياسات الشركة، عقود العملاء أو متطلبات المشروع التي تمنع استخدام برامج مرخصة تحت AGPLv3 أو تتطلب التوزيع مغلق المصدر/السرية
+الحصول على ترخيص تجاري:*يرجى الاتصال بفريق تطوير nUR_MCP_SERVER عبر البريد الإلكتروني service@nonead.com.
+
+ 3. المساهمات (Contributions)
+نرحب بمساهمات المجتمع في nUR_MCP_SERVER. جميع المساهمات المقدمة لهذا المشروع تعتبر مرخصة تحت AGPLv3.
+من خلال تقديم مساهمة لهذا المشروع (مثلًا عبر Pull Request)، فإنك توافق على ترخيص كودك تحت AGPLv3 لهذا المشروع وجميع المستخدمين اللاحقين (بغض النظر عما إذا كان هؤلاء المستخدمون يتبعون AGPLv3 أو الترخيص التجاري).
+كما تفهم وتوافق على أن مساهمتك قد يتم تضمينها في إصدارات nUR_MCP_SERVER المرخصة تجاريًا.
+
+ 4. بنود أخرى (Other Terms)
+تخضع الشروط والأحكام المحددة للترخيص التجاري للاتفاقية التجارية الموقعة.
+يحتفظ القائمون على المشروع بالحق في تحديث سياسة الترخيص هذه (بما في ذلك تعريفات حجم المستخدم والعتبات) حسب الحاجة. سيتم إعلام التحديثات عبر القنوات الرسمية للمشروع (مثل مستودع الكود، الموقع الرسمي).
+
+==========================
+
+ Licensaftale
+ Dette projekt anvender en User-Segmented Dual Licensing-model.
+
+Grundlæggende principper
+Privatbrugere og organisationer/ virksomheder med ≤10 personer: AGPLv3-licensen gælder automatisk
+Organisationer/ virksomheder med >10 personer: Kommerciel licens kræves
+
+Definition af "≤10 personer":
+Dette refererer til situationer, hvor det samlede antal personer i din organisation (inklusiv virksomheder, non-profit organisationer, statslige institutioner, uddannelsesinstitutioner mv.), der direkte eller indirekte får adgang til, bruger eller drager fordel af nUR_MCP_SERVER, ikke overstiger 10. Dette inkluderer men er ikke begrænset til udviklere, testpersonale, operatører, slutbrugere og brugere via integrerede systemer.
+
+ 1. Open Source-licens (AGPLv3) - Til privatbrugere og organisationer med ≤10 personer
+Hvis du er privatbruger eller din organisation opfylder "≤10 personer"-definitionen, kan du frit bruge, modificere og redistribuere nUR_MCP_SERVER under AGPLv3-betingelserne. Den fulde AGPLv3-licens kan findes på https://www.gnu.org/licenses/agpl-3.0.html.
+Vigtigste forpligtelser:*Som et kernekrav i AGPLv3 skal du give modtagerne adgang til den fulde kildekode under AGPLv3, hvis du distribuerer modificerede versioner af nUR_MCP_Server eller tilbyder det som en netværkstjeneste. Selvom din organisation opfylder "≤10 personer"-kriteriet, bør du overveje en kommerciel licens (se nedenfor), hvis du ønsker at undgå denne kildekode-offentliggørelsesforpligtelse.
+Læs og forstå alle AGPLv3-vilkår grundigt før brug.
+
+ 2. Kommerciel licens - Til organisationer med >10 personer eller brugere, der ønsker at undgå AGPLv3-forpligtelser
+Obligatorisk krav:*Hvis din organisation ikke opfylder "≤10 personer"-definitionen (dvs. 11+ personer får adgang til/bruger/drager fordel af softwaren), skal du indgå en kommerciel licensaftale med os før brug af nUR_MCP_SERVER.
+Valgfri anvendelse:*Selvom din organisation opfylder "≤10 personer"-kriteriet, kræves en kommerciel licens, hvis din brugssituation ikke overholder AGPLv3-vilkår (især kildekode-offentliggørelsesforpligtelsen) eller hvis du har brug for specifikke kommercielle bestemmelser (såsom garanti, erstatning eller fravær af Copyleft-begrænsninger), som ikke tilbydes under AGPLv3.
+Typiske tilfælde, der kræver kommerciel licens (ikke udtømmende):
+  Organisationer med >10 personer
+  (Uanset størrelse) Distribution af modificerede versioner af nUR_MCP_SERVER uden at offentliggøre kildekoden som krævet af AGPLv3
+  (Uanset størrelse) Tilbud af nUR_MCP_SERVER som en netværkstjeneste (SaaS) uden at give brugere adgang til modificeret kildekode
+  (Uanset størrelse) Hvis virksomhedspolitikker, kundekontrakter eller projektkrav forbyder brug af AGPLv3-licenseret software eller kræver lukket distribution/fortrolighed
+Anskaffelse af kommerciel licens:*Kontakt nUR_MCP_SERVER-udviklingsteamet på service@nonead.com.
+
+ 3. Bidrag (Contributions)
+Vi byder velkommen til bidrag fra fællesskabet til nUR_MCP_SERVER. Alle bidrag til projektet betragtes som leveret under AGPLv3-licensen.
+Ved at indsende et bidrag (f.eks. en Pull Request) accepterer du, at din kode vil blive gjort tilgængelig for projektet og alle fremtidige brugere (uanset om de vælger AGPLv3 eller kommerciel licens) under AGPLv3-vilkårene.
+Du accepterer også, at dit bidrag kan inkluderes i versioner af nUR_MCP_SERVER, der distribueres under en kommerciel licens.
+
+ 4. Andre vilkår
+Specifikke betingelser for den kommercielle licens fastsættes i den formelle kommercielle licensaftale.
+Projektets vedligeholdere forbeholder sig retten til at opdatere denne licenspolitik (inklusive definitioner og tærskler for brugerstørrelse) efter behov. Eventuelle opdateringer vil blive annonceret via projektets officielle kanaler (kodelager, hjemmeside mv.).

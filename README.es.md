@@ -20,14 +20,13 @@
 </p>
 
 <p align="center">
-    <a href='https://gitee.com/nonead/nUR_MCP_SERVER'><img src='https://img.shields.io/github/v/release/nonead/nUR_MCP_Server?color=green&label=Latest%20Release' alt="Latest Release"></a>
-    <a href="https://github.com/nonead/nUR_MCP_SERVER/releases/latest"><img src="https://img.shields.io/github/v/release/nonead/nUR_MCP_Server?color=blue&label=Latest%20Release" alt="Latest Release"></a>
+    <a href='https://gitee.com/nonead/nUR_MCP_SERVER/releases/tag/nUR_MCP_Server_0.1.1'><img src='https://img.shields.io/static/v1?label=Gitee%20Latest%20Release&message=0.1.1&color=Blue' alt="Latest Release"></a>
+    <a href="https://github.com/nonead/nUR_MCP_SERVER/releases/latest"><img src="https://img.shields.io/static/v1?label=GitHub%20Latest%20Release&message=0.1.1&color=Green" alt="Latest Release"></a>
     <a href='https://www.python.org/downloads/'><img src='https://img.shields.io/pypi/pyversions/RPALite'></img></a>
     <a href="https://gitee.com/nonead/nUR_MCP_SERVER/wikis/pages">
         <img src="https://img.shields.io/badge/User%20Guide-1e8b93?logo=readthedocs&logoColor=f5f5f5" alt="User Guide"></a>
-    <a href="https://www.apache.org/licenses/LICENSE-2.0"><img height="21" src="https://img.shields.io/badge/License-Apache--2.0-ffffff?labelColor=d4eaf7&color=2e6cc4" alt="license"></a>
+    <a href="./LICENSE"><img height="21" src="https://img.shields.io/static/v1?label=License&message=User-Segmented Dual Licensing&color=blue" alt="license"></a>
      <a href='https://gitee.com/nonead/nUR_MCP_SERVER/stargazers'><img src='https://gitee.com/nonead/nUR_MCP_SERVER/badge/star.svg?theme=dark' alt='star'></img></a>
-
 </p>
 
 ## 1. ¿Qué es MCP?
@@ -466,7 +465,39 @@ Si utiliza este software, cite de la siguiente manera:
 
 ## 10. Licencia
 
-[Apache License 2.0](LICENSE)
+Este proyecto adopta un modelo de doble licencia segmentado por usuario (User-Segmented Dual Licensing).
+
+**Principios básicos**
+* Usuarios individuales y empresas/organizaciones ≤10 personas: Licencia Pública General GNU Affero v3.0 (AGPLv3) por defecto
+* Empresas/organizaciones >10 personas: Requiere licencia comercial (Commercial License)
+
+Definición "≤10 personas":
+Número total de individuos en su organización (incluyendo empresas, ONGs, agencias gubernamentales, instituciones educativas o cualquier entidad) que acceden, usan o se benefician directa/indirectamente del software (nUR_MCP_SERVER), sin exceder 10 personas. Incluye desarrolladores, testers, operadores, usuarios finales, etc.
+
+### 10.1 Licencia open source (Open Source License): AGPLv3 - Para particulares y organizaciones ≤10 personas
+* Si es usuario individual o su organización cumple la definición "≤10 personas", puede usar, modificar y distribuir nUR_MCP_SERVER bajo AGPLv3. Texto completo en https://www.gnu.org/licenses/agpl-3.0.html
+* **Obligación clave:** AGPLv3 exige que si modifica nUR_MCP_Server y lo provee como servicio web o distribuye versiones modificadas, debe proporcionar el código fuente completo bajo AGPLv3. Incluso para organizaciones ≤10 personas, si desea evitar esta obligación, necesita licencia comercial (ver abajo).
+* Lea atentamente todos los términos de AGPLv3 antes de usar.
+
+### 10.2 Licencia comercial (Commercial License) - Para organizaciones >10 personas o que deseen evitar obligaciones AGPLv3
+* **Requisito obligatorio:** Si su organización **no** cumple "≤10 personas" (≥11 personas accediendo/usando/beneficiándose del software), **debe** obtener licencia comercial.
+* **Opción voluntaria:** Incluso para organizaciones ≤10 personas, si su uso **no cumple** AGPLv3 (especialmente divulgación de código) o necesita términos comerciales **no provistos** por AGPLv3 (garantías, indemnización, sin restricciones Copyleft...), requiere licencia comercial.
+* **Casos comunes que necesitan licencia comercial (no limitado a):**
+  * Organización >10 personas
+  * (Tamaño irrelevante) Distribuir versiones modificadas sin revelar código fuente modificado según AGPLv3
+  * (Tamaño irrelevante) Ofrecer SaaS basado en nUR_MCP_SERVER modificado sin compartir código modificado
+  * (Tamaño irrelevante) Políticas corporativas, contratos o requisitos que prohíban software AGPLv3 o requieran distribución cerrada/confidencialidad
+* **Obtener licencia:** Contacte al equipo de desarrollo en service@nonead.com.
+
+### 10.3 Contribuciones
+* Aceptamos contribuciones comunitarias. Todas las contribuciones se consideran licenciadas bajo AGPLv3.
+* Al contribuir (ej: Pull Request), acepta licenciar su código bajo AGPLv3 para este proyecto y todos los usuarios posteriores (ya sea bajo AGPLv3 o licencia comercial).
+* También acepta que su contribución pueda incluirse en versiones comerciales de nUR_MCP_SERVER.
+
+### 10.4 Otros términos
+* Los términos específicos de licencias comerciales se rigen por contratos firmados.
+* Los mantenedores se reservan el derecho de actualizar esta política (incluyendo umbrales). Actualizaciones se anunciarán en canales oficiales (repositorio, sitio web).
+
 
 ## 11. Equipo central de desarrollo
 
