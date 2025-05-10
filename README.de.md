@@ -58,17 +58,51 @@ Kommunikation: JSON-RPC 2.0 Standard
 ## 3. Serverfunktionen
 Datenzugriff:
 Dateien/Datenbanken/Arbeitsspeicher
-
 Tool-Bereitstellung:
 Vordefinierte Funktionen (SQL-Abfragen etc.)
-
 Echtzeit-Updates:
 Automatische Benachrichtigungen
-
 Sitzungsverwaltung:
 Verbindungsmanagement
 
 ## 2. nUR MCP Server Kernfunktionen  
+
+Technische Beschreibung des nUR_MCP_SERVER-Produkts von Nonead Corporation
+
+Produktübersicht:
+nUR_MCP_SERVER ist eine intelligente Robotiksteuerungs-Middleware, basierend auf dem MCP-Interfaceprotokoll (Model Control Protocol) mit LLM-Integration zur natürlichen Sprachsteuerung von Industrierobotern. Die Client-Server-Architektur ermöglicht tiefgreifende Integration mit Universal Robots-Serien und revolutioniert die traditionelle Teach-Pendant-Programmierung.
+
+Kernarchitektur:
+1. Semantik-Analyse-Engine
+NLP-Modul mit Multi-Layer-Transformer-Architektur ermöglicht kontextbewusste Befehlsanalyse (98,6% Genauigkeit) und End-to-End-Konvertierung natürlicher Sprache in Steuerbefehle.
+
+2. Dynamisches Skriptgenerierungssystem
+LLM-basierter Code-Generator wandelt Sprachbefehle in URScript um (12x schneller als herkömmliche Programmierung) mit Echtzeit-Syntaxprüfung und Sicherheitsvalidierung.
+
+3. Multimodale Steuerschnittstelle
+- MCP-Protokollschicht: TCP/UDP-Dualmodus (µs-Antwortzeit)
+- Geräteabstraktionsschicht: Standardisierte URCap-Anbindung
+- Datenbus: TCP/IP-basierte Multi-Roboter-Steuerung
+
+Hauptfunktionen:
+▶ Natürliche Sprachsteuerung
+Direkte Bewegungssteuerung (Positionsregelung, Bahnplanung, I/O) per Sprach-/Textbefehl mit dynamischer Parametereingabe und Echtzeitkorrektur.
+
+▶ Intelligente Datenerfassung
+- Echtzeit-Erfassung von 12D-Zustandsdaten (Gelenkmomente, Endeffektorposition)
+- Sprachdefinierte Datenfilterregeln
+- Automatische Berichtsgenerierung (CSV/JSON/XLSX)
+
+▶ Multi-Roboter-Koordination
+Verteilter Task-Scheduler + Tords MCP-Client zur Steuerung von ≤12 UR-Robotern mit Sprachkaskaden und geräteübergreifender Aufgabenorchestrierung.
+
+▶ Adaptives Lernmodul
+Integriertes Incremental-Learning-Framework optimiert Befehl-Aktion-Zuordnung durch Nutzerfeedback (Lernzyklus ≤24h).
+
+Technische Daten:
+- Befehlslatenz: <200ms (End-to-End)
+- Protokollkompatibilität: MCP v2.1+/URScript 5.0+
+- Parallelverarbeitung: 200+ TPS
 
 ### 2.1 Abrufen aller Hardware-Daten von UR-Robotern  
 **Netzwerk-Scan-Funktion**  

@@ -58,17 +58,53 @@ Comunicación: Basada en JSON-RPC 2.0
 ## 3. Funciones del servidor
 Acceso a datos:
 Archivos/BD/memoria
-
 Ejecución de herramientas:
 Funciones predefinidas (consultas SQL etc.)
-
 Notificaciones dinámicas:
 Actualizaciones en tiempo real
-
 Gestión de sesiones:
 Mantenimiento de conexiones
 
 ## 2. Funciones principales del servidor nUR MCP  
+
+Descripción técnica del producto nUR_MCP_SERVER desarrollado por Nonead Corporation
+
+Resumen del producto:
+nUR_MCP_SERVER es un sistema middleware de control de robots inteligentes construido sobre el protocolo de interfaz MCP (Model Control Protocol), que integra modelos de lenguaje grande (LLM) para permitir el control interactivo en lenguaje natural de robots industriales. Este producto utiliza un diseño de arquitectura Cliente-Servidor y soporta integración profunda con toda la serie de robots colaborativos Universal Robots, revolucionando el paradigma tradicional de programacióncon teach pendant de robots industriales.
+
+Arquitectura tecnológica clave:
+
+Motor de análisis semántico
+Módulo de procesamiento NLP con arquitectura Transformer multicapa, soporta análisis contextual de comandos (Contextual Command Parsing), logrando conversión de extremo a extremo de lenguaje natural a comandos de control con precisión de reconocimiento del 98.6%.
+
+Sistema dinámico de generación de scripts
+Framework de generación de código basado en LLM, convierte automáticamente comandos en lenguaje natural a scripts URScript, con verificación sintáctica y validación de seguridad en tiempo real, eficiencia 12 veces superior a programación tradicional.
+
+Interfaz de control multimodal
+
+Capa de extensión MCP: Soporta comunicación dual TCP/UDP, respuesta en microsegundos
+Capa de abstracción: Conexión estandarizada de plugins URCap
+Bus de datos: Protocolo TCP/IP para control coordinado multirobot
+Características principales:
+▶ Control inmediato por lenguaje natural
+Comando directo de movimientos (control de posición, planificación de trayectoria, E/S) mediante voz/texto, con inyección dinámica de parámetros y corrección en tiempo real.
+
+▶ Sistema inteligente de adquisición de datos
+
+Captura en tiempo real de datos 12D (par articular, posición efector final)
+Reglas de filtrado definibles en lenguaje natural
+Generación automática de informes (CSV/JSON/XLSX)
+▶ Control coordinado multirobot
+Algoritmo distribuido de planificación de tareas + MCP-Client de Tord para gestionar ≤12 robots UR simultáneos, soporta comandos en cascada y orquestación multitarea.
+
+▶ Módulo de aprendizaje adaptativo
+Framework de entrenamiento incremental integrado, optimiza mapeo comando-acción mediante feedback con ciclo ≤24h.
+
+Especificaciones:
+
+Latencia: <200ms (end-to-end)
+Compatibilidad: MCP v2.1+/URScript v5.0+
+Capacidad concurrente: 200+ TPS
 
 ### 2.1 Obtener todos los datos de hardware de robots UR  
 **Función de escaneo de red**  

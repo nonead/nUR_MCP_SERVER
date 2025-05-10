@@ -67,29 +67,64 @@ Forbindelses_måde:
 
 Baseret på JSON-RPC 2.0 (en standard forbindelse_format), der understøtter anmodninger, svar og i-tidshitsnotifikationer.
 
-## 3.Hovedfunktioner af MCP-Serveren
-MCP-Serveren fungere som "assistent" til AI og tilbyder følgende support:
-Adgang til data (Resource Exposure):
+## 3. Hovedfunktioner i MCP-serveren  
 
-Tilbyde filer, databaser, hukommelseData osv., for eksempel:
+MCP-serveren fungerer som AI's "assistent" og kan levere følgende support:  
 
-file:///docs/report.pdf (leje lokale fil)
-db://sales/records (forefrage database)
-Udførelse af handlinger (Værktøj-provizing):
+**Adgang til data (Resource Exposure)**  
+Giver adgang til filer, databaser, hukommelsesdata osv., f.eks.:  
+- `file:///docs/report.pdf` (læser lokal fil)  
+- `db://sales/records` (søger i database)  
 
-Tilbyde kallbare funktioner, som:
+**Udførelse af handlinger (Tool Provisioning)**  
+Tilbyder funktioner, der kan kaldes, f.eks.:  
+- `search_database(sql_query)` (udfører SQL-forespørgsel)  
+- `save_file(path, content)` (gemmer fil)  
 
-search_database(sql_query) (udfør SQL-query)
-save_file(path, content) (gem fil)
-Dybe i-vandelse (Dynamic Notification):
+**Realtidsoppdateringer (Dynamic Notification)**  
+Når data ændres, kan serveren aktivt underrette AI'en for at sikre, at informationen er ajour.  
 
-Når dataChanged, kan Server sende aktive notifikationer til AI for at sikre sig, vi har den seneste information.
-
-Sesjonshængsel (Session Management):
-
-Oversee forbindelsen mellem AI og Server for at sikre stor støtte for kommunikationen.
+**Sessionstyring (Session Management)**  
+Håndterer forbindelsen mellem AI'en og serveren for at sikre stabil kommunikation.
 
 ## 2. nUR MCP Server kernefunktioner  
+
+Teknisk beskrivelse af nUR_MCP_SERVER-produktet udviklet af Nonead Corporation
+
+Produktoversigt:
+nUR_MCP_SERVER er en intelligent robotstyringsmiddleware bygget på MCP-protokollen (Model Control Protocol) med LLM-integration til naturlig sproglig interaktion med industrierobotter. Client-Server-arkitekturen understøtter dyb integration med Universal Robots' hele serie og transformerer traditionel teach pendant-programmering.
+
+Kernteknologi:
+1. Semantisk analyseengine
+NLP-modul med multilayer Transformer-arkitektur understøtter kontekstbevidst kommandoparsning (98,6% nøjagtighed) og end-to-end-konvertering af naturligt sprog til robotkommandoer.
+
+2. Dynamisk scriptgenerering
+LLM-baseret kodegenerering konverterer automatisk naturlige sprogkommandoer til URScript (12x hurtigere end traditionel programmering) med realtids syntakscheck og sikkerhedsvalidering.
+
+3. Multimodal styringssnitflade
+- MCP-protokoludvidelse: Understøtter TCP/UDP dual-mode kommunikation (µs-respons)
+- Enhedsabstraktionslag: Standardiseret URCap-plugin-integration
+- Databus: TCP/IP-baseret multi-enhedsstyring
+
+Nøglefunktioner:
+▶ Naturlig sprogstyring
+Direkte bevægelseskontrol (positionsstyring, banegenerering, I/O) via stemme/tekstkommandoer med dynamisk parameterindførsel og realtidsjustering.
+
+▶ Intelligent dataindsamling
+- Realtids indsamling af 12D tilstandsdata (ledmoment, endeffektorposition)
+- Naturligt sprogdefinerede datafiltreringsregler
+- Automatisk rapportgenerering (CSV/JSON/XLSX)
+
+▶ Multi-robotkoordinering
+Distribueret opgaveledelsesalgoritme + Tords MCP-Client til styring af ≤12 UR-robotter samtidig med stemmekaskadekommandoer og tværenhedsopgaveorchestering.
+
+▶ Adaptiv læringsmodul
+Indbygget inkrementel træningsramme optimerer kommando-handling-mapping via brugerfeedback (læringscyklus ≤24 timer).
+
+Specifikationer:
+- Kommandoforsinkelse: <200ms (end-to-end)
+- Protokolkompatibilitet: MCP v2.1+/URScript 5.0+
+- Samtidig kapacitet: 200+ TPS
 
 ### 2.1 Hent alle hardware-data for UR-robotter  
 **Netværksskanning**  

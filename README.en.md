@@ -58,17 +58,51 @@ Communication: JSON-RPC 2.0 compliant
 ## 3. Server Functions
 Data Access:
 Files/databases/memory resources
-
 Tool Execution:
 Predefined functions (SQL queries, file ops)
-
 Real-time Updates:
 Push notifications for data changes
-
 Session Management:
 Connection maintenance
 
 ## 2. Core Functions of nUR MCP Server  
+
+Technical Specification of Tuode Technology's Self-developed nUR_MCP_SERVER Product  
+
+Product Overview:  
+The nUR_MCP_SERVER is an intelligent robot control middleware system built on the MCP (Model Control Protocol) interface, enabling natural language interactive control of industrial robots through integration with large language models (LLMs). Designed with a Client-Server architecture, it supports deep integration with Universal Robots' full range of collaborative robots, revolutionizing the traditional teach pendant programming paradigm for industrial robots.  
+
+Core Technical Architecture:  
+1. Semantic Parsing Engine  
+Equipped with a multi-layer Transformer-based NLP processing module, it supports context-aware command parsing (Contextual Command Parsing), achieving end-to-end conversion from natural language to robot control commands with a command recognition accuracy of 98.6%.  
+
+2. Dynamic Script Generation System  
+An LLM-based code generation framework that automatically converts natural language commands into URScript robot control scripts. It supports real-time syntax validation and safety verification, improving generation efficiency by 12x compared to traditional programming.  
+
+3. Multimodal Control Interface  
+- MCP Protocol Extension Layer: Supports dual-mode TCP/UDP communication with µs-level command response.  
+- Device Abstraction Layer: Standardizes URCap plugin integration.  
+- Data Bus: Enables multi-robot collaborative control via TCP/IP Ethernet protocol.  
+
+Core Features:  
+▶ Natural Language Real-Time Control  
+Directly drives robot motion (pose control, trajectory planning, I/O operations) via voice/text commands, supporting dynamic parameter injection and real-time motion adjustments.  
+
+▶ Intelligent Data Acquisition System  
+- Real-time collection of 12-dimensional state data (joint torque, end-effector pose, etc.).  
+- Supports natural language-defined data filtering rules.  
+- Automatically generates structured data reports (CSV/JSON/XLSX).  
+
+▶ Multi-Robot Collaborative Control  
+Based on a distributed task scheduling algorithm, it can manage ≤12 UR robots simultaneously when paired with Tuode's MCP-Client, supporting voice cascading commands and cross-device task orchestration.  
+
+▶ Adaptive Learning Module  
+Features an incremental training framework that continuously optimizes command-action mapping through user feedback, with a system iteration cycle of ≤24h.  
+
+Technical Specifications:  
+- Command Response Latency: <200ms (end-to-end).  
+- Protocol Compatibility: MCP v2.1+ / URScript v5.0+.  
+- Concurrent Processing Capacity: 200+ TPS.
 
 ### 2.1 Acquiring All Hardware Data of UR Robots  
 
