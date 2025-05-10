@@ -18,16 +18,15 @@
   <a href="./README.es.md">Español</a> |
   <a href="./README.ar.md">العربية</a> |
   <a href="./README.da.md">dansk</a>  
-</p>
+</p> 
 
 <p align="center">
-    <a href='https://gitee.com/nonead/nUR_MCP_SERVER/releases/tag/nUR_MCP_Server_0.1.1'><img src='https://img.shields.io/static/v1?label=Gitee%20Latest%20Release&message=0.1.1&color=Blue' alt="Latest Release"></a>
-    <a href="https://github.com/nonead/nUR_MCP_SERVER/releases/latest"><img src="https://img.shields.io/static/v1?label=GitHub%20Latest%20Release&message=0.1.1&color=Green" alt="Latest Release"></a>
+    <a href='https://gitee.com/nonead/nUR_MCP_SERVER/releases/latest'><img src='https://img.shields.io/static/v1?label=Gitee%20Latest%20Release&message=Latest%20Release&color=Blue' alt="Latest Release"></a>
+    <a href="https://github.com/nonead/nUR_MCP_SERVER/releases/latest"><img src="https://img.shields.io/static/v1?label=GitHub%20Latest%20Release&message=Latest%20Release&color=Green" alt="Latest Release"></a>
     <a href='https://www.python.org/downloads/'><img src='https://img.shields.io/pypi/pyversions/RPALite'></img></a>
     <a href="https://gitee.com/nonead/nUR_MCP_SERVER/wikis/pages">
         <img src="https://img.shields.io/badge/User%20Guide-1e8b93?logo=readthedocs&logoColor=f5f5f5" alt="User Guide"></a>
     <a href="./LICENSE"><img height="21" src="https://img.shields.io/static/v1?label=License&message=User-Segmented Dual Licensing&color=blue" alt="license"></a>
-     <a href='https://gitee.com/nonead/nUR_MCP_SERVER/stargazers'><img src='https://gitee.com/nonead/nUR_MCP_SERVER/badge/star.svg?theme=dark' alt='star'></img></a>
 </p>
 
 ## 1. MCP 是什么？
@@ -87,7 +86,7 @@ nUR_MCP_SERVER是基于MCP（Model Control Protocol）接口协议构建的智�
 - 设备抽象层：实现URCap插件标准化接入
 - 数据总线：基于TCP/IP 以太网协议，实现多机协同控制
 
-核心功能特性：
+核心功能特性：  
 ▶ 自然语言即时控制
 通过语音/文本指令直接驱动机器人运动（位姿控制、轨迹规划、IO操作），支持动态参数注入和实时运动修正
 
