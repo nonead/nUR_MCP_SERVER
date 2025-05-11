@@ -23,9 +23,10 @@
     <a href='https://gitee.com/nonead/nUR_MCP_SERVER/releases/latest'><img src='https://img.shields.io/static/v1?label=Gitee.Com&message=Latest%20Release&color=Blue' alt="Latest Release"></a>
     <a href="https://github.com/nonead/nUR_MCP_SERVER/releases/latest"><img src="https://img.shields.io/static/v1?label=GitHub.Com&message=Latest%20Release&color=Green" alt="Latest Release"></a>
     <a href='https://www.python.org/downloads/'><img src='https://img.shields.io/pypi/pyversions/RPALite'></img></a>
-    <a href="https://gitee.com/nonead/nUR_MCP_SERVER/wikis/pages">
+    <a href="https://github.com/nonead/nUR_MCP_SERVER/wiki">
         <img src="https://img.shields.io/badge/User%20Guide-1e8b93?logo=readthedocs&logoColor=f5f5f5" alt="User Guide"></a>
-    <a href="./LICENSE"><img height="21" src="https://img.shields.io/static/v1?label=License&message=User-Segmented Dual Licensing&color=blue" alt="license"></a>
+    <a href="./LICENSE"><img height="20" src="https://img.shields.io/static/v1?label=License&message=User-Segmented Dual Licensing&color=blue" alt="license"></a>
+    <a href=""><imag height="20" src="https://img.shields.io/github/stars/nonead/nUR_MCP_SERVER.svg" alt="GitHub stars"></a>
 </p>
 
 ## 1. What is MCP?
