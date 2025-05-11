@@ -20,20 +20,33 @@
 </p>
 
 <p align="center">
-    <a href='https://gitee.com/nonead/nUR_MCP_SERVER/releases'><img src='https://img.shields.io/github/v/release/nonead/nUR_MCP_SERVER.svg?label=Gitee%20Release&color=blue' alt="Gitee Release"></a>
-    <a href="https://github.com/nonead/nUR_MCP_SERVER/releases"><img src="https://img.shields.io/github/v/release/nonead/nUR_MCP_SERVER.svg?label=GitHub%20Release" alt="GitHub Release"></a>
-    <a href='https://www.python.org/downloads/'><img src='https://img.shields.io/pypi/pyversions/RPALite'></img></a>
-        <a href='https://www.universal-robots.cn'><img src='https://img.shields.io/badge/PolyScope-3.x_&_5.x-71A8CF'></img></a>
+    <a href='https://gitee.com/nonead/nUR_MCP_SERVER/releases'>
+      <img src='https://img.shields.io/github/v/release/nonead/nUR_MCP_SERVER.svg?label=Gitee%20Release&color=blue' alt="Gitee Release"></img>
+    </a>
+    <a href="https://github.com/nonead/nUR_MCP_SERVER/releases">
+      <img src="https://img.shields.io/github/v/release/nonead/nUR_MCP_SERVER.svg?label=GitHub%20Release" alt="GitHub Release"></img>
+    </a>
+    <a href='https://www.python.org/downloads/'>
+      <img src='https://img.shields.io/pypi/pyversions/RPALite'></img>
+    </a>
+    <a href='https://www.universal-robots.cn'>
+      <img src='https://img.shields.io/badge/PolyScope-3.x_&_5.x-71A8CF'></img>
+    </a>
     <a href="https://gitee.com/nonead/nUR_MCP_SERVER/wikis/pages">
-        <img src="https://img.shields.io/badge/User%20Guide-1e8b93?logo=readthedocs&logoColor=f5f5f5" alt="User Guide"></a>
-    <a href="./LICENSE"><img height="20" src="https://img.shields.io/static/v1?label=License&message=User-Segmented Dual Licensing&color=blue" alt="license"></a>
-    <a href="https://gitee.com/nonead/nUR_MCP_SERVER"><img height="20" src="https://gitee.com/nonead/nUR_MCP_SERVER/badge/star.svg?theme=dark" alt="Gitee Stars"></a>
-
- <a href="https://github.com/nonead/nUR_MCP_SERVER">
-    <img src="https://img.shields.io/github/forks/nonead/nUR_MCP_SERVER?label=Forks&style=flat-square" alt="Github Forks">
-  </a>
-  <a href='https://github.com/nonead/nUR_MCP_SERVER'>
-    <img src="https://img.shields.io/github/stars/nonead/nUR_MCP_SERVER.svg?style=flat-square&label=Stars&logo=github" alt="Github Stars"/></a>
+      <img src="https://img.shields.io/badge/User%20Guide-1e8b93?logo=readthedocs&logoColor=f5f5f5" alt="User Guide"></img>
+    </a>
+    <a href="./LICENSE">
+      <img height="20" src="https://img.shields.io/badge/License-User_Segmented_Dual_Licensing-blue" alt="license"></img>
+    </a>
+    <a href="https://gitee.com/nonead/nUR_MCP_SERVER">
+      <img height="20" src="https://gitee.com/nonead/nUR_MCP_SERVER/badge/star.svg?theme=dark" alt="Gitee Stars"></img>
+    </a>
+    <a href="https://github.com/nonead/nUR_MCP_SERVER">
+      <img src="https://img.shields.io/github/forks/nonead/nUR_MCP_SERVER?label=Forks&style=flat-square" alt="Github Forks"></img>
+    </a>
+    <a href='https://github.com/nonead/nUR_MCP_SERVER'>
+      <img src="https://img.shields.io/github/stars/nonead/nUR_MCP_SERVER.svg?style=flat-square&label=Stars&logo=github" alt="Github Stars"/></img>
+    </a>
 </p>
 
 ## 1. Что такое MCP?
