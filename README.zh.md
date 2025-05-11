@@ -21,8 +21,8 @@
 </p> 
 
 <p align="center">
-    <a href='https://gitee.com/nonead/nUR_MCP_SERVER/releases/latest'><img src='https://img.shields.io/static/v1?label=Gitee%20Latest%20Release&message=Latest%20Release&color=Blue' alt="Latest Release"></a>
-    <a href="https://github.com/nonead/nUR_MCP_SERVER/releases/latest"><img src="https://img.shields.io/static/v1?label=GitHub%20Latest%20Release&message=Latest%20Release&color=Green" alt="Latest Release"></a>
+    <a href='https://gitee.com/nonead/nUR_MCP_SERVER/releases/latest'><img src='https://img.shields.io/static/v1?label=Gitee.Com&message=Latest%20Release&color=Blue' alt="Latest Release"></a>
+    <a href="https://github.com/nonead/nUR_MCP_SERVER/releases/latest"><img src="https://img.shields.io/static/v1?label=GitHub.Com&message=Latest%20Release&color=Green" alt="Latest Release"></a>
     <a href='https://www.python.org/downloads/'><img src='https://img.shields.io/pypi/pyversions/RPALite'></img></a>
     <a href="https://gitee.com/nonead/nUR_MCP_SERVER/wikis/pages">
         <img src="https://img.shields.io/badge/User%20Guide-1e8b93?logo=readthedocs&logoColor=f5f5f5" alt="User Guide"></a>
