@@ -37,6 +37,9 @@
     </a>
     <a href="./LICENSE">
       <img height="20" src="https://img.shields.io/badge/License-User_Segmented_Dual_Licensing-blue" alt="license"></img>
+    </a>    
+    <a href="https://gitee.com/nonead/nUR_MCP_SERVER">
+      <img height="20" src="https://gitee.com/nonead/nUR_MCP_SERVER/badge/fork.svg?theme=dark" alt="Gitee Forks"></img>
     </a>
     <a href="https://gitee.com/nonead/nUR_MCP_SERVER">
       <img height="20" src="https://gitee.com/nonead/nUR_MCP_SERVER/badge/star.svg?theme=dark" alt="Gitee Stars"></img>
@@ -48,6 +51,8 @@
       <img src="https://img.shields.io/github/stars/nonead/nUR_MCP_SERVER.svg?style=flat-square&label=Stars&logo=github" alt="Github Stars"/></img>
     </a>
 </p>
+
+
 
 ## 1. MCPとは？
 MCP（モデルコンテキストプロトコル）はAnthropic社が開発した通信プロトコル（2024年11月オープンソース化）で、AI大規模言語モデル（DeepSeek-V3-0324、DeepSeek-R1、Qwen3など）が外部データ・ツール・サービスに効率的にアクセスし、より正確で知的な回答を提供するために使用されます。

@@ -37,6 +37,9 @@
     </a>
     <a href="./LICENSE">
       <img height="20" src="https://img.shields.io/badge/License-User_Segmented_Dual_Licensing-blue" alt="license"></img>
+    </a>    
+    <a href="https://gitee.com/nonead/nUR_MCP_SERVER">
+      <img height="20" src="https://gitee.com/nonead/nUR_MCP_SERVER/badge/fork.svg?theme=dark" alt="Gitee Forks"></img>
     </a>
     <a href="https://gitee.com/nonead/nUR_MCP_SERVER">
       <img height="20" src="https://gitee.com/nonead/nUR_MCP_SERVER/badge/star.svg?theme=dark" alt="Gitee Stars"></img>
@@ -48,6 +51,8 @@
       <img src="https://img.shields.io/github/stars/nonead/nUR_MCP_SERVER.svg?style=flat-square&label=Stars&logo=github" alt="Github Stars"/></img>
     </a>
 </p>
+
+
 
 ## 1. MCP란?
 MCP(모델 컨텍스트 프로토콜)는 Anthropic사가 개발한 통신 프로토콜(2024년 11월 오픈소스화)로, AI 대형 언어 모델(DeepSeek-V3-0324, DeepSeek-R1, Qwen3 등)이 외부 데이터/도구/서비스에 효율적으로 접근하여 더 정확하고 지능적인 답변을 제공하기 위해 사용됩니다.

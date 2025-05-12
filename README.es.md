@@ -37,6 +37,9 @@
     </a>
     <a href="./LICENSE">
       <img height="20" src="https://img.shields.io/badge/License-User_Segmented_Dual_Licensing-blue" alt="license"></img>
+    </a>    
+    <a href="https://gitee.com/nonead/nUR_MCP_SERVER">
+      <img height="20" src="https://gitee.com/nonead/nUR_MCP_SERVER/badge/fork.svg?theme=dark" alt="Gitee Forks"></img>
     </a>
     <a href="https://gitee.com/nonead/nUR_MCP_SERVER">
       <img height="20" src="https://gitee.com/nonead/nUR_MCP_SERVER/badge/star.svg?theme=dark" alt="Gitee Stars"></img>
@@ -48,6 +51,7 @@
       <img src="https://img.shields.io/github/stars/nonead/nUR_MCP_SERVER.svg?style=flat-square&label=Stars&logo=github" alt="Github Stars"/></img>
     </a>
 </p>
+
 
 
 ## 1. ¿Qué es MCP?
