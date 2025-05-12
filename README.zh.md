@@ -127,60 +127,142 @@ nUR_MCP_SERVER是基于MCP（Model Control Protocol）接口协议构建的智�
 - 协议兼容性：MCP v2.1+ / URScript v5.0+
 - 并发处理能力：200+ TPS
 
-### 2.1 获取优傲机器人的所有硬件数据
+### **2.1 网络与连接管理**
+- **fifQB5xNlEkpHGCAPl4DuR**  
+  ▸ 功能：扫描同网段UR机器人  
+  ▸ 参数：`ip`（同网段IP）
 
-**网络扫描功能**  
-fY6gJ6KcwVqfiiUFO-ogx1: 扫描指定IP网段内的UR机器人
+- **fE5gA9T733lcQ8Hd_MLP82**  
+  ▸ 功能：连接UR机器人  
+  ▸ 参数：`ip`（机器人IP）
 
-**连接管理功能**  
-fCf-PPsfx_yD_iZLURtGTV: 连接指定IP的UR机器人  
-fEd1Yp4RD3kiUSxqQlK1Va: 断开与UR机器人的连接
+- **fsX43cYxV0PI4evuVyUBQb**  
+  ▸ 功能：断开UR机器人连接  
+  ▸ 参数：`ip`（机器人IP）
 
-**基本信息获取**  
-fmMqIRbJZ4qRGJtRd59OJ-: 获取机器人序列号  
-f1ITpGFuwNDVfGfkNJzG2z: 获取软件版本  
-f8RnXWPeoSCCCvW3FuF_vS: 获取开机时长  
-fl_BhgXwRaQ8nzexSGjwa7: 获取安全模式  
+---
 
-**寄存器数据获取**  
-fRRbXKNWy6vXbSrRPmFLJa: 获取Int寄存器值(0-23)  
-fRjcTzBeNogyaJtYvJ7_E2: 获取Double寄存器值(0-23)  
-fJ_s1E0ywr6t9rkMOBWiq6: 获取Double寄存器值(0-31)  
+### **2.2 机器人状态监控**
+- **fOIkmMPGlGGxwyw-3P9PLw**  
+  ▸ 功能：获取开机时长  
+  ▸ 参数：`ip`
 
-**状态监控**  
-fVYZ0ocbfuml1VpA5JSNRo: 获取实时TCP坐标  
-fts21SISQrnyp_mb3jJy91: 获取实时关节角度  
-fmjZNwC7zxju_tLjiM8w4A: 获取运行状态  
-fy5NIEBXN7Kqecb1RkPhZN: 获取程序执行状态  
+- **fwyyKaqkrt6NBWXlSqhla2**  
+  ▸ 功能：获取序列号  
+  ▸ 参数：`ip`
 
-**电气参数监测**
-fGU3ubp1fmrw-zPE2pyNDI: 获取当前电压  
-fl--FA0LvH9LBjXjVB0gGD: 获取当前电流  
-fb3HhLwWUa8s49OXpU5Iq8: 获取各关节电压  
-frGKnkZFPFesyEXdGAxpD9: 获取各关节电流  
-fzVxBGVvO7T3n3JbmAmvqB: 获取各关节温度  
+- **f6sWepY5YsPIqDuVllQixz**  
+  ▸ 功能：获取软件版本  
+  ▸ 参数：`ip`
 
-### 2.2 执行优傲机器人的单指令命令
+- **fJmgMj32RjjCxzg3n-OmKs**  
+  ▸ 功能：获取安全模式  
+  ▸ 参数：`ip`
 
-**运动控制功能**  
-ffoF99tQZ6vcEqHQplHTjv: 发送关节姿态指令(movej)  
-fiF4Pmxs7LQTrG7hY4sQV8: 发送TCP直线移动指令(movel)  
-fOyQY2wR6xzOZP3NxjpLjK: 沿X轴直线移动  
-fCV_0M8pdPIVJs3nMGo6XS: 沿Y轴直线移动  
-fWkTyW-C5rxUPe3U0WGSsm: 沿Z轴直线移动  
+- **fAJNyeIvDxM49kypgXs9xx**  
+  ▸ 功能：获取运行状态  
+  ▸ 参数：`ip`
 
-### 2.3 大语言模型编写优傲机器人脚本程序并执行
+- **frXKuqREVTmRygel-MDG11**  
+  ▸ 功能：获取程序执行状态  
+  ▸ 参数：`ip`
 
-### 2.4 运行优傲机器人自带的程序
+---
 
-**程序控制**  
-fE0WxXcDh3ENo8Q3fYul5K: 加载UR程序  
-fDqpZeOA1_KF8ixwndRP8-: 加载并执行UR程序  
-fH1AYKDXPCcGU1q3Ndrnwt: 停止当前程序  
-fVwECQj8_p85mT6KaggA-N: 暂停当前程序  
-f4cp0iAFlVXMWqz51ylP4Z: 发送程序脚本  
+### **2.3 寄存器与数据读取**
+- **fOXjbOy_B40SqwczE0zRRx**  
+  ▸ 功能：读取Int寄存器（0~23）  
+  ▸ 参数：`ip`, `index`（0-23）
 
-### 2.5 多台优傲机器人联动
+- **ftWfHugqIFU3zE1k4szoST**  
+  ▸ 功能：读取Double寄存器（0~23）  
+  ▸ 参数：`ip`, `index`（0-23）
+
+- **f-CXiO_NaDsWiwltfrDhks**  
+  ▸ 功能：读取Double寄存器（0~31）  
+  ▸ 参数：`ip`, `index`（0-31）
+
+---
+
+### **2.4 运动控制**
+- **fq5lK3nuHMu6AR1AOolkVT**  
+  ▸ 功能：关节空间移动  
+  ▸ 参数：`ip`, `q`（关节角度）, `a`/`v`/`t`/`r`（可选）
+
+- **fepruq4N7v4MBNqsiIvLRc**  
+  ▸ 功能：TCP直线移动  
+  ▸ 参数：`ip`, `pose`（TCP位姿）, `a`/`v`/`t`/`r`（可选）
+
+- **fcKCrZ2H_lwnAe4P2uTJ4L**  
+  ▸ 功能：沿X轴直线移动  
+  ▸ 参数：`ip`, `distance`（米）
+
+- **f77gv6fXQGTSKbsgemu8Np**  
+  ▸ 功能：沿Y轴直线移动  
+  ▸ 参数：`ip`, `distance`
+
+- **f-bIJDZENUgzPrLJqOFvIs**  
+  ▸ 功能：沿Z轴直线移动  
+  ▸ 参数：`ip`, `distance`
+
+---
+
+### **2.5 程序管理**
+- **ftdgwJLZQ2dYp2mB1ZtRPD**  
+  ▸ 功能：加载程序  
+  ▸ 参数：`ip`, `program_name`
+
+- **fl1XHdiQ-GgEJPB7rlMaHU**  
+  ▸ 功能：加载并执行程序  
+  ▸ 参数：`ip`, `program_name`
+
+- **fL8CYEkias2SbMtv0S7s-N**  
+  ▸ 功能：停止当前程序  
+  ▸ 参数：`ip`
+
+- **fkS98Mpak4obl30wTves1K**  
+  ▸ 功能：暂停当前程序  
+  ▸ 参数：`ip`
+
+- **fV_tezoVRKYr9IiYnl2ezU**  
+  ▸ 功能：发送脚本程序  
+  ▸ 参数：`ip`, `script`
+
+---
+
+### **2.6 传感器与电力监控**
+- **fW18vf-tvLsFR-8coc2e5U**  
+  ▸ 功能：获取当前电压  
+  ▸ 参数：`ip`
+
+- **fEK48x3yHMxEx14KQsVzjZ**  
+  ▸ 功能：获取当前电流  
+  ▸ 参数：`ip`
+
+- **fEh1yfbkyrh-kr2PDF7XI5**  
+  ▸ 功能：获取关节电压  
+  ▸ 参数：`ip`
+
+- **fsmxaF8Agn8NF0mMegv3_f**  
+  ▸ 功能：获取关节电流  
+  ▸ 参数：`ip`
+
+- **fdGsS6kwiGlY_zybhYQWrS**  
+  ▸ 功能：获取关节温度  
+  ▸ 参数：`ip`
+
+---
+
+### **2.7 实时数据反馈**
+- **f6danXc2Pz98ilo5gMNc44**  
+  ▸ 功能：获取实时TCP坐标  
+  ▸ 参数：`ip`
+
+- **fwHgxwtA4blZuetfmJ3OiK**  
+  ▸ 功能：获取实时关节角度  
+  ▸ 参数：`ip`
+
+---
 
 ## 3. 免责申明
 

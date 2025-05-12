@@ -125,57 +125,142 @@ Spécifications techniques:
 - Capacité de traitement concurrent: 200+ TPS
 
 
-### 2.1 Obtenir toutes les données matérielles des robots UR  
-**Fonction de scan réseau**  
-fY6gJ6KcwVqfiiUFO-ogx1: Scanner une plage IP spécifique pour les robots UR  
+### **2.1 Gestion du réseau et des connexions**  
+- **fifQB5xNlEkpHGCAPl4DuR**  
+  ▸ Fonction : Scanner les robots UR sur le même segment réseau  
+  ▸ Paramètres : `ip` (IP du même segment)  
 
-**Gestion des connexions**  
-fCf-PPsfx_yD_iZLURtGTV: Se connecter à un robot UR avec une IP spécifique  
-fEd1Yp4RD3kiUSxqQlK1Va: Déconnecter d'un robot UR  
+- **fE5gA9T733lcQ8Hd_MLP82**  
+  ▸ Fonction : Se connecter à un robot UR  
+  ▸ Paramètres : `ip` (IP du robot)  
 
-**Informations de base**  
-fmMqIRbJZ4qRGJtRd59OJ-: Obtenir le numéro de série du robot  
-f1ITpGFuwNDVfGfkNJzG2z: Obtenir la version du logiciel  
-f8RnXWPeoSCCCvW3FuF_vS: Obtenir la durée de fonctionnement  
-fl_BhgXwRaQ8nzexSGjwa7: Obtenir le mode de sécurité  
+- **fsX43cYxV0PI4evuVyUBQb**  
+  ▸ Fonction : Déconnecter un robot UR  
+  ▸ Paramètres : `ip` (IP du robot)  
 
-**Données des registres**  
-fRRbXKNWy6vXbSrRPmFLJa: Obtenir les valeurs des registres Int (0-23)  
-fRjcTzBeNogyaJtYvJ7_E2: Obtenir les valeurs des registres Double (0-23)  
-fJ_s1E0ywr6t9rkMOBWiq6: Obtenir les valeurs des registres Double (0-31)  
+---  
 
-**Surveillance d'état**  
-fVYZ0ocbfuml1VpA5JSNRo: Obtenir les coordonnées TCP en temps réel  
-fts21SISQrnyp_mb3jJy91: Obtenir les angles des articulations en temps réel  
-fmjZNwC7zxju_tLjiM8w4A: Obtenir l'état de fonctionnement  
-fy5NIEBXN7Kqecb1RkPhZN: Obtenir l'état d'exécution du programme  
+### **2.2 Surveillance de l'état du robot**  
+- **fOIkmMPGlGGxwyw-3P9PLw**  
+  ▸ Fonction : Obtenir la durée de fonctionnement  
+  ▸ Paramètres : `ip`  
 
-**Paramètres électriques**  
-fGU3ubp1fmrw-zPE2pyNDI: Obtenir la tension actuelle  
-fl--FA0LvH9LBjXjVB0gGD: Obtenir le courant actuel  
-fb3HhLwWUa8s49OXpU5Iq8: Obtenir les tensions des articulations  
-frGKnkZFPFesyEXdGAxpD9: Obtenir les courants des articulations  
-fzVxBGVvO7T3n3JbmAmvqB: Obtenir les températures des articulations  
+- **fwyyKaqkrt6NBWXlSqhla2**  
+  ▸ Fonction : Obtenir le numéro de série  
+  ▸ Paramètres : `ip`  
 
-### 2.2 Exécuter des commandes individuelles pour robots UR  
-**Contrôle de mouvement**  
-ffoF99tQZ6vcEqHQplHTjv: Envoyer une commande de position articulaire (movej)  
-fiF4Pmxs7LQTrG7hY4sQV8: Envoyer une commande de mouvement linéaire TCP (movel)  
-fOyQY2wR6xzOZP3NxjpLjK: Mouvement linéaire le long de l'axe X  
-fCV_0M8pdPIVJs3nMGo6XS: Mouvement linéaire le long de l'axe Y  
-fWkTyW-C5rxUPe3U0WGSsm: Mouvement linéaire le long de l'axe Z  
+- **f6sWepY5YsPIqDuVllQixz**  
+  ▸ Fonction : Obtenir la version du logiciel  
+  ▸ Paramètres : `ip`  
 
-### 2.3 Écrire des programmes pour robots UR avec des modèles de langage avancés et les exécuter  
+- **fJmgMj32RjjCxzg3n-OmKs**  
+  ▸ Fonction : Obtenir le mode de sécurité  
+  ▸ Paramètres : `ip`  
 
-### 2.4 Exécuter les programmes intégrés des robots UR  
-**Contrôle de programme**  
-fE0WxXcDh3ENo8Q3fYul5K: Charger un programme UR  
-fDqpZeOA1_KF8ixwndRP8-: Charger et exécuter un programme UR  
-fH1AYKDXPCcGU1q3Ndrnwt: Arrêter le programme actuel  
-fVwECQj8_p85mT6KaggA-N: Mettre en pause le programme actuel  
-f4cp0iAFlVXMWqz51ylP4Z: Envoyer un script de programme  
+- **fAJNyeIvDxM49kypgXs9xx**  
+  ▸ Fonction : Obtenir l'état d'exécution  
+  ▸ Paramètres : `ip`  
 
-### 2.5 Coordination de plusieurs robots UR  
+- **frXKuqREVTmRygel-MDG11**  
+  ▸ Fonction : Obtenir l'état d'exécution du programme  
+  ▸ Paramètres : `ip`  
+
+---  
+
+### **2.3 Lecture des registres et des données**  
+- **fOXjbOy_B40SqwczE0zRRx**  
+  ▸ Fonction : Lire un registre Int (0~23)  
+  ▸ Paramètres : `ip`, `index` (0-23)  
+
+- **ftWfHugqIFU3zE1k4szoST**  
+  ▸ Fonction : Lire un registre Double (0~23)  
+  ▸ Paramètres : `ip`, `index` (0-23)  
+
+- **f-CXiO_NaDsWiwltfrDhks**  
+  ▸ Fonction : Lire un registre Double (0~31)  
+  ▸ Paramètres : `ip`, `index` (0-31)  
+
+---  
+
+### **2.4 Contrôle des mouvements**  
+- **fq5lK3nuHMu6AR1AOolkVT**  
+  ▸ Fonction : Mouvement dans l'espace articulaire  
+  ▸ Paramètres : `ip`, `q` (angles articulaires), `a`/`v`/`t`/`r` (optionnel)  
+
+- **fepruq4N7v4MBNqsiIvLRc**  
+  ▸ Fonction : Mouvement linéaire TCP  
+  ▸ Paramètres : `ip`, `pose` (position TCP), `a`/`v`/`t`/`r` (optionnel)  
+
+- **fcKCrZ2H_lwnAe4P2uTJ4L**  
+  ▸ Fonction : Mouvement linéaire le long de l'axe X  
+  ▸ Paramètres : `ip`, `distance` (mètres)  
+
+- **f77gv6fXQGTSKbsgemu8Np**  
+  ▸ Fonction : Mouvement linéaire le long de l'axe Y  
+  ▸ Paramètres : `ip`, `distance`  
+
+- **f-bIJDZENUgzPrLJqOFvIs**  
+  ▸ Fonction : Mouvement linéaire le long de l'axe Z  
+  ▸ Paramètres : `ip`, `distance`  
+
+---  
+
+### **2.5 Gestion des programmes**  
+- **ftdgwJLZQ2dYp2mB1ZtRPD**  
+  ▸ Fonction : Charger un programme  
+  ▸ Paramètres : `ip`, `program_name`  
+
+- **fl1XHdiQ-GgEJPB7rlMaHU**  
+  ▸ Fonction : Charger et exécuter un programme  
+  ▸ Paramètres : `ip`, `program_name`  
+
+- **fL8CYEkias2SbMtv0S7s-N**  
+  ▸ Fonction : Arrêter le programme en cours  
+  ▸ Paramètres : `ip`  
+
+- **fkS98Mpak4obl30wTves1K**  
+  ▸ Fonction : Mettre en pause le programme en cours  
+  ▸ Paramètres : `ip`  
+
+- **fV_tezoVRKYr9IiYnl2ezU**  
+  ▸ Fonction : Envoyer un programme script  
+  ▸ Paramètres : `ip`, `script`  
+
+---  
+
+### **2.6 Surveillance des capteurs et de l'alimentation**  
+- **fW18vf-tvLsFR-8coc2e5U**  
+  ▸ Fonction : Obtenir la tension actuelle  
+  ▸ Paramètres : `ip`  
+
+- **fEK48x3yHMxEx14KQsVzjZ**  
+  ▸ Fonction : Obtenir le courant actuel  
+  ▸ Paramètres : `ip`  
+
+- **fEh1yfbkyrh-kr2PDF7XI5**  
+  ▸ Fonction : Obtenir la tension des articulations  
+  ▸ Paramètres : `ip`  
+
+- **fsmxaF8Agn8NF0mMegv3_f**  
+  ▸ Fonction : Obtenir le courant des articulations  
+  ▸ Paramètres : `ip`  
+
+- **fdGsS6kwiGlY_zybhYQWrS**  
+  ▸ Fonction : Obtenir la température des articulations  
+  ▸ Paramètres : `ip`  
+
+---  
+
+### **2.7 Retour de données en temps réel**  
+- **f6danXc2Pz98ilo5gMNc44**  
+  ▸ Fonction : Obtenir les coordonnées TCP en temps réel  
+  ▸ Paramètres : `ip`  
+
+- **fwHgxwtA4blZuetfmJ3OiK**  
+  ▸ Fonction : Obtenir les angles articulaires en temps réel  
+  ▸ Paramètres : `ip`  
+
+---  
 
 ## 3. Clause de non-responsabilité
 

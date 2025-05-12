@@ -124,60 +124,142 @@ Technical Specifications:
 - Protocol Compatibility: MCP v2.1+ / URScript v5.0+.  
 - Concurrent Processing Capacity: 200+ TPS.
 
-### 2.1 Acquiring All Hardware Data of UR Robots  
+### **2.1 Network and Connection Management**  
+- **fifQB5xNlEkpHGCAPl4DuR**  
+  ▸ Function: Scan UR robots in the same network segment  
+  ▸ Parameters: `ip` (same network segment IP)  
 
-**Network Scanning Function**  
-fY6gJ6KcwVqfiiUFO-ogx1: Scan UR robots within a specified IP range  
+- **fE5gA9T733lcQ8Hd_MLP82**  
+  ▸ Function: Connect to UR robot  
+  ▸ Parameters: `ip` (robot IP)  
 
-**Connection Management Function**  
-fCf-PPsfx_yD_iZLURtGTV: Connect to a UR robot at a specified IP  
-fEd1Yp4RD3kiUSxqQlK1Va: Disconnect from a UR robot  
+- **fsX43cYxV0PI4evuVyUBQb**  
+  ▸ Function: Disconnect from UR robot  
+  ▸ Parameters: `ip` (robot IP)  
 
-**Basic Information Retrieval**  
-fmMqIRbJZ4qRGJtRd59OJ-: Retrieve robot serial number  
-f1ITpGFuwNDVfGfkNJzG2z: Retrieve software version  
-f8RnXWPeoSCCCvW3FuF_vS: Retrieve uptime  
-fl_BhgXwRaQ8nzexSGjwa7: Retrieve safety mode  
+---  
 
-**Register Data Retrieval**  
-fRRbXKNWy6vXbSrRPmFLJa: Retrieve Int register values (0-23)  
-fRjcTzBeNogyaJtYvJ7_E2: Retrieve Double register values (0-23)  
-fJ_s1E0ywr6t9rkMOBWiq6: Retrieve Double register values (0-31)  
+### **2.2 Robot Status Monitoring**  
+- **fOIkmMPGlGGxwyw-3P9PLw**  
+  ▸ Function: Get uptime  
+  ▸ Parameters: `ip`  
 
-**Status Monitoring**  
-fVYZ0ocbfuml1VpA5JSNRo: Retrieve real-time TCP coordinates  
-fts21SISQrnyp_mb3jJy91: Retrieve real-time joint angles  
-fmjZNwC7zxju_tLjiM8w4A: Retrieve operating status  
-fy5NIEBXN7Kqecb1RkPhZN: Retrieve program execution status  
+- **fwyyKaqkrt6NBWXlSqhla2**  
+  ▸ Function: Get serial number  
+  ▸ Parameters: `ip`  
 
-**Electrical Parameter Monitoring**  
-fGU3ubp1fmrw-zPE2pyNDI: Retrieve current voltage  
-fl--FA0LvH9LBjXjVB0gGD: Retrieve current current  
-fb3HhLwWUa8s49OXpU5Iq8: Retrieve joint voltages  
-frGKnkZFPFesyEXdGAxpD9: Retrieve joint currents  
-fzVxBGVvO7T3n3JbmAmvqB: Retrieve joint temperatures  
+- **f6sWepY5YsPIqDuVllQixz**  
+  ▸ Function: Get software version  
+  ▸ Parameters: `ip`  
 
-### 2.2 Executing Single-Command Instructions for UR Robots  
+- **fJmgMj32RjjCxzg3n-OmKs**  
+  ▸ Function: Get safety mode  
+  ▸ Parameters: `ip`  
 
-**Motion Control Function**  
-ffoF99tQZ6vcEqHQplHTjv: Send joint pose command (movej)  
-fiF4Pmxs7LQTrG7hY4sQV8: Send TCP linear movement command (movel)  
-fOyQY2wR6xzOZP3NxjpLjK: Linear movement along the X-axis  
-fCV_0M8pdPIVJs3nMGo6XS: Linear movement along the Y-axis  
-fWkTyW-C5rxUPe3U0WGSsm: Linear movement along the Z-axis  
+- **fAJNyeIvDxM49kypgXs9xx**  
+  ▸ Function: Get operation status  
+  ▸ Parameters: `ip`  
 
-### 2.3 Using Large Language Models to Write and Execute UR Robot Script Programs  
+- **frXKuqREVTmRygel-MDG11**  
+  ▸ Function: Get program execution status  
+  ▸ Parameters: `ip`  
 
-### 2.4 Running Built-in Programs of UR Robots  
+---  
 
-**Program Control**  
-fE0WxXcDh3ENo8Q3fYul5K: Load a UR program  
-fDqpZeOA1_KF8ixwndRP8-: Load and execute a UR program  
-fH1AYKDXPCcGU1q3Ndrnwt: Stop the current program  
-fVwECQj8_p85mT6KaggA-N: Pause the current program  
-f4cp0iAFlVXMWqz51ylP4Z: Send a program script  
+### **2.3 Register and Data Reading**  
+- **fOXjbOy_B40SqwczE0zRRx**  
+  ▸ Function: Read Int register (0~23)  
+  ▸ Parameters: `ip`, `index` (0-23)  
 
-### 2.5 Coordinated Operation of Multiple UR Robots
+- **ftWfHugqIFU3zE1k4szoST**  
+  ▸ Function: Read Double register (0~23)  
+  ▸ Parameters: `ip`, `index` (0-23)  
+
+- **f-CXiO_NaDsWiwltfrDhks**  
+  ▸ Function: Read Double register (0~31)  
+  ▸ Parameters: `ip`, `index` (0-31)  
+
+---  
+
+### **2.4 Motion Control**  
+- **fq5lK3nuHMu6AR1AOolkVT**  
+  ▸ Function: Joint space movement  
+  ▸ Parameters: `ip`, `q` (joint angles), `a`/`v`/`t`/`r` (optional)  
+
+- **fepruq4N7v4MBNqsiIvLRc**  
+  ▸ Function: TCP linear movement  
+  ▸ Parameters: `ip`, `pose` (TCP pose), `a`/`v`/`t`/`r` (optional)  
+
+- **fcKCrZ2H_lwnAe4P2uTJ4L**  
+  ▸ Function: Linear movement along X axis  
+  ▸ Parameters: `ip`, `distance` (meters)  
+
+- **f77gv6fXQGTSKbsgemu8Np**  
+  ▸ Function: Linear movement along Y axis  
+  ▸ Parameters: `ip`, `distance`  
+
+- **f-bIJDZENUgzPrLJqOFvIs**  
+  ▸ Function: Linear movement along Z axis  
+  ▸ Parameters: `ip`, `distance`  
+
+---  
+
+### **2.5 Program Management**  
+- **ftdgwJLZQ2dYp2mB1ZtRPD**  
+  ▸ Function: Load program  
+  ▸ Parameters: `ip`, `program_name`  
+
+- **fl1XHdiQ-GgEJPB7rlMaHU**  
+  ▸ Function: Load and execute program  
+  ▸ Parameters: `ip`, `program_name`  
+
+- **fL8CYEkias2SbMtv0S7s-N**  
+  ▸ Function: Stop current program  
+  ▸ Parameters: `ip`  
+
+- **fkS98Mpak4obl30wTves1K**  
+  ▸ Function: Pause current program  
+  ▸ Parameters: `ip`  
+
+- **fV_tezoVRKYr9IiYnl2ezU**  
+  ▸ Function: Send script program  
+  ▸ Parameters: `ip`, `script`  
+
+---  
+
+### **2.6 Sensor and Power Monitoring**  
+- **fW18vf-tvLsFR-8coc2e5U**  
+  ▸ Function: Get current voltage  
+  ▸ Parameters: `ip`  
+
+- **fEK48x3yHMxEx14KQsVzjZ**  
+  ▸ Function: Get current current  
+  ▸ Parameters: `ip`  
+
+- **fEh1yfbkyrh-kr2PDF7XI5**  
+  ▸ Function: Get joint voltage  
+  ▸ Parameters: `ip`  
+
+- **fsmxaF8Agn8NF0mMegv3_f**  
+  ▸ Function: Get joint current  
+  ▸ Parameters: `ip`  
+
+- **fdGsS6kwiGlY_zybhYQWrS**  
+  ▸ Function: Get joint temperature  
+  ▸ Parameters: `ip`  
+
+---  
+
+### **2.7 Real-time Data Feedback**  
+- **f6danXc2Pz98ilo5gMNc44**  
+  ▸ Function: Get real-time TCP coordinates  
+  ▸ Parameters: `ip`  
+
+- **fwHgxwtA4blZuetfmJ3OiK**  
+  ▸ Function: Get real-time joint angles  
+  ▸ Parameters: `ip`  
+
+---  
 
 
 ## 3. Disclaimer

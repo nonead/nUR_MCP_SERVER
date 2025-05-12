@@ -125,57 +125,142 @@ Technische Daten:
 - Protokollkompatibilität: MCP v2.1+/URScript 5.0+
 - Parallelverarbeitung: 200+ TPS
 
-### 2.1 Abrufen aller Hardware-Daten von UR-Robotern  
-**Netzwerk-Scan-Funktion**  
-fY6gJ6KcwVqfiiUFO-ogx1: Scannt einen bestimmten IP-Bereich für UR-Roboter  
+### **2.1 Netzwerk- und Verbindungsverwaltung**  
+- **fifQB5xNlEkpHGCAPl4DuR**  
+  ▸ Funktion: UR-Roboter im gleichen Netzwerk scannen  
+  ▸ Parameter: `ip` (IP im gleichen Netzwerk)  
 
-**Verbindungsverwaltung**  
-fCf-PPsfx_yD_iZLURtGTV: Verbindung zu einem UR-Roboter mit bestimmter IP herstellen  
-fEd1Yp4RD3kiUSxqQlK1Va: Verbindung zu einem UR-Roboter trennen  
+- **fE5gA9T733lcQ8Hd_MLP82**  
+  ▸ Funktion: Verbindung zu UR-Roboter herstellen  
+  ▸ Parameter: `ip` (Roboter-IP)  
 
-**Grundlegende Informationen**  
-fmMqIRbJZ4qRGJtRd59OJ-: Seriennummer des Roboters abrufen  
-f1ITpGFuwNDVfGfkNJzG2z: Softwareversion abrufen  
-f8RnXWPeoSCCCvW3FuF_vS: Betriebszeit abrufen  
-fl_BhgXwRaQ8nzexSGjwa7: Sicherheitsmodus abrufen  
+- **fsX43cYxV0PI4evuVyUBQb**  
+  ▸ Funktion: Verbindung zu UR-Roboter trennen  
+  ▸ Parameter: `ip` (Roboter-IP)  
 
-**Registerdaten**  
-fRRbXKNWy6vXbSrRPmFLJa: Int-Registerwerte abrufen (0-23)  
-fRjcTzBeNogyaJtYvJ7_E2: Double-Registerwerte abrufen (0-23)  
-fJ_s1E0ywr6t9rkMOBWiq6: Double-Registerwerte abrufen (0-31)  
+---  
 
-**Statusüberwachung**  
-fVYZ0ocbfuml1VpA5JSNRo: Echtzeit-TCP-Koordinaten abrufen  
-fts21SISQrnyp_mb3jJy91: Echtzeit-Gelenkwinkel abrufen  
-fmjZNwC7zxju_tLjiM8w4A: Betriebsstatus abrufen  
-fy5NIEBXN7Kqecb1RkPhZN: Programmausführungsstatus abrufen  
+### **2.2 Robotstatusüberwachung**  
+- **fOIkmMPGlGGxwyw-3P9PLw**  
+  ▸ Funktion: Betriebszeit abrufen  
+  ▸ Parameter: `ip`  
 
-**Elektrische Parameter**  
-fGU3ubp1fmrw-zPE2pyNDI: Aktuelle Spannung abrufen  
-fl--FA0LvH9LBjXjVB0gGD: Aktuellen Strom abrufen  
-fb3HhLwWUa8s49OXpU5Iq8: Gelenkspannungen abrufen  
-frGKnkZFPFesyEXdGAxpD9: Gelenkströme abrufen  
-fzVxBGVvO7T3n3JbmAmvqB: Gelenktemperaturen abrufen  
+- **fwyyKaqkrt6NBWXlSqhla2**  
+  ▸ Funktion: Seriennummer abrufen  
+  ▸ Parameter: `ip`  
 
-### 2.2 Einzelbefehle für UR-Roboter ausführen  
-**Bewegungssteuerung**  
-ffoF99tQZ6vcEqHQplHTjv: Gelenkpositionsbefehl senden (movej)  
-fiF4Pmxs7LQTrG7hY4sQV8: TCP-Linearbewegungsbefehl senden (movel)  
-fOyQY2wR6xzOZP3NxjpLjK: Linearbewegung entlang der X-Achse  
-fCV_0M8pdPIVJs3nMGo6XS: Linearbewegung entlang der Y-Achse  
-fWkTyW-C5rxUPe3U0WGSsm: Linearbewegung entlang der Z-Achse  
+- **f6sWepY5YsPIqDuVllQixz**  
+  ▸ Funktion: Softwareversion abrufen  
+  ▸ Parameter: `ip`  
 
-### 2.3 UR-Roboterprogramme mit großen Sprachmodellen schreiben und ausführen  
+- **fJmgMj32RjjCxzg3n-OmKs**  
+  ▸ Funktion: Sicherheitsmodus abrufen  
+  ▸ Parameter: `ip`  
 
-### 2.4 Integrierte UR-Roboterprogramme ausführen  
-**Programmsteuerung**  
-fE0WxXcDh3ENo8Q3fYul5K: UR-Programm laden  
-fDqpZeOA1_KF8ixwndRP8-: UR-Programm laden und ausführen  
-fH1AYKDXPCcGU1q3Ndrnwt: Aktuelles Programm stoppen  
-fVwECQj8_p85mT6KaggA-N: Aktuelles Programm pausieren  
-f4cp0iAFlVXMWqz51ylP4Z: Programmscript senden  
+- **fAJNyeIvDxM49kypgXs9xx**  
+  ▸ Funktion: Betriebsstatus abrufen  
+  ▸ Parameter: `ip`  
 
-### 2.5 Koordination mehrerer UR-Roboter  
+- **frXKuqREVTmRygel-MDG11**  
+  ▸ Funktion: Programmausführungsstatus abrufen  
+  ▸ Parameter: `ip`  
+
+---  
+
+### **2.3 Register- und Datenlesen**  
+- **fOXjbOy_B40SqwczE0zRRx**  
+  ▸ Funktion: Int-Register lesen (0~23)  
+  ▸ Parameter: `ip`, `index` (0-23)  
+
+- **ftWfHugqIFU3zE1k4szoST**  
+  ▸ Funktion: Double-Register lesen (0~23)  
+  ▸ Parameter: `ip`, `index` (0-23)  
+
+- **f-CXiO_NaDsWiwltfrDhks**  
+  ▸ Funktion: Double-Register lesen (0~31)  
+  ▸ Parameter: `ip`, `index` (0-31)  
+
+---  
+
+### **2.4 Bewegungssteuerung**  
+- **fq5lK3nuHMu6AR1AOolkVT**  
+  ▸ Funktion: Gelenkraum-Bewegung  
+  ▸ Parameter: `ip`, `q` (Gelenkwinkel), `a`/`v`/`t`/`r` (optional)  
+
+- **fepruq4N7v4MBNqsiIvLRc**  
+  ▸ Funktion: TCP-Linearbewegung  
+  ▸ Parameter: `ip`, `pose` (TCP-Position), `a`/`v`/`t`/`r` (optional)  
+
+- **fcKCrZ2H_lwnAe4P2uTJ4L**  
+  ▸ Funktion: Linearbewegung entlang X-Achse  
+  ▸ Parameter: `ip`, `distance` (Meter)  
+
+- **f77gv6fXQGTSKbsgemu8Np**  
+  ▸ Funktion: Linearbewegung entlang Y-Achse  
+  ▸ Parameter: `ip`, `distance`  
+
+- **f-bIJDZENUgzPrLJqOFvIs**  
+  ▸ Funktion: Linearbewegung entlang Z-Achse  
+  ▸ Parameter: `ip`, `distance`  
+
+---  
+
+### **2.5 Programmverwaltung**  
+- **ftdgwJLZQ2dYp2mB1ZtRPD**  
+  ▸ Funktion: Programm laden  
+  ▸ Parameter: `ip`, `program_name`  
+
+- **fl1XHdiQ-GgEJPB7rlMaHU**  
+  ▸ Funktion: Programm laden und ausführen  
+  ▸ Parameter: `ip`, `program_name`  
+
+- **fL8CYEkias2SbMtv0S7s-N**  
+  ▸ Funktion: Aktuelles Programm stoppen  
+  ▸ Parameter: `ip`  
+
+- **fkS98Mpak4obl30wTves1K**  
+  ▸ Funktion: Aktuelles Programm pausieren  
+  ▸ Parameter: `ip`  
+
+- **fV_tezoVRKYr9IiYnl2ezU**  
+  ▸ Funktion: Skriptprogramm senden  
+  ▸ Parameter: `ip`, `script`  
+
+---  
+
+### **2.6 Sensor- und Stromüberwachung**  
+- **fW18vf-tvLsFR-8coc2e5U**  
+  ▸ Funktion: Aktuelle Spannung abrufen  
+  ▸ Parameter: `ip`  
+
+- **fEK48x3yHMxEx14KQsVzjZ**  
+  ▸ Funktion: Aktuellen Strom abrufen  
+  ▸ Parameter: `ip`  
+
+- **fEh1yfbkyrh-kr2PDF7XI5**  
+  ▸ Funktion: Gelenkspannung abrufen  
+  ▸ Parameter: `ip`  
+
+- **fsmxaF8Agn8NF0mMegv3_f**  
+  ▸ Funktion: Gelenkstrom abrufen  
+  ▸ Parameter: `ip`  
+
+- **fdGsS6kwiGlY_zybhYQWrS**  
+  ▸ Funktion: Gelenktemperatur abrufen  
+  ▸ Parameter: `ip`  
+
+---  
+
+### **2.7 Echtzeit-Datenfeedback**  
+- **f6danXc2Pz98ilo5gMNc44**  
+  ▸ Funktion: Echtzeit-TCP-Koordinaten abrufen  
+  ▸ Parameter: `ip`  
+
+- **fwHgxwtA4blZuetfmJ3OiK**  
+  ▸ Funktion: Echtzeit-Gelenkwinkel abrufen  
+  ▸ Parameter: `ip`  
+
+---  
 
 
 ## 3. Haftungsausschluss

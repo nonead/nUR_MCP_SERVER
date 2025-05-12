@@ -125,57 +125,142 @@ LLM 기반 코드 생성 프레임워크로 자연어 명령을 URScript 로봇 
 - 동시 처리 능력: 200+ TPS
 
 
-### 2.1 UR 로봇의 모든 하드웨어 데이터 수집  
-**네트워크 스캔 기능**  
-fY6gJ6KcwVqfiiUFO-ogx1: 지정된 IP 범위에서 UR 로봇 스캔  
+### **2.1 네트워크 및 연결 관리**  
+- **fifQB5xNlEkpHGCAPl4DuR**  
+  ▸ 기능: 동일 네트워크 세그먼트의 UR 로봇 스캔  
+  ▸ 매개변수: `ip` (동일 네트워크 IP)  
 
-**연결 관리 기능**  
-fCf-PPsfx_yD_iZLURtGTV: 지정된 IP의 UR 로봇에 연결  
-fEd1Yp4RD3kiUSxqQlK1Va: UR 로봇 연결 해제  
+- **fE5gA9T733lcQ8Hd_MLP82**  
+  ▸ 기능: UR 로봇 연결  
+  ▸ 매개변수: `ip` (로봇 IP)  
 
-**기본 정보 수집**  
-fmMqIRbJZ4qRGJtRd59OJ-: 로봇 시리얼 번호 가져오기  
-f1ITpGFuwNDVfGfkNJzG2z: 소프트웨어 버전 가져오기  
-f8RnXWPeoSCCCvW3FuF_vS: 가동 시간 가져오기  
-fl_BhgXwRaQ8nzexSGjwa7: 안전 모드 가져오기  
+- **fsX43cYxV0PI4evuVyUBQb**  
+  ▸ 기능: UR 로봇 연결 해제  
+  ▸ 매개변수: `ip` (로봇 IP)  
 
-**레지스터 데이터 수집**  
-fRRbXKNWy6vXbSrRPmFLJa: Int 레지스터 값(0-23) 가져오기  
-fRjcTzBeNogyaJtYvJ7_E2: Double 레지스터 값(0-23) 가져오기  
-fJ_s1E0ywr6t9rkMOBWiq6: Double 레지스터 값(0-31) 가져오기  
+---  
 
-**상태 모니터링**  
-fVYZ0ocbfuml1VpA5JSNRo: 실시간 TCP 좌표 가져오기  
-fts21SISQrnyp_mb3jJy91: 실시간 관절 각도 가져오기  
-fmjZNwC7zxju_tLjiM8w4A: 작동 상태 가져오기  
-fy5NIEBXN7Kqecb1RkPhZN: 프로그램 실행 상태 가져오기  
+### **2.2 로봇 상태 모니터링**  
+- **fOIkmMPGlGGxwyw-3P9PLw**  
+  ▸ 기능: 가동 시간 확인  
+  ▸ 매개변수: `ip`  
 
-**전기 파라미터 모니터링**  
-fGU3ubp1fmrw-zPE2pyNDI: 현재 전압 가져오기  
-fl--FA0LvH9LBjXjVB0gGD: 현재 전류 가져오기  
-fb3HhLwWUa8s49OXpU5Iq8: 각 관절 전압 가져오기  
-frGKnkZFPFesyEXdGAxpD9: 각 관절 전류 가져오기  
-fzVxBGVvO7T3n3JbmAmvqB: 각 관절 온도 가져오기  
+- **fwyyKaqkrt6NBWXlSqhla2**  
+  ▸ 기능: 시리얼 번호 확인  
+  ▸ 매개변수: `ip`  
 
-### 2.2 UR 로봇 단일 명령 실행  
-**운동 제어 기능**  
-ffoF99tQZ6vcEqHQplHTjv: 관절 위치 명령 전송(movej)  
-fiF4Pmxs7LQTrG7hY4sQV8: TCP 직선 이동 명령 전송(movel)  
-fOyQY2wR6xzOZP3NxjpLjK: X축 직선 이동  
-fCV_0M8pdPIVJs3nMGo6XS: Y축 직선 이동  
-fWkTyW-C5rxUPe3U0WGSsm: Z축 직선 이동  
+- **f6sWepY5YsPIqDuVllQixz**  
+  ▸ 기능: 소프트웨어 버전 확인  
+  ▸ 매개변수: `ip`  
 
-### 2.3 대형 언어 모델로 UR 로봇 스크립트 프로그램 작성 및 실행  
+- **fJmgMj32RjjCxzg3n-OmKs**  
+  ▸ 기능: 안전 모드 확인  
+  ▸ 매개변수: `ip`  
 
-### 2.4 UR 로봇 내장 프로그램 실행  
-**프로그램 제어**  
-fE0WxXcDh3ENo8Q3fYul5K: UR 프로그램 로드  
-fDqpZeOA1_KF8ixwndRP8-: UR 프로그램 로드 및 실행  
-fH1AYKDXPCcGU1q3Ndrnwt: 현재 프로그램 정지  
-fVwECQj8_p85mT6KaggA-N: 현재 프로그램 일시 정지  
-f4cp0iAFlVXMWqz51ylP4Z: 프로그램 스크립트 전송  
+- **fAJNyeIvDxM49kypgXs9xx**  
+  ▸ 기능: 실행 상태 확인  
+  ▸ 매개변수: `ip`  
 
-### 2.5 다중 UR 로봇 연동  
+- **frXKuqREVTmRygel-MDG11**  
+  ▸ 기능: 프로그램 실행 상태 확인  
+  ▸ 매개변수: `ip`  
+
+---  
+
+### **2.3 레지스터 및 데이터 읽기**  
+- **fOXjbOy_B40SqwczE0zRRx**  
+  ▸ 기능: Int 레지스터 (0~23) 읽기  
+  ▸ 매개변수: `ip`, `index` (0-23)  
+
+- **ftWfHugqIFU3zE1k4szoST**  
+  ▸ 기능: Double 레지스터 (0~23) 읽기  
+  ▸ 매개변수: `ip`, `index` (0-23)  
+
+- **f-CXiO_NaDsWiwltfrDhks**  
+  ▸ 기능: Double 레지스터 (0~31) 읽기  
+  ▸ 매개변수: `ip`, `index` (0-31)  
+
+---  
+
+### **2.4 모션 제어**  
+- **fq5lK3nuHMu6AR1AOolkVT**  
+  ▸ 기능: 관절 공간 이동  
+  ▸ 매개변수: `ip`, `q` (관절 각도), `a`/`v`/`t`/`r` (선택 사항)  
+
+- **fepruq4N7v4MBNqsiIvLRc**  
+  ▸ 기능: TCP 직선 이동  
+  ▸ 매개변수: `ip`, `pose` (TCP 위치), `a`/`v`/`t`/`r` (선택 사항)  
+
+- **fcKCrZ2H_lwnAe4P2uTJ4L**  
+  ▸ 기능: X축 직선 이동  
+  ▸ 매개변수: `ip`, `distance` (미터)  
+
+- **f77gv6fXQGTSKbsgemu8Np**  
+  ▸ 기능: Y축 직선 이동  
+  ▸ 매개변수: `ip`, `distance`  
+
+- **f-bIJDZENUgzPrLJqOFvIs**  
+  ▸ 기능: Z축 직선 이동  
+  ▸ 매개변수: `ip`, `distance`  
+
+---  
+
+### **2.5 프로그램 관리**  
+- **ftdgwJLZQ2dYp2mB1ZtRPD**  
+  ▸ 기능: 프로그램 로드  
+  ▸ 매개변수: `ip`, `program_name`  
+
+- **fl1XHdiQ-GgEJPB7rlMaHU**  
+  ▸ 기능: 프로그램 로드 및 실행  
+  ▸ 매개변수: `ip`, `program_name`  
+
+- **fL8CYEkias2SbMtv0S7s-N**  
+  ▸ 기능: 현재 프로그램 중지  
+  ▸ 매개변수: `ip`  
+
+- **fkS98Mpak4obl30wTves1K**  
+  ▸ 기능: 현재 프로그램 일시 정지  
+  ▸ 매개변수: `ip`  
+
+- **fV_tezoVRKYr9IiYnl2ezU**  
+  ▸ 기능: 스크립트 프로그램 전송  
+  ▸ 매개변수: `ip`, `script`  
+
+---  
+
+### **2.6 센서 및 전력 모니터링**  
+- **fW18vf-tvLsFR-8coc2e5U**  
+  ▸ 기능: 현재 전압 확인  
+  ▸ 매개변수: `ip`  
+
+- **fEK48x3yHMxEx14KQsVzjZ**  
+  ▸ 기능: 현재 전류 확인  
+  ▸ 매개변수: `ip`  
+
+- **fEh1yfbkyrh-kr2PDF7XI5**  
+  ▸ 기능: 관절 전압 확인  
+  ▸ 매개변수: `ip`  
+
+- **fsmxaF8Agn8NF0mMegv3_f**  
+  ▸ 기능: 관절 전류 확인  
+  ▸ 매개변수: `ip`  
+
+- **fdGsS6kwiGlY_zybhYQWrS**  
+  ▸ 기능: 관절 온도 확인  
+  ▸ 매개변수: `ip`  
+
+---  
+
+### **2.7 실시간 데이터 피드백**  
+- **f6danXc2Pz98ilo5gMNc44**  
+  ▸ 기능: 실시간 TCP 좌표 확인  
+  ▸ 매개변수: `ip`  
+
+- **fwHgxwtA4blZuetfmJ3OiK**  
+  ▸ 기능: 실시간 관절 각도 확인  
+  ▸ 매개변수: `ip`  
+
+---  
 
 
 ## 3. 면책사항

@@ -146,57 +146,142 @@ Specifikationer:
 - Protokolkompatibilitet: MCP v2.1+/URScript 5.0+
 - Samtidig kapacitet: 200+ TPS
 
-### 2.1 Hent alle hardware-data for UR-robotter  
-**Netværksskanning**  
-fY6gJ6KcwVqfiiUFO-ogx1: Scan en bestemt IP-range for UR-robotter  
+### **2.1 Netværk og Forbindelseshåndtering**  
+- **fifQB5xNlEkpHGCAPl4DuR**  
+  ▸ Funktion: Scan UR-robotter i samme netværk  
+  ▸ Parametre: `ip` (IP i samme netværk)  
 
-**Forbindelseshåndtering**  
-fCf-PPsfx_yD_iZLURtGTV: Opret forbindelse til en UR-robot med en bestemt IP  
-fEd1Yp4RD3kiUSxqQlK1Va: Afbryd forbindelsen til en UR-robot  
+- **fE5gA9T733lcQ8Hd_MLP82**  
+  ▸ Funktion: Opret forbindelse til UR-robot  
+  ▸ Parametre: `ip` (robot-IP)  
 
-**Grundlæggende information**  
-fmMqIRbJZ4qRGJtRd59OJ-: Hent robot-seriensnummer  
-f1ITpGFuwNDVfGfkNJzG2z: Hent softwareversion  
-f8RnXWPeoSCCCvW3FuF_vS: Hent oppetid  
-fl_BhgXwRaQ8nzexSGjwa7: Hent sikkerhedstilstand  
+- **fsX43cYxV0PI4evuVyUBQb**  
+  ▸ Funktion: Afbryd forbindelse til UR-robot  
+  ▸ Parametre: `ip` (robot-IP)  
 
-**Registerdata**  
-fRRbXKNWy6vXbSrRPmFLJa: Hent Int-registerværdier (0-23)  
-fRjcTzBeNogyaJtYvJ7_E2: Hent Double-registerværdier (0-23)  
-fJ_s1E0ywr6t9rkMOBWiq6: Hent Double-registerværdier (0-31)  
+---  
 
-**Statusovervågning**  
-fVYZ0ocbfuml1VpA5JSNRo: Hent realtids TCP-koordinater  
-fts21SISQrnyp_mb3jJy91: Hent realtids ledvinkler  
-fmjZNwC7zxju_tLjiM8w4A: Hent køretilstand  
-fy5NIEBXN7Kqecb1RkPhZN: Hent programudførelsestilstand  
+### **2.2 Robotstatusovervågning**  
+- **fOIkmMPGlGGxwyw-3P9PLw**  
+  ▸ Funktion: Hent opetid  
+  ▸ Parametre: `ip`  
 
-**Elektriske parametre**  
-fGU3ubp1fmrw-zPE2pyNDI: Hent aktuel spænding  
-fl--FA0LvH9LBjXjVB0gGD: Hent aktuel strøm  
-fb3HhLwWUa8s49OXpU5Iq8: Hent ledspændinger  
-frGKnkZFPFesyEXdGAxpD9: Hent ledstrømme  
-fzVxBGVvO7T3n3JbmAmvqB: Hent ledtemperaturer  
+- **fwyyKaqkrt6NBWXlSqhla2**  
+  ▸ Funktion: Hent serienummer  
+  ▸ Parametre: `ip`  
 
-### 2.2 Udfør enkeltkommandoer for UR-robotter  
-**Bevægelseskontrol**  
-ffoF99tQZ6vcEqHQplHTjv: Send ledpositionskommando (movej)  
-fiF4Pmxs7LQTrG7hY4sQV8: Send TCP-lineær bevægelseskommando (movel)  
-fOyQY2wR6xzOZP3NxjpLjK: Lineær bevægelse langs X-aksen  
-fCV_0M8pdPIVJs3nMGo6XS: Lineær bevægelse langs Y-aksen  
-fWkTyW-C5rxUPe3U0WGSsm: Lineær bevægelse langs Z-aksen  
+- **f6sWepY5YsPIqDuVllQixz**  
+  ▸ Funktion: Hent softwareversion  
+  ▸ Parametre: `ip`  
 
-### 2.3 Skriv UR-robotsprogrammer med store sprogmodeller og udfør dem  
+- **fJmgMj32RjjCxzg3n-OmKs**  
+  ▸ Funktion: Hent sikkerhedstilstand  
+  ▸ Parametre: `ip`  
 
-### 2.4 Kør UR-robotters indbyggede programmer  
-**Programkontrol**  
-fE0WxXcDh3ENo8Q3fYul5K: Indlæs UR-program  
-fDqpZeOA1_KF8ixwndRP8-: Indlæs og udfør UR-program  
-fH1AYKDXPCcGU1q3Ndrnwt: Stop nuværende program  
-fVwECQj8_p85mT6KaggA-N: Pause nuværende program  
-f4cp0iAFlVXMWqz51ylP4Z: Send programscript  
+- **fAJNyeIvDxM49kypgXs9xx**  
+  ▸ Funktion: Hent køretilstand  
+  ▸ Parametre: `ip`  
 
-### 2.5 Koordinering af flere UR-robotter  
+- **frXKuqREVTmRygel-MDG11**  
+  ▸ Funktion: Hent programudførelsestilstand  
+  ▸ Parametre: `ip`  
+
+---  
+
+### **2.3 Register- og dataaflæsning**  
+- **fOXjbOy_B40SqwczE0zRRx**  
+  ▸ Funktion: Læs Int-register (0~23)  
+  ▸ Parametre: `ip`, `index` (0-23)  
+
+- **ftWfHugqIFU3zE1k4szoST**  
+  ▸ Funktion: Læs Double-register (0~23)  
+  ▸ Parametre: `ip`, `index` (0-23)  
+
+- **f-CXiO_NaDsWiwltfrDhks**  
+  ▸ Funktion: Læs Double-register (0~31)  
+  ▸ Parametre: `ip`, `index` (0-31)  
+
+---  
+
+### **2.4 Bevægelseskontrol**  
+- **fq5lK3nuHMu6AR1AOolkVT**  
+  ▸ Funktion: Bevægelse i ledrum  
+  ▸ Parametre: `ip`, `q` (ledvinkler), `a`/`v`/`t`/`r` (valgfrit)  
+
+- **fepruq4N7v4MBNqsiIvLRc**  
+  ▸ Funktion: TCP-lineær bevægelse  
+  ▸ Parametre: `ip`, `pose` (TCP-position), `a`/`v`/`t`/`r` (valgfrit)  
+
+- **fcKCrZ2H_lwnAe4P2uTJ4L**  
+  ▸ Funktion: Lineær bevægelse langs X-aksen  
+  ▸ Parametre: `ip`, `distance` (meter)  
+
+- **f77gv6fXQGTSKbsgemu8Np**  
+  ▸ Funktion: Lineær bevægelse langs Y-aksen  
+  ▸ Parametre: `ip`, `distance`  
+
+- **f-bIJDZENUgzPrLJqOFvIs**  
+  ▸ Funktion: Lineær bevægelse langs Z-aksen  
+  ▸ Parametre: `ip`, `distance`  
+
+---  
+
+### **2.5 Programhåndtering**  
+- **ftdgwJLZQ2dYp2mB1ZtRPD**  
+  ▸ Funktion: Indlæs program  
+  ▸ Parametre: `ip`, `program_name`  
+
+- **fl1XHdiQ-GgEJPB7rlMaHU**  
+  ▸ Funktion: Indlæs og udfør program  
+  ▸ Parametre: `ip`, `program_name`  
+
+- **fL8CYEkias2SbMtv0S7s-N**  
+  ▸ Funktion: Stop nuværende program  
+  ▸ Parametre: `ip`  
+
+- **fkS98Mpak4obl30wTves1K**  
+  ▸ Funktion: Paus nuværende program  
+  ▸ Parametre: `ip`  
+
+- **fV_tezoVRKYr9IiYnl2ezU**  
+  ▸ Funktion: Send scriptprogram  
+  ▸ Parametre: `ip`, `script`  
+
+---  
+
+### **2.6 Sensor- og strømovervågning**  
+- **fW18vf-tvLsFR-8coc2e5U**  
+  ▸ Funktion: Hent nuværende spænding  
+  ▸ Parametre: `ip`  
+
+- **fEK48x3yHMxEx14KQsVzjZ**  
+  ▸ Funktion: Hent nuværende strøm  
+  ▸ Parametre: `ip`  
+
+- **fEh1yfbkyrh-kr2PDF7XI5**  
+  ▸ Funktion: Hent ledspænding  
+  ▸ Parametre: `ip`  
+
+- **fsmxaF8Agn8NF0mMegv3_f**  
+  ▸ Funktion: Hent ledstrøm  
+  ▸ Parametre: `ip`  
+
+- **fdGsS6kwiGlY_zybhYQWrS**  
+  ▸ Funktion: Hent ledtemperatur  
+  ▸ Parametre: `ip`  
+
+---  
+
+### **2.7 Realtidsdatafeedback**  
+- **f6danXc2Pz98ilo5gMNc44**  
+  ▸ Funktion: Hent realtids TCP-koordinater  
+  ▸ Parametre: `ip`  
+
+- **fwHgxwtA4blZuetfmJ3OiK**  
+  ▸ Funktion: Hent realtids ledvinkler  
+  ▸ Parametre: `ip`  
+
+---  
 
 ## 3. Ansvarsfraskrivelse
 

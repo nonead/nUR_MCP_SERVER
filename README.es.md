@@ -127,57 +127,142 @@ Latencia: <200ms (end-to-end)
 Compatibilidad: MCP v2.1+/URScript v5.0+
 Capacidad concurrente: 200+ TPS
 
-### 2.1 Obtener todos los datos de hardware de robots UR  
-**Función de escaneo de red**  
-fY6gJ6KcwVqfiiUFO-ogx1: Escanear un rango de IP específico para robots UR  
+### **2.1 Gestión de red y conexiones**  
+- **fifQB5xNlEkpHGCAPl4DuR**  
+  ▸ Función: Escanear robots UR en el mismo segmento de red  
+  ▸ Parámetros: `ip` (IP del mismo segmento)  
 
-**Gestión de conexiones**  
-fCf-PPsfx_yD_iZLURtGTV: Conectar con un robot UR en una IP específica  
-fEd1Yp4RD3kiUSxqQlK1Va: Desconectar de un robot UR  
+- **fE5gA9T733lcQ8Hd_MLP82**  
+  ▸ Función: Conectar con robot UR  
+  ▸ Parámetros: `ip` (IP del robot)  
 
-**Información básica**  
-fmMqIRbJZ4qRGJtRd59OJ-: Obtener número de serie del robot  
-f1ITpGFuwNDVfGfkNJzG2z: Obtener versión del software  
-f8RnXWPeoSCCCvW3FuF_vS: Obtener tiempo de encendido  
-fl_BhgXwRaQ8nzexSGjwa7: Obtener modo de seguridad  
+- **fsX43cYxV0PI4evuVyUBQb**  
+  ▸ Función: Desconectar de robot UR  
+  ▸ Parámetros: `ip` (IP del robot)  
 
-**Datos de registros**  
-fRRbXKNWy6vXbSrRPmFLJa: Obtener valores de registros Int (0-23)  
-fRjcTzBeNogyaJtYvJ7_E2: Obtener valores de registros Double (0-23)  
-fJ_s1E0ywr6t9rkMOBWiq6: Obtener valores de registros Double (0-31)  
+---  
 
-**Monitoreo de estado**  
-fVYZ0ocbfuml1VpA5JSNRo: Obtener coordenadas TCP en tiempo real  
-fts21SISQrnyp_mb3jJy91: Obtener ángulos de articulaciones en tiempo real  
-fmjZNwC7zxju_tLjiM8w4A: Obtener estado de funcionamiento  
-fy5NIEBXN7Kqecb1RkPhZN: Obtener estado de ejecución del programa  
+### **2.2 Monitoreo de estado del robot**  
+- **fOIkmMPGlGGxwyw-3P9PLw**  
+  ▸ Función: Obtener tiempo de actividad  
+  ▸ Parámetros: `ip`  
 
-**Parámetros eléctricos**  
-fGU3ubp1fmrw-zPE2pyNDI: Obtener voltaje actual  
-fl--FA0LvH9LBjXjVB0gGD: Obtener corriente actual  
-fb3HhLwWUa8s49OXpU5Iq8: Obtener voltajes de articulaciones  
-frGKnkZFPFesyEXdGAxpD9: Obtener corrientes de articulaciones  
-fzVxBGVvO7T3n3JbmAmvqB: Obtener temperaturas de articulaciones  
+- **fwyyKaqkrt6NBWXlSqhla2**  
+  ▸ Función: Obtener número de serie  
+  ▸ Parámetros: `ip`  
 
-### 2.2 Ejecutar comandos individuales para robots UR  
-**Control de movimiento**  
-ffoF99tQZ6vcEqHQplHTjv: Enviar comando de posición articular (movej)  
-fiF4Pmxs7LQTrG7hY4sQV8: Enviar comando de movimiento lineal TCP (movel)  
-fOyQY2wR6xzOZP3NxjpLjK: Movimiento lineal a lo largo del eje X  
-fCV_0M8pdPIVJs3nMGo6XS: Movimiento lineal a lo largo del eje Y  
-fWkTyW-C5rxUPe3U0WGSsm: Movimiento lineal a lo largo del eje Z  
+- **f6sWepY5YsPIqDuVllQixz**  
+  ▸ Función: Obtener versión de software  
+  ▸ Parámetros: `ip`  
 
-### 2.3 Escribir programas para robots UR con modelos de lenguaje grande y ejecutarlos  
+- **fJmgMj32RjjCxzg3n-OmKs**  
+  ▸ Función: Obtener modo de seguridad  
+  ▸ Parámetros: `ip`  
 
-### 2.4 Ejecutar programas integrados de robots UR  
-**Control de programas**  
-fE0WxXcDh3ENo8Q3fYul5K: Cargar programa UR  
-fDqpZeOA1_KF8ixwndRP8-: Cargar y ejecutar programa UR  
-fH1AYKDXPCcGU1q3Ndrnwt: Detener programa actual  
-fVwECQj8_p85mT6KaggA-N: Pausar programa actual  
-f4cp0iAFlVXMWqz51ylP4Z: Enviar script de programa  
+- **fAJNyeIvDxM49kypgXs9xx**  
+  ▸ Función: Obtener estado de operación  
+  ▸ Parámetros: `ip`  
 
-### 2.5 Coordinación de múltiples robots UR  
+- **frXKuqREVTmRygel-MDG11**  
+  ▸ Función: Obtener estado de ejecución de programa  
+  ▸ Parámetros: `ip`  
+
+---  
+
+### **2.3 Lectura de registros y datos**  
+- **fOXjbOy_B40SqwczE0zRRx**  
+  ▸ Función: Leer registro Int (0~23)  
+  ▸ Parámetros: `ip`, `index` (0-23)  
+
+- **ftWfHugqIFU3zE1k4szoST**  
+  ▸ Función: Leer registro Double (0~23)  
+  ▸ Parámetros: `ip`, `index` (0-23)  
+
+- **f-CXiO_NaDsWiwltfrDhks**  
+  ▸ Función: Leer registro Double (0~31)  
+  ▸ Parámetros: `ip`, `index` (0-31)  
+
+---  
+
+### **2.4 Control de movimiento**  
+- **fq5lK3nuHMu6AR1AOolkVT**  
+  ▸ Función: Movimiento en espacio articular  
+  ▸ Parámetros: `ip`, `q` (ángulos articulares), `a`/`v`/`t`/`r` (opcional)  
+
+- **fepruq4N7v4MBNqsiIvLRc**  
+  ▸ Función: Movimiento lineal TCP  
+  ▸ Parámetros: `ip`, `pose` (posición TCP), `a`/`v`/`t`/`r` (opcional)  
+
+- **fcKCrZ2H_lwnAe4P2uTJ4L**  
+  ▸ Función: Movimiento lineal en eje X  
+  ▸ Parámetros: `ip`, `distance` (metros)  
+
+- **f77gv6fXQGTSKbsgemu8Np**  
+  ▸ Función: Movimiento lineal en eje Y  
+  ▸ Parámetros: `ip`, `distance`  
+
+- **f-bIJDZENUgzPrLJqOFvIs**  
+  ▸ Función: Movimiento lineal en eje Z  
+  ▸ Parámetros: `ip`, `distance`  
+
+---  
+
+### **2.5 Gestión de programas**  
+- **ftdgwJLZQ2dYp2mB1ZtRPD**  
+  ▸ Función: Cargar programa  
+  ▸ Parámetros: `ip`, `program_name`  
+
+- **fl1XHdiQ-GgEJPB7rlMaHU**  
+  ▸ Función: Cargar y ejecutar programa  
+  ▸ Parámetros: `ip`, `program_name`  
+
+- **fL8CYEkias2SbMtv0S7s-N**  
+  ▸ Función: Detener programa actual  
+  ▸ Parámetros: `ip`  
+
+- **fkS98Mpak4obl30wTves1K**  
+  ▸ Función: Pausar programa actual  
+  ▸ Parámetros: `ip`  
+
+- **fV_tezoVRKYr9IiYnl2ezU**  
+  ▸ Función: Enviar programa de script  
+  ▸ Parámetros: `ip`, `script`  
+
+---  
+
+### **2.6 Monitoreo de sensores y energía**  
+- **fW18vf-tvLsFR-8coc2e5U**  
+  ▸ Función: Obtener voltaje actual  
+  ▸ Parámetros: `ip`  
+
+- **fEK48x3yHMxEx14KQsVzjZ**  
+  ▸ Función: Obtener corriente actual  
+  ▸ Parámetros: `ip`  
+
+- **fEh1yfbkyrh-kr2PDF7XI5**  
+  ▸ Función: Obtener voltaje articular  
+  ▸ Parámetros: `ip`  
+
+- **fsmxaF8Agn8NF0mMegv3_f**  
+  ▸ Función: Obtener corriente articular  
+  ▸ Parámetros: `ip`  
+
+- **fdGsS6kwiGlY_zybhYQWrS**  
+  ▸ Función: Obtener temperatura articular  
+  ▸ Parámetros: `ip`  
+
+---  
+
+### **2.7 Retroalimentación de datos en tiempo real**  
+- **f6danXc2Pz98ilo5gMNc44**  
+  ▸ Función: Obtener coordenadas TCP en tiempo real  
+  ▸ Parámetros: `ip`  
+
+- **fwHgxwtA4blZuetfmJ3OiK**  
+  ▸ Función: Obtener ángulos articulares en tiempo real  
+  ▸ Parámetros: `ip`  
+
+---  
 
 
 ## 3. Declaración de responsabilidad
