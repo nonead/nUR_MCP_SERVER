@@ -17,7 +17,7 @@ import sys
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-
+ 
 class URTools(str, Enum):
     SCAN = "scan_ur"
     CONNECT = "connect_ur"
