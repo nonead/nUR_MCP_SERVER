@@ -535,7 +535,7 @@ Here are some example tasks you can instruct the LLM to execute:
 ## 6. Technical Architecture  
 
 MCP adopts a client-server architecture, enabling standardized communication between models and external resources.
-![pic alt](./images/MCP.svg "mcp")
+![pic alt](./images/MCP.svg "mcp")  
 ### Client-Server Model  
 The MCP architecture consists of the following core components:  
 
