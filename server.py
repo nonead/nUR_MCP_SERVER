@@ -9,7 +9,6 @@ from mcp.types import Tool, TextContent, ImageContent, EmbeddedResource
 from mcp.shared.exceptions import McpError
 
 from pydantic import BaseModel
-
 import URBasic
 from URBasic import RobotModel, DashBoard
 
@@ -17,9 +16,8 @@ import sys
 
 sys.stdout.reconfigure(encoding='utf-8')
 
- 
+
 class URTools(str, Enum):
-    SCAN = "scan_ur"
     CONNECT = "connect_ur"
     DISCONNECT = "disconnect_ur"
     GET_TIME = "get_time"
@@ -48,6 +46,7 @@ class URTools(str, Enum):
     GET_UR_SOFTWARE_VERSION = "get_ur_software_version"
     GET_SAFETY_MODE = "get_safety_mode"
     SEND_PROGRAM_SCRIPT = "send_program_script"
+    DRAW_CIRCLE = "draw_circle"
 
 
 class CommandResult(BaseModel):
@@ -83,11 +82,16 @@ class URServer:
         """发送新的关节姿态到UR机器人"""
         self.link_check(ip)
         cmd = f"movej({q},{a},{v},{t},{r})"
-
         self.robot[ip].movej(q, a, v, t, r)
-        return CommandResult(
-            txt=f"Command {cmd} has been sent to UR robot."
-        )
+        result = self.movejConfirm(ip, q)
+        if result == 1:
+            return CommandResult(
+                txt=f"命令 {cmd} 已发送，移动完成。"
+            )
+        else:
+            return CommandResult(
+                txt=f"命令 {cmd} 已发送，移动失败。"
+            )
 
     def load_urp(self, ip, name):
         """加载指定UR程序"""
@@ -132,12 +136,18 @@ class URServer:
     def movel(self, ip, pose, a=1, v=1, t=0, r=0):
         """直线移动"""
         self.link_check(ip)
-        cmd = f"movel({pose},{a},{v},{t},{r})"
 
         self.robot[ip].movel(pose, a, v, t, r)
-        return CommandResult(
-            txt=f"Command {cmd} has been sent to UR robot."
-        )
+        result = self.movelConfirm(ip, pose)
+        cmd = f"movel(p{pose},{a},{v},{t},{r})"
+        if result == 1:
+            return CommandResult(
+                txt=f"命令 {cmd} 已发送，移动完成。"
+            )
+        else:
+            return CommandResult(
+                txt=f"命令 {cmd} 已发送，移动失败。"
+            )
 
     def connect_ur(self, ip):
         """连接UR"""
@@ -178,18 +188,18 @@ class URServer:
         """命令TCP沿X轴方向移动"""
         self.link_check(ip)
         pose = self.robot[ip].get_actual_tcp_pose()
-
         pose[0] = pose[0] + distance
         self.robot[ip].movel(pose)
-        # result = self.movelConfirm(ip, pose)
-        # while not result:
-        #     result = self.movelConfirm(ip, pose)
-        #     sleep(1)
-
-        cmd = f"movel({pose},0.5,0.25,0,0)"
-        return CommandResult(
-            txt=f"命令 {cmd} 已发送"
-        )
+        result = self.movelConfirm(ip, pose)
+        cmd = f"movel(p[{'{:.4f}'.format(pose[0])},{'{:.4f}'.format(pose[1])},{'{:.4f}'.format(pose[2])},{'{:.4f}'.format(pose[3])},{'{:.4f}'.format(pose[4])},{'{:.4f}'.format(pose[5])},],0.5,0.25,0,0)"
+        if result == 1:
+            return CommandResult(
+                txt=f"命令 {cmd} 已发送，移动完成。"
+            )
+        else:
+            return CommandResult(
+                txt=f"命令 {cmd} 已发送，移动失败。"
+            )
 
     def get_serial_number(self, ip):
         """获取机器人序列号"""
@@ -206,10 +216,16 @@ class URServer:
         pose[1] = pose[1] + distance
 
         self.robot[ip].movel(pose)
-        cmd = f"movel({pose},0.5,0.25,0,0)"
-        return CommandResult(
-            txt=f"命令 {cmd} 已发送"
-        )
+        result = self.movelConfirm(ip, pose)
+        cmd = f"movel(p[{'{:.4f}'.format(pose[0])},{'{:.4f}'.format(pose[1])},{'{:.4f}'.format(pose[2])},{'{:.4f}'.format(pose[3])},{'{:.4f}'.format(pose[4])},{'{:.4f}'.format(pose[5])},],0.5,0.25,0,0)"
+        if result == 1:
+            return CommandResult(
+                txt=f"命令 {cmd} 已发送，移动完成。"
+            )
+        else:
+            return CommandResult(
+                txt=f"命令 {cmd} 已发送，移动失败。"
+            )
 
     def movel_z(self, ip, distance):
         """命令TCP沿Z轴方向移动"""
@@ -217,10 +233,16 @@ class URServer:
         pose = self.robot[ip].get_actual_tcp_pose()
         pose[2] = pose[2] + distance
         self.robot[ip].movel(pose)
-        cmd = f"movel({pose},0.5,0.25,0,0)"
-        return CommandResult(
-            txt=f"命令 {cmd} 已发送"
-        )
+        result = self.movelConfirm(ip, pose)
+        cmd = f"movel(p[{'{:.4f}'.format(pose[0])},{'{:.4f}'.format(pose[1])},{'{:.4f}'.format(pose[2])},{'{:.4f}'.format(pose[3])},{'{:.4f}'.format(pose[4])},{'{:.4f}'.format(pose[5])},],0.5,0.25,0,0)"
+        if result == 1:
+            return CommandResult(
+                txt=f"命令 {cmd} 已发送，移动完成。"
+            )
+        else:
+            return CommandResult(
+                txt=f"命令 {cmd} 已发送，移动失败。"
+            )
 
     def get_output_int_register(self, ip, index):
         """获取Int寄存器的值"""
@@ -254,51 +276,6 @@ class URServer:
         return CommandResult(
             txt=f"{bits[index]}"
         )
-
-    def scan_ur(self, ip):
-        """扫描网段内的所有UR机器人"""
-        ip_pre = remove_last_part(ip)
-        result = []
-        for i in range(173, 175):
-            robotModel = RobotModel()
-            robotModel.ipAddress = f"{ip_pre}.{i}"
-            # self._logger.info(f'{robotModel.ipAddress}====start')
-            dashboard = DashBoard(robotModel)
-            dashboard.ur_polyscopeVersion()
-
-            res = dashboard.last_respond
-            if res is not None and "URSoftware" in res:
-                result.append(robotModel.ipAddress)
-
-            dashboard.close()
-            self._logger.info(f'q{result}')
-
-        self._logger.info(f'w{result}')
-        self._logger.info(len(result))
-        if result is None or len(result) == 0:
-            # self._logger.info(f'e{result}')
-            return CommandResult(
-                txt=f"未发现UR。"
-            )
-        self._logger.info(f'r{result}')
-        separator = '-'
-        result_string = separator.join(result)
-        self._logger.info(f't{result_string}')
-        return CommandResult(
-            txt=result_string
-        )
-        # try:
-        #     index = 0
-        #     for i in range(2):
-        #         sleep(1)
-        #         self._logger.info(f'q{index}')
-        #         index = index + 1
-        #     self._logger.info(f't{index}')
-        #     return CommandResult(
-        #         txt=str(index)
-        #     )
-        # except Exception as e:
-        #     self._logger.info(e)
 
     def get_actual_robot_voltage(self, ip):
         """获取机器人电压"""
@@ -346,11 +323,17 @@ class URServer:
         prog_state = self.robot[ip].robotConnector.DashboardClient.last_respond
         self.robot[ip].robotConnector.DashboardClient.ur_isProgramSaved()
         flg = self.robot[ip].robotConnector.DashboardClient.last_respond
+        self.robot[ip].robotConnector.DashboardClient.ur_running()
+        running = self.robot[ip].robotConnector.DashboardClient.last_respond
+
         prog_saved = ''
+        prog_running = ''
         if flg.startswith("false"):
             prog_saved = '程序未保存，请及时保存或备份正在编辑的程序。'
+        if running == 'Program running: true':
+            prog_running = '机械臂正在动作。'
         return CommandResult(
-            txt=f"IP为{ip}的优傲机器人当前加载的程序是：{prog_name}，程序的执行状态是：{prog_state}。{prog_saved}"
+            txt=f"IP为{ip}的优傲机器人当前加载的程序是：{prog_name}，程序的执行状态是：{prog_state}。{prog_saved}。{prog_running}"
         )
 
     def get_ur_software_version(self, ip):
@@ -372,6 +355,7 @@ class URServer:
     def send_program_script(self, ip, script):
         self.link_check(ip)
         self.robot[ip].robotConnector.RealTimeClient.SendProgram(script)
+
         return CommandResult(
             txt=f"脚本程序已发送。"
         )
@@ -388,39 +372,125 @@ class URServer:
         '''
         movel移动的结果确认
         1：移动到位
-        2：未产生移动
-        3：发生移动，但是位置不准确
+        2：移动结束，但是位置不准确
         '''
-        current_pose = self.round_pose(self.robot[ip].get_actual_tcp_pose())
-
-        if current_pose[0] == pose[0] and current_pose[1] == pose[1] and current_pose[2] == pose[2]:
-            return 1
-        else:
-            loop_flg = True
+        loop_flg = True
+        count = 0
+        while loop_flg:
             sleep(1)
-            count = 0
-            while loop_flg:
-                current_pose_1 = self.round_pose(self.robot[ip].get_actual_tcp_pose())
-                if current_pose[0] == current_pose_1[0] and current_pose[1] == current_pose_1[1] and current_pose[2] == current_pose_1[2]:
-                    count = count + 1
-                    if count > 30:
-                        return 2
+            current_pose = self.round_pose(self.robot[ip].get_actual_tcp_pose())
+            if self.right_pose_tcp(current_pose, pose):
+                self.robot[ip].robotConnector.DashboardClient.ur_running()
+                running = self.robot[ip].robotConnector.DashboardClient.last_respond
+                if running == 'Program running: false':
+                    return 1
+            else:
+                self.robot[ip].robotConnector.DashboardClient.ur_running()
+                running = self.robot[ip].robotConnector.DashboardClient.last_respond
+
+                if running == 'Program running: true':
+                    '''尚未移动完成'''
                     continue
                 else:
-                    current_pose = current_pose_1
-                    if current_pose[0] == pose[0] and current_pose[1] == pose[1] and current_pose[2] == pose[2]:
-                        return 1
-        return 1
+                    '''移动完成'''
+                    count = count + 1
+                    if count > 5:
+                        return 2
 
     def round_pose(self, pose):
         '''给坐标取近似值，精确到三位小数'''
         pose[0] = round(pose[0], 3)
         pose[1] = round(pose[1], 3)
         pose[2] = round(pose[2], 3)
-        pose[2] = round(pose[3], 3)
+        pose[3] = round(pose[3], 3)
         pose[4] = round(pose[4], 3)
         pose[5] = round(pose[5], 3)
         return pose
+
+    def right_pose_tcp(self, current_pose_1, pose):
+        '''tcp位置是否一致的校验，这里允许10mm的误差'''
+        if pose[0] + 0.010 >= current_pose_1[0] >= pose[0] - 0.010:
+            if pose[1] + 0.010 >= current_pose_1[1] >= pose[1] - 0.010:
+                if pose[2] + 0.010 >= current_pose_1[2] >= pose[2] - 0.010:
+                    return True
+
+        return False
+
+    # def ur_is_running(self,ip):
+    def movejConfirm(self, ip, q):
+        '''
+        movej移动的结果确认
+        1：移动到位
+        2：移动结束，但是位置不准确
+        '''
+        loop_flg = True
+        count = 0
+        while loop_flg:
+            sleep(1)
+            current_pose = self.round_pose(self.robot[ip].get_actual_joint_positions())
+            if self.right_pose_joint(current_pose, q):
+                self.robot[ip].robotConnector.DashboardClient.ur_running()
+                running = self.robot[ip].robotConnector.DashboardClient.last_respond
+                if running == 'Program running: false':
+                    return 1
+            else:
+                self.robot[ip].robotConnector.DashboardClient.ur_running()
+                running = self.robot[ip].robotConnector.DashboardClient.last_respond
+
+                if running == 'Program running: true':
+                    # 尚未移动完成
+                    continue
+                else:
+                    # 移动完成
+                    count = count + 1
+                    if count > 5:
+                        return 2
+
+    def right_pose_joint(self, current_pose, q):
+        '''关节的弧度验证，允许0.1的误差,按角度计算大约5度'''
+        if q[0] + 0.1 >= current_pose[0] >= q[0] - 0.1:
+            if q[1] + 0.1 >= current_pose[1] >= q[1] - 0.1:
+                if q[2] + 0.1 >= current_pose[2] >= q[2] - 0.1:
+                    if q[3] + 0.1 >= current_pose[3] >= q[3] - 0.1:
+                        if q[4] + 0.1 >= current_pose[4] >= q[4] - 0.1:
+                            if q[5] + 0.1 >= current_pose[5] >= q[5] - 0.1:
+                                return True
+        return False
+
+    def draw_circle(self, ip, center, r, coordinate="x"):
+        self.link_check(ip)
+        wp_1 = [center[0],center[1],center[2],center[3],center[4],center[5]]
+        wp_2 = [center[0],center[1],center[2],center[3],center[4],center[5]]
+        wp_3 = [center[0],center[1],center[2],center[3],center[4],center[5]]
+        wp_4 = [center[0],center[1],center[2],center[3],center[4],center[5]]
+        x = 0
+        y = 0
+        z = 0
+        cmd = ''
+        if coordinate.lower() == "z":
+            wp_1[2] = wp_1[2] + r
+
+            wp_2[1] = wp_2[1] + r
+
+            wp_3[2] = wp_3[2] - r
+
+            wp_4[1] = wp_4[1] - r
+        else:
+            wp_1[0] = wp_1[0] - r
+
+            wp_2[1] = wp_2[1] + r
+
+            wp_3[0] = wp_3[0] + r
+
+            wp_4[1] = wp_4[1] - r
+
+        cmd = (f"movep(p{str(wp_1)}, a=1, v=0.25, r=0.025)\nmovec(p{str(wp_2)}, p{str(wp_3)}, a=1, v=0.25, "
+               f"r=0.025, mode=0)\nmovec(p{str(wp_4)}, p{str(wp_1)}, a=1, v=0.25, r=0.025, mode=0)")
+
+        self.robot[ip].robotConnector.RealTimeClient.SendProgram(cmd)
+        return CommandResult(
+            txt=f"命令已发送：{cmd}"
+        )
 
 
 async def serve():
@@ -432,20 +502,6 @@ async def serve():
     async def list_tools() -> list[Tool]:
         """接口列表."""
         return [
-            Tool(
-                name=URTools.SCAN.value,
-                description="根据用户提供的IP，扫描该IP同一网段内的UR机器人。执行失败时停止动作。",
-                inputSchema={
-                    "type": "object",
-                    "properties": {
-                        "ip": {
-                            "type": "string",
-                            "description": f"机器人同网段的IP",
-                        }
-                    },
-                    "required": ["ip"],
-                },
-            ),
             Tool(
                 name=URTools.CONNECT.value,
                 description="连接UR机器人，连接成功之后才可以发送其它命令。执行失败时停止动作。",
@@ -902,6 +958,35 @@ async def serve():
                     "required": ["ip", "script"],
                 },
             ),
+            Tool(
+                name=URTools.DRAW_CIRCLE.value,
+                description="命令机器人在x画圆。执行失败时停止动作。",
+                inputSchema={
+                    "type": "object",
+                    "properties": {
+                        "ip": {
+                            "type": "string",
+                            "description": f"机器人IP",
+                        },
+                        "center": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            },
+                            "description": f"圆心的TCP位置",
+                        },
+                        "r": {
+                            "type": "number",
+                            "description": f"半径（米）",
+                        },
+                        "coordinate": {
+                            "type": "string",
+                            "description": f"圆所在的平面。x：圆心所在的与基座平行的水平平面,其它：圆心所在的与基座的垂直平面。",
+                        }
+                    },
+                    "required": ["ip", "center", "r"],
+                },
+            ),
         ]
 
     @server.call_tool()
@@ -1180,13 +1265,14 @@ async def serve():
                     ):
                         raise ValueError("Missing required arguments")
                     result = ur_server.send_program_script(arguments["ip"], arguments["script"])
-                case URTools.SCAN.value:
+                case URTools.DRAW_CIRCLE.value:
                     if not all(
                             k in arguments
-                            for k in ["ip"]
+                            for k in ["ip", "center", "r"]
                     ):
                         raise ValueError("Missing required arguments")
-                    result = ur_server.scan_ur(arguments["ip"])
+                    result = ur_server.draw_circle(arguments["ip"], arguments["center"], arguments["r"]
+                                                   , arguments["coordinate"])
                 case _:
                     raise ValueError(f"Unknown tool: {name}")
 
