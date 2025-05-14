@@ -129,142 +129,39 @@ Technical Specifications:
 - Protocol Compatibility: MCP v2.1+ / URScript v5.0+.  
 - Concurrent Processing Capacity: 200+ TPS.
 
-### **2.1 Network and Connection Management**  
-- **fifQB5xNlEkpHGCAPl4DuR**  
-  ▸ Function: Scan UR robots in the same network segment  
-  ▸ Parameters: `ip` (same network segment IP)  
+**Function Classification Table of nUR_MCP_SERVER Tool:**  
 
-- **fE5gA9T733lcQ8Hd_MLP82**  
-  ▸ Function: Connect to UR robot  
-  ▸ Parameters: `ip` (robot IP)  
-
-- **fsX43cYxV0PI4evuVyUBQb**  
-  ▸ Function: Disconnect from UR robot  
-  ▸ Parameters: `ip` (robot IP)  
-
----  
-
-### **2.2 Robot Status Monitoring**  
-- **fOIkmMPGlGGxwyw-3P9PLw**  
-  ▸ Function: Get uptime  
-  ▸ Parameters: `ip`  
-
-- **fwyyKaqkrt6NBWXlSqhla2**  
-  ▸ Function: Get serial number  
-  ▸ Parameters: `ip`  
-
-- **f6sWepY5YsPIqDuVllQixz**  
-  ▸ Function: Get software version  
-  ▸ Parameters: `ip`  
-
-- **fJmgMj32RjjCxzg3n-OmKs**  
-  ▸ Function: Get safety mode  
-  ▸ Parameters: `ip`  
-
-- **fAJNyeIvDxM49kypgXs9xx**  
-  ▸ Function: Get operation status  
-  ▸ Parameters: `ip`  
-
-- **frXKuqREVTmRygel-MDG11**  
-  ▸ Function: Get program execution status  
-  ▸ Parameters: `ip`  
-
----  
-
-### **2.3 Register and Data Reading**  
-- **fOXjbOy_B40SqwczE0zRRx**  
-  ▸ Function: Read Int register (0~23)  
-  ▸ Parameters: `ip`, `index` (0-23)  
-
-- **ftWfHugqIFU3zE1k4szoST**  
-  ▸ Function: Read Double register (0~23)  
-  ▸ Parameters: `ip`, `index` (0-23)  
-
-- **f-CXiO_NaDsWiwltfrDhks**  
-  ▸ Function: Read Double register (0~31)  
-  ▸ Parameters: `ip`, `index` (0-31)  
-
----  
-
-### **2.4 Motion Control**  
-- **fq5lK3nuHMu6AR1AOolkVT**  
-  ▸ Function: Joint space movement  
-  ▸ Parameters: `ip`, `q` (joint angles), `a`/`v`/`t`/`r` (optional)  
-
-- **fepruq4N7v4MBNqsiIvLRc**  
-  ▸ Function: TCP linear movement  
-  ▸ Parameters: `ip`, `pose` (TCP pose), `a`/`v`/`t`/`r` (optional)  
-
-- **fcKCrZ2H_lwnAe4P2uTJ4L**  
-  ▸ Function: Linear movement along X axis  
-  ▸ Parameters: `ip`, `distance` (meters)  
-
-- **f77gv6fXQGTSKbsgemu8Np**  
-  ▸ Function: Linear movement along Y axis  
-  ▸ Parameters: `ip`, `distance`  
-
-- **f-bIJDZENUgzPrLJqOFvIs**  
-  ▸ Function: Linear movement along Z axis  
-  ▸ Parameters: `ip`, `distance`  
-
----  
-
-### **2.5 Program Management**  
-- **ftdgwJLZQ2dYp2mB1ZtRPD**  
-  ▸ Function: Load program  
-  ▸ Parameters: `ip`, `program_name`  
-
-- **fl1XHdiQ-GgEJPB7rlMaHU**  
-  ▸ Function: Load and execute program  
-  ▸ Parameters: `ip`, `program_name`  
-
-- **fL8CYEkias2SbMtv0S7s-N**  
-  ▸ Function: Stop current program  
-  ▸ Parameters: `ip`  
-
-- **fkS98Mpak4obl30wTves1K**  
-  ▸ Function: Pause current program  
-  ▸ Parameters: `ip`  
-
-- **fV_tezoVRKYr9IiYnl2ezU**  
-  ▸ Function: Send script program  
-  ▸ Parameters: `ip`, `script`  
-
----  
-
-### **2.6 Sensor and Power Monitoring**  
-- **fW18vf-tvLsFR-8coc2e5U**  
-  ▸ Function: Get current voltage  
-  ▸ Parameters: `ip`  
-
-- **fEK48x3yHMxEx14KQsVzjZ**  
-  ▸ Function: Get current current  
-  ▸ Parameters: `ip`  
-
-- **fEh1yfbkyrh-kr2PDF7XI5**  
-  ▸ Function: Get joint voltage  
-  ▸ Parameters: `ip`  
-
-- **fsmxaF8Agn8NF0mMegv3_f**  
-  ▸ Function: Get joint current  
-  ▸ Parameters: `ip`  
-
-- **fdGsS6kwiGlY_zybhYQWrS**  
-  ▸ Function: Get joint temperature  
-  ▸ Parameters: `ip`  
-
----  
-
-### **2.7 Real-time Data Feedback**  
-- **f6danXc2Pz98ilo5gMNc44**  
-  ▸ Function: Get real-time TCP coordinates  
-  ▸ Parameters: `ip`  
-
-- **fwHgxwtA4blZuetfmJ3OiK**  
-  ▸ Function: Get real-time joint angles  
-  ▸ Parameters: `ip`  
-
----  
+| Tool ID (nUR_MCP_SERVER) | Category            | Description                          | Parameters          |  
+|--------------------------|---------------------|--------------------------------------|---------------------|  
+| ffWzqSZlUpjFfVITKvBb-b   | Connection Control  | Connect to UR Robot                  | `ip`: Robot IP      |  
+| fx5l9Mb_BUs_hClarGKZIo   | Connection Control  | Disconnect UR Robot                  | `ip`: Robot IP      |  
+| f04vj-Fwbuo8s2oYu252pR   | Status Monitoring   | Get Robot Uptime                     | `ip`: Robot IP      |  
+| f2SHZtIYF_OhS8LuslKt8D   | Register Operation  | Read Int Register Value (0-23)       | `ip`: Robot IP, `index`: Register Index (0-23) |  
+| fjLf_89qRxYDlEKo_oXADQ   | Register Operation  | Read Double Register Value (0-23)    | `ip`: Robot IP, `index`: Register Index (0-23) |  
+| f9uXSEQB1UZMXmgIyPtVH9   | Register Operation  | Read Double Register Value (0-31)    | `ip`: Robot IP, `index`: Register Index (0-31) |  
+| fBHQbdS9p_BPv97XBAau8a   | Device Information  | Get Robot Serial Number              | `ip`: Robot IP      |  
+| fcHIfX-J83SvH0V6XZ59A7   | Motion Control      | Get Real-time TCP Coordinates        | `ip`: Robot IP      |  
+| fwloSfxAGiC_4rjdaZjUng   | Motion Control      | Get Real-time Joint Angles           | `ip`: Robot IP      |  
+| fFg2TP6jf3XTWytLIf9fyO   | Motion Control      | Send Joint Pose Command              | `ip`: Robot IP, `q`: Joint Angles (Radians), `a/v/t/r`: Motion Parameters |  
+| fBevTU5BWNdVNEKgqLV5d1   | Motion Control      | Send TCP Linear Movement Command     | `ip`: Robot IP, `pose`: TCP Position, `a/v/t/r`: Motion Parameters |  
+| fnPhKVsDYRrB_Cf1wlsitI   | Motion Control      | X-axis Linear Movement               | `ip`: Robot IP, `distance`: Movement Distance (Meters) |  
+| fO55CY6Jw_iASo5NkxTm3l   | Motion Control      | Y-axis Linear Movement               | `ip`: Robot IP, `distance`: Movement Distance (Meters) |  
+| fs3ppclCfK_x0ZzFaOKHMk   | Motion Control      | Z-axis Linear Movement               | `ip`: Robot IP, `distance`: Movement Distance (Meters) |  
+| f18oyor3ddLJHMdPpyer45   | Program Control     | Load UR Program                      | `ip`: Robot IP, `program_name`: Program Name |  
+| fQyW6AYZjmMiGL0unOVK0W   | Program Control     | Load and Execute UR Program          | `ip`: Robot IP, `program_name`: Program Name |  
+| fDxcON3qGCkzR5n9jSS5vQ   | Program Control     | Stop Current Program                 | `ip`: Robot IP      |  
+| fXB2Q94gpe30w1JHgZh_yr   | Program Control     | Pause Current Program                | `ip`: Robot IP      |  
+| fyXhJEun99j0N-5ojAzPYu   | Status Monitoring   | Get Current Voltage                  | `ip`: Robot IP      |  
+| fYvUCtj-7VJIdbm1FA6cg8   | Status Monitoring   | Get Current Current                  | `ip`: Robot IP      |  
+| fno_OQmW5X_c3HK8M3r_NV   | Status Monitoring   | Get Joint Voltage                    | `ip`: Robot IP      |  
+| fPc54VdscRk2hmlEc3VwYg   | Status Monitoring   | Get Joint Current                    | `ip`: Robot IP      |  
+| fAKuhJVkwgI4NbTKQ-xsoM   | Status Monitoring   | Get Joint Temperature                | `ip`: Robot IP      |  
+| fjZheWqG9gz8SO78UgN6v7   | Status Monitoring   | Get Operation Status                 | `ip`: Robot IP      |  
+| f2XEU4pWT2dsXI2rMsGfEw   | Status Monitoring   | Get Program Execution Status         | `ip`: Robot IP      |  
+| fYLTKblGKQserA-ZvLXCAt   | Device Information  | Get Software Version                 | `ip`: Robot IP      |  
+| f2ebXFoN8bP3Pm1zocshdN   | Device Information  | Get Safety Mode                      | `ip`: Robot IP      |  
+| f_5wAr6iv97d1jurrEmhNp   | Program Control     | Send Script Program                  | `ip`: Robot IP, `script`: Script Content |  
+| fI3ZhZJZafBt33eNGD0ydQ   | Motion Control      | Circular Motion                      | `ip`: Robot IP, `center`: TCP Center Position, `r`: Radius (Meters), `coordinate`: Plane Type |  
 
 
 ## 3. Disclaimer

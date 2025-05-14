@@ -132,142 +132,39 @@ nUR_MCP_SERVER是基于MCP（Model Control Protocol）接口协议构建的智�
 - 协议兼容性：MCP v2.1+ / URScript v5.0+
 - 并发处理能力：200+ TPS
 
-### **2.1 网络与连接管理**
-- **fifQB5xNlEkpHGCAPl4DuR**  
-  ▸ 功能：扫描同网段UR机器人  
-  ▸ 参数：`ip`（同网段IP）
+**以下是nUR_MCP_SERVER工具的功能归类表格介绍：**  
 
-- **fE5gA9T733lcQ8Hd_MLP82**  
-  ▸ 功能：连接UR机器人  
-  ▸ 参数：`ip`（机器人IP）
-
-- **fsX43cYxV0PI4evuVyUBQb**  
-  ▸ 功能：断开UR机器人连接  
-  ▸ 参数：`ip`（机器人IP）
-
----
-
-### **2.2 机器人状态监控**
-- **fOIkmMPGlGGxwyw-3P9PLw**  
-  ▸ 功能：获取开机时长  
-  ▸ 参数：`ip`
-
-- **fwyyKaqkrt6NBWXlSqhla2**  
-  ▸ 功能：获取序列号  
-  ▸ 参数：`ip`
-
-- **f6sWepY5YsPIqDuVllQixz**  
-  ▸ 功能：获取软件版本  
-  ▸ 参数：`ip`
-
-- **fJmgMj32RjjCxzg3n-OmKs**  
-  ▸ 功能：获取安全模式  
-  ▸ 参数：`ip`
-
-- **fAJNyeIvDxM49kypgXs9xx**  
-  ▸ 功能：获取运行状态  
-  ▸ 参数：`ip`
-
-- **frXKuqREVTmRygel-MDG11**  
-  ▸ 功能：获取程序执行状态  
-  ▸ 参数：`ip`
-
----
-
-### **2.3 寄存器与数据读取**
-- **fOXjbOy_B40SqwczE0zRRx**  
-  ▸ 功能：读取Int寄存器（0~23）  
-  ▸ 参数：`ip`, `index`（0-23）
-
-- **ftWfHugqIFU3zE1k4szoST**  
-  ▸ 功能：读取Double寄存器（0~23）  
-  ▸ 参数：`ip`, `index`（0-23）
-
-- **f-CXiO_NaDsWiwltfrDhks**  
-  ▸ 功能：读取Double寄存器（0~31）  
-  ▸ 参数：`ip`, `index`（0-31）
-
----
-
-### **2.4 运动控制**
-- **fq5lK3nuHMu6AR1AOolkVT**  
-  ▸ 功能：关节空间移动  
-  ▸ 参数：`ip`, `q`（关节角度）, `a`/`v`/`t`/`r`（可选）
-
-- **fepruq4N7v4MBNqsiIvLRc**  
-  ▸ 功能：TCP直线移动  
-  ▸ 参数：`ip`, `pose`（TCP位姿）, `a`/`v`/`t`/`r`（可选）
-
-- **fcKCrZ2H_lwnAe4P2uTJ4L**  
-  ▸ 功能：沿X轴直线移动  
-  ▸ 参数：`ip`, `distance`（米）
-
-- **f77gv6fXQGTSKbsgemu8Np**  
-  ▸ 功能：沿Y轴直线移动  
-  ▸ 参数：`ip`, `distance`
-
-- **f-bIJDZENUgzPrLJqOFvIs**  
-  ▸ 功能：沿Z轴直线移动  
-  ▸ 参数：`ip`, `distance`
-
----
-
-### **2.5 程序管理**
-- **ftdgwJLZQ2dYp2mB1ZtRPD**  
-  ▸ 功能：加载程序  
-  ▸ 参数：`ip`, `program_name`
-
-- **fl1XHdiQ-GgEJPB7rlMaHU**  
-  ▸ 功能：加载并执行程序  
-  ▸ 参数：`ip`, `program_name`
-
-- **fL8CYEkias2SbMtv0S7s-N**  
-  ▸ 功能：停止当前程序  
-  ▸ 参数：`ip`
-
-- **fkS98Mpak4obl30wTves1K**  
-  ▸ 功能：暂停当前程序  
-  ▸ 参数：`ip`
-
-- **fV_tezoVRKYr9IiYnl2ezU**  
-  ▸ 功能：发送脚本程序  
-  ▸ 参数：`ip`, `script`
-
----
-
-### **2.6 传感器与电力监控**
-- **fW18vf-tvLsFR-8coc2e5U**  
-  ▸ 功能：获取当前电压  
-  ▸ 参数：`ip`
-
-- **fEK48x3yHMxEx14KQsVzjZ**  
-  ▸ 功能：获取当前电流  
-  ▸ 参数：`ip`
-
-- **fEh1yfbkyrh-kr2PDF7XI5**  
-  ▸ 功能：获取关节电压  
-  ▸ 参数：`ip`
-
-- **fsmxaF8Agn8NF0mMegv3_f**  
-  ▸ 功能：获取关节电流  
-  ▸ 参数：`ip`
-
-- **fdGsS6kwiGlY_zybhYQWrS**  
-  ▸ 功能：获取关节温度  
-  ▸ 参数：`ip`
-
----
-
-### **2.7 实时数据反馈**
-- **f6danXc2Pz98ilo5gMNc44**  
-  ▸ 功能：获取实时TCP坐标  
-  ▸ 参数：`ip`
-
-- **fwHgxwtA4blZuetfmJ3OiK**  
-  ▸ 功能：获取实时关节角度  
-  ▸ 参数：`ip`
-
----
+| 工具ID (nUR_MCP_SERVER) | 功能分类 | 功能描述 | 关键参数 |
+|------------------------|----------|----------|----------|
+| ffWzqSZlUpjFfVITKvBb-b | 连接管理 | 连接UR机器人 | `ip`: 机器人IP |
+| fx5l9Mb_BUs_hClarGKZIo | 连接管理 | 断开UR机器人连接 | `ip`: 机器人IP |
+| f04vj-Fwbuo8s2oYu252pR | 状态监控 | 获取机器人开机时长 | `ip`: 机器人IP |
+| f2SHZtIYF_OhS8LuslKt8D | 寄存器操作 | 读取Int寄存器值(0-23) | `ip`: 机器人IP, `index`: 寄存器索引(0-23) |
+| fjLf_89qRxYDlEKo_oXADQ | 寄存器操作 | 读取Double寄存器值(0-23) | `ip`: 机器人IP, `index`: 寄存器索引(0-23) |
+| f9uXSEQB1UZMXmgIyPtVH9 | 寄存器操作 | 读取Double寄存器值(0-31) | `ip`: 机器人IP, `index`: 寄存器索引(0-31) |
+| fBHQbdS9p_BPv97XBAau8a | 设备信息 | 获取机器人序列号 | `ip`: 机器人IP |
+| fcHIfX-J83SvH0V6XZ59A7 | 运动控制 | 获取实时TCP坐标 | `ip`: 机器人IP |
+| fwloSfxAGiC_4rjdaZjUng | 运动控制 | 获取实时关节角度 | `ip`: 机器人IP |
+| fFg2TP6jf3XTWytLIf9fyO | 运动控制 | 发送关节姿态指令 | `ip`: 机器人IP, `q`: 关节角度(弧度), `a/v/t/r`: 运动参数 |
+| fBevTU5BWNdVNEKgqLV5d1 | 运动控制 | 发送TCP直线移动指令 | `ip`: 机器人IP, `pose`: TCP位置, `a/v/t/r`: 运动参数 |
+| fnPhKVsDYRrB_Cf1wlsitI | 运动控制 | X轴直线移动 | `ip`: 机器人IP, `distance`: 移动距离(米) |
+| fO55CY6Jw_iASo5NkxTm3l | 运动控制 | Y轴直线移动 | `ip`: 机器人IP, `distance`: 移动距离(米) |
+| fs3ppclCfK_x0ZzFaOKHMk | 运动控制 | Z轴直线移动 | `ip`: 机器人IP, `distance`: 移动距离(米) |
+| f18oyor3ddLJHMdPpyer45 | 程序控制 | 加载UR程序 | `ip`: 机器人IP, `program_name`: 程序名称 |
+| fQyW6AYZjmMiGL0unOVK0W | 程序控制 | 加载并执行UR程序 | `ip`: 机器人IP, `program_name`: 程序名称 |
+| fDxcON3qGCkzR5n9jSS5vQ | 程序控制 | 停止当前程序 | `ip`: 机器人IP |
+| fXB2Q94gpe30w1JHgZh_yr | 程序控制 | 暂停当前程序 | `ip`: 机器人IP |
+| fyXhJEun99j0N-5ojAzPYu | 状态监控 | 获取当前电压 | `ip`: 机器人IP |
+| fYvUCtj-7VJIdbm1FA6cg8 | 状态监控 | 获取当前电流 | `ip`: 机器人IP |
+| fno_OQmW5X_c3HK8M3r_NV | 状态监控 | 获取关节电压 | `ip`: 机器人IP |
+| fPc54VdscRk2hmlEc3VwYg | 状态监控 | 获取关节电流 | `ip`: 机器人IP |
+| fAKuhJVkwgI4NbTKQ-xsoM | 状态监控 | 获取关节温度 | `ip`: 机器人IP |
+| fjZheWqG9gz8SO78UgN6v7 | 状态监控 | 获取运行状态 | `ip`: 机器人IP |
+| f2XEU4pWT2dsXI2rMsGfEw | 状态监控 | 获取程序执行状态 | `ip`: 机器人IP |
+| fYLTKblGKQserA-ZvLXCAt | 设备信息 | 获取软件版本 | `ip`: 机器人IP |
+| f2ebXFoN8bP3Pm1zocshdN | 设备信息 | 获取安全模式 | `ip`: 机器人IP |
+| f_5wAr6iv97d1jurrEmhNp | 程序控制 | 发送脚本程序 | `ip`: 机器人IP, `script`: 脚本内容 |
+| fI3ZhZJZafBt33eNGD0ydQ | 运动控制 | 画圆运动 | `ip`: 机器人IP, `center`: 圆心TCP位置, `r`: 半径(米), `coordinate`: 平面类型 |
 
 ## 3. 免责申明
 

@@ -131,142 +131,39 @@ Latencia: <200ms (end-to-end)
 Compatibilidad: MCP v2.1+/URScript v5.0+
 Capacidad concurrente: 200+ TPS
 
-### **2.1 Gestión de red y conexiones**  
-- **fifQB5xNlEkpHGCAPl4DuR**  
-  ▸ Función: Escanear robots UR en el mismo segmento de red  
-  ▸ Parámetros: `ip` (IP del mismo segmento)  
+**Tabla de Clasificación de Funciones de la Herramienta nUR_MCP_SERVER:**  
 
-- **fE5gA9T733lcQ8Hd_MLP82**  
-  ▸ Función: Conectar con robot UR  
-  ▸ Parámetros: `ip` (IP del robot)  
-
-- **fsX43cYxV0PI4evuVyUBQb**  
-  ▸ Función: Desconectar de robot UR  
-  ▸ Parámetros: `ip` (IP del robot)  
-
----  
-
-### **2.2 Monitoreo de estado del robot**  
-- **fOIkmMPGlGGxwyw-3P9PLw**  
-  ▸ Función: Obtener tiempo de actividad  
-  ▸ Parámetros: `ip`  
-
-- **fwyyKaqkrt6NBWXlSqhla2**  
-  ▸ Función: Obtener número de serie  
-  ▸ Parámetros: `ip`  
-
-- **f6sWepY5YsPIqDuVllQixz**  
-  ▸ Función: Obtener versión de software  
-  ▸ Parámetros: `ip`  
-
-- **fJmgMj32RjjCxzg3n-OmKs**  
-  ▸ Función: Obtener modo de seguridad  
-  ▸ Parámetros: `ip`  
-
-- **fAJNyeIvDxM49kypgXs9xx**  
-  ▸ Función: Obtener estado de operación  
-  ▸ Parámetros: `ip`  
-
-- **frXKuqREVTmRygel-MDG11**  
-  ▸ Función: Obtener estado de ejecución de programa  
-  ▸ Parámetros: `ip`  
-
----  
-
-### **2.3 Lectura de registros y datos**  
-- **fOXjbOy_B40SqwczE0zRRx**  
-  ▸ Función: Leer registro Int (0~23)  
-  ▸ Parámetros: `ip`, `index` (0-23)  
-
-- **ftWfHugqIFU3zE1k4szoST**  
-  ▸ Función: Leer registro Double (0~23)  
-  ▸ Parámetros: `ip`, `index` (0-23)  
-
-- **f-CXiO_NaDsWiwltfrDhks**  
-  ▸ Función: Leer registro Double (0~31)  
-  ▸ Parámetros: `ip`, `index` (0-31)  
-
----  
-
-### **2.4 Control de movimiento**  
-- **fq5lK3nuHMu6AR1AOolkVT**  
-  ▸ Función: Movimiento en espacio articular  
-  ▸ Parámetros: `ip`, `q` (ángulos articulares), `a`/`v`/`t`/`r` (opcional)  
-
-- **fepruq4N7v4MBNqsiIvLRc**  
-  ▸ Función: Movimiento lineal TCP  
-  ▸ Parámetros: `ip`, `pose` (posición TCP), `a`/`v`/`t`/`r` (opcional)  
-
-- **fcKCrZ2H_lwnAe4P2uTJ4L**  
-  ▸ Función: Movimiento lineal en eje X  
-  ▸ Parámetros: `ip`, `distance` (metros)  
-
-- **f77gv6fXQGTSKbsgemu8Np**  
-  ▸ Función: Movimiento lineal en eje Y  
-  ▸ Parámetros: `ip`, `distance`  
-
-- **f-bIJDZENUgzPrLJqOFvIs**  
-  ▸ Función: Movimiento lineal en eje Z  
-  ▸ Parámetros: `ip`, `distance`  
-
----  
-
-### **2.5 Gestión de programas**  
-- **ftdgwJLZQ2dYp2mB1ZtRPD**  
-  ▸ Función: Cargar programa  
-  ▸ Parámetros: `ip`, `program_name`  
-
-- **fl1XHdiQ-GgEJPB7rlMaHU**  
-  ▸ Función: Cargar y ejecutar programa  
-  ▸ Parámetros: `ip`, `program_name`  
-
-- **fL8CYEkias2SbMtv0S7s-N**  
-  ▸ Función: Detener programa actual  
-  ▸ Parámetros: `ip`  
-
-- **fkS98Mpak4obl30wTves1K**  
-  ▸ Función: Pausar programa actual  
-  ▸ Parámetros: `ip`  
-
-- **fV_tezoVRKYr9IiYnl2ezU**  
-  ▸ Función: Enviar programa de script  
-  ▸ Parámetros: `ip`, `script`  
-
----  
-
-### **2.6 Monitoreo de sensores y energía**  
-- **fW18vf-tvLsFR-8coc2e5U**  
-  ▸ Función: Obtener voltaje actual  
-  ▸ Parámetros: `ip`  
-
-- **fEK48x3yHMxEx14KQsVzjZ**  
-  ▸ Función: Obtener corriente actual  
-  ▸ Parámetros: `ip`  
-
-- **fEh1yfbkyrh-kr2PDF7XI5**  
-  ▸ Función: Obtener voltaje articular  
-  ▸ Parámetros: `ip`  
-
-- **fsmxaF8Agn8NF0mMegv3_f**  
-  ▸ Función: Obtener corriente articular  
-  ▸ Parámetros: `ip`  
-
-- **fdGsS6kwiGlY_zybhYQWrS**  
-  ▸ Función: Obtener temperatura articular  
-  ▸ Parámetros: `ip`  
-
----  
-
-### **2.7 Retroalimentación de datos en tiempo real**  
-- **f6danXc2Pz98ilo5gMNc44**  
-  ▸ Función: Obtener coordenadas TCP en tiempo real  
-  ▸ Parámetros: `ip`  
-
-- **fwHgxwtA4blZuetfmJ3OiK**  
-  ▸ Función: Obtener ángulos articulares en tiempo real  
-  ▸ Parámetros: `ip`  
-
----  
+| ID de Herramienta (nUR_MCP_SERVER) | Categoría          | Descripción                          | Parámetros          |  
+|------------------------------------|--------------------|--------------------------------------|---------------------|  
+| ffWzqSZlUpjFfVITKvBb-b            | Control de Conexión | Conectar al Robot UR                 | `ip`: IP del Robot |  
+| fx5l9Mb_BUs_hClarGKZIo            | Control de Conexión | Desconectar Robot UR                 | `ip`: IP del Robot |  
+| f04vj-Fwbuo8s2oYu252pR            | Monitoreo de Estado | Obtener Tiempo de Actividad del Robot | `ip`: IP del Robot |  
+| f2SHZtIYF_OhS8LuslKt8D            | Operación de Registro | Leer Valor de Registro Int (0-23)    | `ip`: IP del Robot, `index`: Índice de Registro (0-23) |  
+| fjLf_89qRxYDlEKo_oXADQ            | Operación de Registro | Leer Valor de Registro Double (0-23) | `ip`: IP del Robot, `index`: Índice de Registro (0-23) |  
+| f9uXSEQB1UZMXmgIyPtVH9            | Operación de Registro | Leer Valor de Registro Double (0-31) | `ip`: IP del Robot, `index`: Índice de Registro (0-31) |  
+| fBHQbdS9p_BPv97XBAau8a            | Información del Dispositivo | Obtener Número de Serie del Robot | `ip`: IP del Robot |  
+| fcHIfX-J83SvH0V6XZ59A7            | Control de Movimiento | Obtener Coordenadas TCP en Tiempo Real | `ip`: IP del Robot |  
+| fwloSfxAGiC_4rjdaZjUng            | Control de Movimiento | Obtener Ángulos de Articulación en Tiempo Real | `ip`: IP del Robot |  
+| fFg2TP6jf3XTWytLIf9fyO            | Control de Movimiento | Enviar Comando de Pose de Articulación | `ip`: IP del Robot, `q`: Ángulos de Articulación (Radianes), `a/v/t/r`: Parámetros de Movimiento |  
+| fBevTU5BWNdVNEKgqLV5d1            | Control de Movimiento | Enviar Comando de Movimiento Lineal TCP | `ip`: IP del Robot, `pose`: Posición TCP, `a/v/t/r`: Parámetros de Movimiento |  
+| fnPhKVsDYRrB_Cf1wlsitI            | Control de Movimiento | Movimiento Lineal en Eje X           | `ip`: IP del Robot, `distance`: Distancia de Movimiento (Metros) |  
+| fO55CY6Jw_iASo5NkxTm3l            | Control de Movimiento | Movimiento Lineal en Eje Y           | `ip`: IP del Robot, `distance`: Distancia de Movimiento (Metros) |  
+| fs3ppclCfK_x0ZzFaOKHMk            | Control de Movimiento | Movimiento Lineal en Eje Z           | `ip`: IP del Robot, `distance`: Distancia de Movimiento (Metros) |  
+| f18oyor3ddLJHMdPpyer45            | Control de Programa | Cargar Programa UR                   | `ip`: IP del Robot, `program_name`: Nombre del Programa |  
+| fQyW6AYZjmMiGL0unOVK0W            | Control de Programa | Cargar y Ejecutar Programa UR        | `ip`: IP del Robot, `program_name`: Nombre del Programa |  
+| fDxcON3qGCkzR5n9jSS5vQ            | Control de Programa | Detener Programa Actual              | `ip`: IP del Robot |  
+| fXB2Q94gpe30w1JHgZh_yr            | Control de Programa | Pausar Programa Actual               | `ip`: IP del Robot |  
+| fyXhJEun99j0N-5ojAzPYu            | Monitoreo de Estado | Obtener Voltaje Actual               | `ip`: IP del Robot |  
+| fYvUCtj-7VJIdbm1FA6cg8            | Monitoreo de Estado | Obtener Corriente Actual             | `ip`: IP del Robot |  
+| fno_OQmW5X_c3HK8M3r_NV            | Monitoreo de Estado | Obtener Voltaje de Articulación      | `ip`: IP del Robot |  
+| fPc54VdscRk2hmlEc3VwYg            | Monitoreo de Estado | Obtener Corriente de Articulación    | `ip`: IP del Robot |  
+| fAKuhJVkwgI4NbTKQ-xsoM            | Monitoreo de Estado | Obtener Temperatura de Articulación  | `ip`: IP del Robot |  
+| fjZheWqG9gz8SO78UgN6v7            | Monitoreo de Estado | Obtener Estado de Operación          | `ip`: IP del Robot |  
+| f2XEU4pWT2dsXI2rMsGfEw            | Monitoreo de Estado | Obtener Estado de Ejecución de Programa | `ip`: IP del Robot |  
+| fYLTKblGKQserA-ZvLXCAt            | Información del Dispositivo | Obtener Versión de Software | `ip`: IP del Robot |  
+| f2ebXFoN8bP3Pm1zocshdN            | Información del Dispositivo | Obtener Modo de Seguridad       | `ip`: IP del Robot |  
+| f_5wAr6iv97d1jurrEmhNp            | Control de Programa | Enviar Programa de Script            | `ip`: IP del Robot, `script`: Contenido del Script |  
+| fI3ZhZJZafBt33eNGD0ydQ            | Control de Movimiento | Movimiento Circular                  | `ip`: IP del Robot, `center`: Posición TCP del Centro, `r`: Radio (Metros), `coordinate`: Tipo de Plano |  
 
 
 ## 3. Declaración de responsabilidad

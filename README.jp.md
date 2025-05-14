@@ -132,142 +132,41 @@ LLMベースのコード生成フレームワークにより、自然言語コ�
 - プロトコル互換性: MCP v2.1+ / URScript v5.0+
 - 並列処理能力: 200+ TPS
 
-### **2.1 ネットワークと接続管理**
-- **fifQB5xNlEkpHGCAPl4DuR**  
-  ▸ 機能：同一ネットワークセグメントのURロボットをスキャン  
-  ▸ パラメータ：`ip`（同一ネットワークセグメントのIP）
+**nUR_MCP_SERVERツールの機能分類表の紹介：**  
 
-- **fE5gA9T733lcQ8Hd_MLP82**  
-  ▸ 機能：URロボットに接続  
-  ▸ パラメータ：`ip`（ロボットのIP）
+| ツールID (nUR_MCP_SERVER) | 機能分類 | 機能説明 | 主要パラメータ |
+|------------------------|----------|----------|----------|
+| ffWzqSZlUpjFfVITKvBb-b | 接続管理 | URロボットに接続 | `ip`: ロボットIP |
+| fx5l9Mb_BUs_hClarGKZIo | 接続管理 | URロボットから切断 | `ip`: ロボットIP |
+| f04vj-Fwbuo8s2oYu252pR | 状態監視 | ロボットの稼働時間を取得 | `ip`: ロボットIP |
+| f2SHZtIYF_OhS8LuslKt8D | レジスタ操作 | Intレジスタ値の読み取り(0-23) | `ip`: ロボットIP, `index`: レジスタインデックス(0-23) |
+| fjLf_89qRxYDlEKo_oXADQ | レジスタ操作 | Doubleレジスタ値の読み取り(0-23) | `ip`: ロボットIP, `index`: レジスタインデックス(0-23) |
+| f9uXSEQB1UZMXmgIyPtVH9 | レジスタ操作 | Doubleレジスタ値の読み取り(0-31) | `ip`: ロボットIP, `index`: レジスタインデックス(0-31) |
+| fBHQbdS9p_BPv97XBAau8a | デバイス情報 | ロボットのシリアル番号を取得 | `ip`: ロボットIP |
+| fcHIfX-J83SvH0V6XZ59A7 | 運動制御 | リアルタイムTCP座標を取得 | `ip`: ロボットIP |
+| fwloSfxAGiC_4rjdaZjUng | 運動制御 | リアルタイム関節角度を取得 | `ip`: ロボットIP |
+| fFg2TP6jf3XTWytLIf9fyO | 運動制御 | 関節姿勢指令を送信 | `ip`: ロボットIP, `q`: 関節角度(ラジアン), `a/v/t/r`: 運動パラメータ |
+| fBevTU5BWNdVNEKgqLV5d1 | 運動制御 | TCP直線移動指令を送信 | `ip`: ロボットIP, `pose`: TCP位置, `a/v/t/r`: 運動パラメータ |
+| fnPhKVsDYRrB_Cf1wlsitI | 運動制御 | X軸直線移動 | `ip`: ロボットIP, `distance`: 移動距離(メートル) |
+| fO55CY6Jw_iASo5NkxTm3l | 運動制御 | Y軸直線移動 | `ip`: ロボットIP, `distance`: 移動距離(メートル) |
+| fs3ppclCfK_x0ZzFaOKHMk | 運動制御 | Z軸直線移動 | `ip`: ロボットIP, `distance`: 移動距離(メートル) |
+| f18oyor3ddLJHMdPpyer45 | プログラム制御 | URプログラムをロード | `ip`: ロボットIP, `program_name`: プログラム名 |
+| fQyW6AYZjmMiGL0unOVK0W | プログラム制御 | URプログラムをロードして実行 | `ip`: ロボットIP, `program_name`: プログラム名 |
+| fDxcON3qGCkzR5n9jSS5vQ | プログラム制御 | 現在のプログラムを停止 | `ip`: ロボットIP |
+| fXB2Q94gpe30w1JHgZh_yr | プログラム制御 | 現在のプログラムを一時停止 | `ip`: ロボットIP |
+| fyXhJEun99j0N-5ojAzPYu | 状態監視 | 現在の電圧を取得 | `ip`: ロボットIP |
+| fYvUCtj-7VJIdbm1FA6cg8 | 状態監視 | 現在の電流を取得 | `ip`: ロボットIP |
+| fno_OQmW5X_c3HK8M3r_NV | 状態監視 | 関節電圧を取得 | `ip`: ロボットIP |
+| fPc54VdscRk2hmlEc3VwYg | 状態監視 | 関節電流を取得 | `ip`: ロボットIP |
+| fAKuhJVkwgI4NbTKQ-xsoM | 状態監視 | 関節温度を取得 | `ip`: ロボットIP |
+| fjZheWqG9gz8SO78UgN6v7 | 状態監視 | 稼働状態を取得 | `ip`: ロボットIP |
+| f2XEU4pWT2dsXI2rMsGfEw | 状態監視 | プログラム実行状態を取得 | `ip`: ロボットIP |
+| fYLTKblGKQserA-ZvLXCAt | デバイス情報 | ソフトウェアバージョンを取得 | `ip`: ロボットIP |
+| f2ebXFoN8bP3Pm1zocshdN | デバイス情報 | セーフティモードを取得 | `ip`: ロボットIP |
+| f_5wAr6iv97d1jurrEmhNp | プログラム制御 | スクリプトプログラムを送信 | `ip`: ロボットIP, `script`: スクリプト内容 |
+| fI3ZhZJZafBt33eNGD0ydQ | 運動制御 | 円運動 | `ip`: ロボットIP, `center`: 円中心TCP位置, `r`: 半径(メートル), `coordinate`: 平面タイプ |
 
-- **fsX43cYxV0PI4evuVyUBQb**  
-  ▸ 機能：URロボットとの接続を切断  
-  ▸ パラメータ：`ip`（ロボットのIP）
 
----
-
-### **2.2 ロボット状態モニタリング**
-- **fOIkmMPGlGGxwyw-3P9PLw**  
-  ▸ 機能：稼働時間を取得  
-  ▸ パラメータ：`ip`
-
-- **fwyyKaqkrt6NBWXlSqhla2**  
-  ▸ 機能：シリアル番号を取得  
-  ▸ パラメータ：`ip`
-
-- **f6sWepY5YsPIqDuVllQixz**  
-  ▸ 機能：ソフトウェアバージョンを取得  
-  ▸ パラメータ：`ip`
-
-- **fJmgMj32RjjCxzg3n-OmKs**  
-  ▸ 機能：セーフティモードを取得  
-  ▸ パラメータ：`ip`
-
-- **fAJNyeIvDxM49kypgXs9xx**  
-  ▸ 機能：実行状態を取得  
-  ▸ パラメータ：`ip`
-
-- **frXKuqREVTmRygel-MDG11**  
-  ▸ 機能：プログラム実行状態を取得  
-  ▸ パラメータ：`ip`
-
----
-
-### **2.3 レジスタとデータ読み取り**
-- **fOXjbOy_B40SqwczE0zRRx**  
-  ▸ 機能：Intレジスタ（0~23）を読み取り  
-  ▸ パラメータ：`ip`, `index`（0-23）
-
-- **ftWfHugqIFU3zE1k4szoST**  
-  ▸ 機能：Doubleレジスタ（0~23）を読み取り  
-  ▸ パラメータ：`ip`, `index`（0-23）
-
-- **f-CXiO_NaDsWiwltfrDhks**  
-  ▸ 機能：Doubleレジスタ（0~31）を読み取り  
-  ▸ パラメータ：`ip`, `index`（0-31）
-
----
-
-### **2.4 モーション制御**
-- **fq5lK3nuHMu6AR1AOolkVT**  
-  ▸ 機能：関節空間移動  
-  ▸ パラメータ：`ip`, `q`（関節角度）, `a`/`v`/`t`/`r`（オプション）
-
-- **fepruq4N7v4MBNqsiIvLRc**  
-  ▸ 機能：TCP直線移動  
-  ▸ パラメータ：`ip`, `pose`（TCP姿勢）, `a`/`v`/`t`/`r`（オプション）
-
-- **fcKCrZ2H_lwnAe4P2uTJ4L**  
-  ▸ 機能：X軸に沿って直線移動  
-  ▸ パラメータ：`ip`, `distance`（メートル）
-
-- **f77gv6fXQGTSKbsgemu8Np**  
-  ▸ 機能：Y軸に沿って直線移動  
-  ▸ パラメータ：`ip`, `distance`
-
-- **f-bIJDZENUgzPrLJqOFvIs**  
-  ▸ 機能：Z軸に沿って直線移動  
-  ▸ パラメータ：`ip`, `distance`
-
----
-
-### **2.5 プログラム管理**
-- **ftdgwJLZQ2dYp2mB1ZtRPD**  
-  ▸ 機能：プログラムをロード  
-  ▸ パラメータ：`ip`, `program_name`
-
-- **fl1XHdiQ-GgEJPB7rlMaHU**  
-  ▸ 機能：プログラムをロードして実行  
-  ▸ パラメータ：`ip`, `program_name`
-
-- **fL8CYEkias2SbMtv0S7s-N**  
-  ▸ 機能：現在のプログラムを停止  
-  ▸ パラメータ：`ip`
-
-- **fkS98Mpak4obl30wTves1K**  
-  ▸ 機能：現在のプログラムを一時停止  
-  ▸ パラメータ：`ip`
-
-- **fV_tezoVRKYr9IiYnl2ezU**  
-  ▸ 機能：スクリプトプログラムを送信  
-  ▸ パラメータ：`ip`, `script`
-
----
-
-### **2.6 センサーと電力モニタリング**
-- **fW18vf-tvLsFR-8coc2e5U**  
-  ▸ 機能：現在の電圧を取得  
-  ▸ パラメータ：`ip`
-
-- **fEK48x3yHMxEx14KQsVzjZ**  
-  ▸ 機能：現在の電流を取得  
-  ▸ パラメータ：`ip`
-
-- **fEh1yfbkyrh-kr2PDF7XI5**  
-  ▸ 機能：関節電圧を取得  
-  ▸ パラメータ：`ip`
-
-- **fsmxaF8Agn8NF0mMegv3_f**  
-  ▸ 機能：関節電流を取得  
-  ▸ パラメータ：`ip`
-
-- **fdGsS6kwiGlY_zybhYQWrS**  
-  ▸ 機能：関節温度を取得  
-  ▸ パラメータ：`ip`
-
----
-
-### **2.7 リアルタイムデータフィードバック**
-- **f6danXc2Pz98ilo5gMNc44**  
-  ▸ 機能：リアルタイムTCP座標を取得  
-  ▸ パラメータ：`ip`
-
-- **fwHgxwtA4blZuetfmJ3OiK**  
-  ▸ 機能：リアルタイム関節角度を取得  
-  ▸ パラメータ：`ip`
-
----
 
 ## 3. 免責事項
 

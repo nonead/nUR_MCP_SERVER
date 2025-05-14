@@ -17,7 +17,7 @@
   <a href="./README.es.md">Español</a> |
   <a href="./README.ar.md">العربية</a> |
   <a href="./README.da.md">dansk</a>  
-</p>
+</p> 
 
 <p align="center">
     <a href='https://gitee.com/nonead/nUR_MCP_SERVER/releases'>
@@ -151,142 +151,39 @@ Specifikationer:
 - Protokolkompatibilitet: MCP v2.1+/URScript 5.0+
 - Samtidig kapacitet: 200+ TPS
 
-### **2.1 Netværk og Forbindelseshåndtering**  
-- **fifQB5xNlEkpHGCAPl4DuR**  
-  ▸ Funktion: Scan UR-robotter i samme netværk  
-  ▸ Parametre: `ip` (IP i samme netværk)  
+**Funktionsklassifikationstabel for nUR_MCP_SERVER-værktøjet:**  
 
-- **fE5gA9T733lcQ8Hd_MLP82**  
-  ▸ Funktion: Opret forbindelse til UR-robot  
-  ▸ Parametre: `ip` (robot-IP)  
-
-- **fsX43cYxV0PI4evuVyUBQb**  
-  ▸ Funktion: Afbryd forbindelse til UR-robot  
-  ▸ Parametre: `ip` (robot-IP)  
-
----  
-
-### **2.2 Robotstatusovervågning**  
-- **fOIkmMPGlGGxwyw-3P9PLw**  
-  ▸ Funktion: Hent opetid  
-  ▸ Parametre: `ip`  
-
-- **fwyyKaqkrt6NBWXlSqhla2**  
-  ▸ Funktion: Hent serienummer  
-  ▸ Parametre: `ip`  
-
-- **f6sWepY5YsPIqDuVllQixz**  
-  ▸ Funktion: Hent softwareversion  
-  ▸ Parametre: `ip`  
-
-- **fJmgMj32RjjCxzg3n-OmKs**  
-  ▸ Funktion: Hent sikkerhedstilstand  
-  ▸ Parametre: `ip`  
-
-- **fAJNyeIvDxM49kypgXs9xx**  
-  ▸ Funktion: Hent køretilstand  
-  ▸ Parametre: `ip`  
-
-- **frXKuqREVTmRygel-MDG11**  
-  ▸ Funktion: Hent programudførelsestilstand  
-  ▸ Parametre: `ip`  
-
----  
-
-### **2.3 Register- og dataaflæsning**  
-- **fOXjbOy_B40SqwczE0zRRx**  
-  ▸ Funktion: Læs Int-register (0~23)  
-  ▸ Parametre: `ip`, `index` (0-23)  
-
-- **ftWfHugqIFU3zE1k4szoST**  
-  ▸ Funktion: Læs Double-register (0~23)  
-  ▸ Parametre: `ip`, `index` (0-23)  
-
-- **f-CXiO_NaDsWiwltfrDhks**  
-  ▸ Funktion: Læs Double-register (0~31)  
-  ▸ Parametre: `ip`, `index` (0-31)  
-
----  
-
-### **2.4 Bevægelseskontrol**  
-- **fq5lK3nuHMu6AR1AOolkVT**  
-  ▸ Funktion: Bevægelse i ledrum  
-  ▸ Parametre: `ip`, `q` (ledvinkler), `a`/`v`/`t`/`r` (valgfrit)  
-
-- **fepruq4N7v4MBNqsiIvLRc**  
-  ▸ Funktion: TCP-lineær bevægelse  
-  ▸ Parametre: `ip`, `pose` (TCP-position), `a`/`v`/`t`/`r` (valgfrit)  
-
-- **fcKCrZ2H_lwnAe4P2uTJ4L**  
-  ▸ Funktion: Lineær bevægelse langs X-aksen  
-  ▸ Parametre: `ip`, `distance` (meter)  
-
-- **f77gv6fXQGTSKbsgemu8Np**  
-  ▸ Funktion: Lineær bevægelse langs Y-aksen  
-  ▸ Parametre: `ip`, `distance`  
-
-- **f-bIJDZENUgzPrLJqOFvIs**  
-  ▸ Funktion: Lineær bevægelse langs Z-aksen  
-  ▸ Parametre: `ip`, `distance`  
-
----  
-
-### **2.5 Programhåndtering**  
-- **ftdgwJLZQ2dYp2mB1ZtRPD**  
-  ▸ Funktion: Indlæs program  
-  ▸ Parametre: `ip`, `program_name`  
-
-- **fl1XHdiQ-GgEJPB7rlMaHU**  
-  ▸ Funktion: Indlæs og udfør program  
-  ▸ Parametre: `ip`, `program_name`  
-
-- **fL8CYEkias2SbMtv0S7s-N**  
-  ▸ Funktion: Stop nuværende program  
-  ▸ Parametre: `ip`  
-
-- **fkS98Mpak4obl30wTves1K**  
-  ▸ Funktion: Paus nuværende program  
-  ▸ Parametre: `ip`  
-
-- **fV_tezoVRKYr9IiYnl2ezU**  
-  ▸ Funktion: Send scriptprogram  
-  ▸ Parametre: `ip`, `script`  
-
----  
-
-### **2.6 Sensor- og strømovervågning**  
-- **fW18vf-tvLsFR-8coc2e5U**  
-  ▸ Funktion: Hent nuværende spænding  
-  ▸ Parametre: `ip`  
-
-- **fEK48x3yHMxEx14KQsVzjZ**  
-  ▸ Funktion: Hent nuværende strøm  
-  ▸ Parametre: `ip`  
-
-- **fEh1yfbkyrh-kr2PDF7XI5**  
-  ▸ Funktion: Hent ledspænding  
-  ▸ Parametre: `ip`  
-
-- **fsmxaF8Agn8NF0mMegv3_f**  
-  ▸ Funktion: Hent ledstrøm  
-  ▸ Parametre: `ip`  
-
-- **fdGsS6kwiGlY_zybhYQWrS**  
-  ▸ Funktion: Hent ledtemperatur  
-  ▸ Parametre: `ip`  
-
----  
-
-### **2.7 Realtidsdatafeedback**  
-- **f6danXc2Pz98ilo5gMNc44**  
-  ▸ Funktion: Hent realtids TCP-koordinater  
-  ▸ Parametre: `ip`  
-
-- **fwHgxwtA4blZuetfmJ3OiK**  
-  ▸ Funktion: Hent realtids ledvinkler  
-  ▸ Parametre: `ip`  
-
----  
+| Værktøjs-ID (nUR_MCP_SERVER) | Kategori          | Beskrivelse                      | Parametre          |  
+|------------------------------|------------------|----------------------------------|--------------------|  
+| ffWzqSZlUpjFfVITKvBb-b       | Forbindelseshåndtering | Opret forbindelse til UR-robot | `ip`: Robot-IP    |  
+| fx5l9Mb_BUs_hClarGKZIo       | Forbindelseshåndtering | Afbryd forbindelse til UR-robot | `ip`: Robot-IP    |  
+| f04vj-Fwbuo8s2oYu252pR       | Statusovervågning | Hent robotens driftstid         | `ip`: Robot-IP    |  
+| f2SHZtIYF_OhS8LuslKt8D       | Registeroperation | Læs Int-registerværdi (0-23)    | `ip`: Robot-IP, `index`: Registerindex (0-23) |  
+| fjLf_89qRxYDlEKo_oXADQ       | Registeroperation | Læs Double-registerværdi (0-23) | `ip`: Robot-IP, `index`: Registerindex (0-23) |  
+| f9uXSEQB1UZMXmgIyPtVH9       | Registeroperation | Læs Double-registerværdi (0-31) | `ip`: Robot-IP, `index`: Registerindex (0-31) |  
+| fBHQbdS9p_BPv97XBAau8a       | Enhedsinformation | Hent robotens serienummer       | `ip`: Robot-IP    |  
+| fcHIfX-J83SvH0V6XZ59A7       | Bevægelseskontrol | Hent realtids TCP-koordinater    | `ip`: Robot-IP    |  
+| fwloSfxAGiC_4rjdaZjUng       | Bevægelseskontrol | Hent realtids ledningsvinkler    | `ip`: Robot-IP    |  
+| fFg2TP6jf3XTWytLIf9fyO       | Bevægelseskontrol | Send ledningspositionskommando   | `ip`: Robot-IP, `q`: Ledningsvinkler (radianer), `a/v/t/r`: Bevægelsesparametre |  
+| fBevTU5BWNdVNEKgqLV5d1       | Bevægelseskontrol | Send TCP-lineærbevægelseskommando | `ip`: Robot-IP, `pose`: TCP-position, `a/v/t/r`: Bevægelsesparametre |  
+| fnPhKVsDYRrB_Cf1wlsitI       | Bevægelseskontrol | Lineær bevægelse langs X-aksen   | `ip`: Robot-IP, `distance`: Bevægelsesafstand (meter) |  
+| fO55CY6Jw_iASo5NkxTm3l       | Bevægelseskontrol | Lineær bevægelse langs Y-aksen   | `ip`: Robot-IP, `distance`: Bevægelsesafstand (meter) |  
+| fs3ppclCfK_x0ZzFaOKHMk       | Bevægelseskontrol | Lineær bevægelse langs Z-aksen   | `ip`: Robot-IP, `distance`: Bevægelsesafstand (meter) |  
+| f18oyor3ddLJHMdPpyer45       | Programkontrol    | Indlæs UR-program                | `ip`: Robot-IP, `program_name`: Programnavn |  
+| fQyW6AYZjmMiGL0unOVK0W       | Programkontrol    | Indlæs og eksekver UR-program    | `ip`: Robot-IP, `program_name`: Programnavn |  
+| fDxcON3qGCkzR5n9jSS5vQ       | Programkontrol    | Stop nuværende program           | `ip`: Robot-IP    |  
+| fXB2Q94gpe30w1JHgZh_yr       | Programkontrol    | Paus nuværende program           | `ip`: Robot-IP    |  
+| fyXhJEun99j0N-5ojAzPYu       | Statusovervågning | Hent nuværende spænding          | `ip`: Robot-IP    |  
+| fYvUCtj-7VJIdbm1FA6cg8       | Statusovervågning | Hent nuværende strøm             | `ip`: Robot-IP    |  
+| fno_OQmW5X_c3HK8M3r_NV       | Statusovervågning | Hent ledningsspænding            | `ip`: Robot-IP    |  
+| fPc54VdscRk2hmlEc3VwYg       | Statusovervågning | Hent ledningsstrøm               | `ip`: Robot-IP    |  
+| fAKuhJVkwgI4NbTKQ-xsoM       | Statusovervågning | Hent ledningstemperatur          | `ip`: Robot-IP    |  
+| fjZheWqG9gz8SO78UgN6v7       | Statusovervågning | Hent driftsstatus                | `ip`: Robot-IP    |  
+| f2XEU4pWT2dsXI2rMsGfEw       | Statusovervågning | Hent programudførselsstatus      | `ip`: Robot-IP    |  
+| fYLTKblGKQserA-ZvLXCAt       | Enhedsinformation | Hent softwareversion             | `ip`: Robot-IP    |  
+| f2ebXFoN8bP3Pm1zocshdN       | Enhedsinformation | Hent sikkerhedstilstand          | `ip`: Robot-IP    |  
+| f_5wAr6iv97d1jurrEmhNp       | Programkontrol    | Send scriptprogram               | `ip`: Robot-IP, `script`: Scriptindhold |  
+| fI3ZhZJZafBt33eNGD0ydQ       | Bevægelseskontrol | Cirkulær bevægelse               | `ip`: Robot-IP, `center`: TCP-centreposition, `r`: Radius (meter), `coordinate`: Plantype |  
 
 ## 3. Ansvarsfraskrivelse
 

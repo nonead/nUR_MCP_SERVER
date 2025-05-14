@@ -128,143 +128,40 @@ Spécifications techniques:
 - Compatibilité des protocoles: MCP v2.1+ / URScript v5.0+
 - Capacité de traitement concurrent: 200+ TPS
 
+**Présentation du tableau de classification des fonctionnalités de l'outil nUR_MCP_SERVER :**  
 
-### **2.1 Gestion du réseau et des connexions**  
-- **fifQB5xNlEkpHGCAPl4DuR**  
-  ▸ Fonction : Scanner les robots UR sur le même segment réseau  
-  ▸ Paramètres : `ip` (IP du même segment)  
+| ID outil (nUR_MCP_SERVER) | Catégorie | Description | Paramètres clés |
+|------------------------|----------|----------|----------|
+| ffWzqSZlUpjFfVITKvBb-b | Gestion connexion | Connecter robot UR | `ip`: IP robot |
+| fx5l9Mb_BUs_hClarGKZIo | Gestion connexion | Déconnecter robot UR | `ip`: IP robot |
+| f04vj-Fwbuo8s2oYu252pR | Surveillance état | Obtenir durée fonctionnement robot | `ip`: IP robot |
+| f2SHZtIYF_OhS8LuslKt8D | Opération registre | Lire valeur registre Int(0-23) | `ip`: IP robot, `index`: index registre(0-23) |
+| fjLf_89qRxYDlEKo_oXADQ | Opération registre | Lire valeur registre Double(0-23) | `ip`: IP robot, `index`: index registre(0-23) |
+| f9uXSEQB1UZMXmgIyPtVH9 | Opération registre | Lire valeur registre Double(0-31) | `ip`: IP robot, `index`: index registre(0-31) |
+| fBHQbdS9p_BPv97XBAau8a | Info appareil | Obtenir numéro série robot | `ip`: IP robot |
+| fcHIfX-J83SvH0V6XZ59A7 | Contrôle mouvement | Obtenir coordonnées TCP temps réel | `ip`: IP robot |
+| fwloSfxAGiC_4rjdaZjUng | Contrôle mouvement | Obtenir angles articulation temps réel | `ip`: IP robot |
+| fFg2TP6jf3XTWytLIf9fyO | Contrôle mouvement | Envoyer commande posture articulation | `ip`: IP robot, `q`: angles articulation(radian), `a/v/t/r`: paramètres mouvement |
+| fBevTU5BWNdVNEKgqLV5d1 | Contrôle mouvement | Envoyer commande déplacement linéaire TCP | `ip`: IP robot, `pose`: position TCP, `a/v/t/r`: paramètres mouvement |
+| fnPhKVsDYRrB_Cf1wlsitI | Contrôle mouvement | Déplacement linéaire axe X | `ip`: IP robot, `distance`: distance(mètre) |
+| fO55CY6Jw_iASo5NkxTm3l | Contrôle mouvement | Déplacement linéaire axe Y | `ip`: IP robot, `distance`: distance(mètre) |
+| fs3ppclCfK_x0ZzFaOKHMk | Contrôle mouvement | Déplacement linéaire axe Z | `ip`: IP robot, `distance`: distance(mètre) |
+| f18oyor3ddLJHMdPpyer45 | Contrôle programme | Charger programme UR | `ip`: IP robot, `program_name`: nom programme |
+| fQyW6AYZjmMiGL0unOVK0W | Contrôle programme | Charger et exécuter programme UR | `ip`: IP robot, `program_name`: nom programme |
+| fDxcON3qGCkzR5n9jSS5vQ | Contrôle programme | Arrêter programme actuel | `ip`: IP robot |
+| fXB2Q94gpe30w1JHgZh_yr | Contrôle programme | Mettre en pause programme actuel | `ip`: IP robot |
+| fyXhJEun99j0N-5ojAzPYu | Surveillance état | Obtenir tension actuelle | `ip`: IP robot |
+| fYvUCtj-7VJIdbm1FA6cg8 | Surveillance état | Obtenir courant actuel | `ip`: IP robot |
+| fno_OQmW5X_c3HK8M3r_NV | Surveillance état | Obtenir tension articulation | `ip`: IP robot |
+| fPc54VdscRk2hmlEc3VwYg | Surveillance état | Obtenir courant articulation | `ip`: IP robot |
+| fAKuhJVkwgI4NbTKQ-xsoM | Surveillance état | Obtenir température articulation | `ip`: IP robot |
+| fjZheWqG9gz8SO78UgN6v7 | Surveillance état | Obtenir état fonctionnement | `ip`: IP robot |
+| f2XEU4pWT2dsXI2rMsGfEw | Surveillance état | Obtenir état exécution programme | `ip`: IP robot |
+| fYLTKblGKQserA-ZvLXCAt | Info appareil | Obtenir version logicielle | `ip`: IP robot |
+| f2ebXFoN8bP3Pm1zocshdN | Info appareil | Obtenir mode sécurité | `ip`: IP robot |
+| f_5wAr6iv97d1jurrEmhNp | Contrôle programme | Envoyer programme script | `ip`: IP robot, `script`: contenu script |
+| fI3ZhZJZafBt33eNGD0ydQ | Contrôle mouvement | Mouvement circulaire | `ip`: IP robot, `center`: position TCP centre, `r`: rayon(mètre), `coordinate`: type plan |
 
-- **fE5gA9T733lcQ8Hd_MLP82**  
-  ▸ Fonction : Se connecter à un robot UR  
-  ▸ Paramètres : `ip` (IP du robot)  
-
-- **fsX43cYxV0PI4evuVyUBQb**  
-  ▸ Fonction : Déconnecter un robot UR  
-  ▸ Paramètres : `ip` (IP du robot)  
-
----  
-
-### **2.2 Surveillance de l'état du robot**  
-- **fOIkmMPGlGGxwyw-3P9PLw**  
-  ▸ Fonction : Obtenir la durée de fonctionnement  
-  ▸ Paramètres : `ip`  
-
-- **fwyyKaqkrt6NBWXlSqhla2**  
-  ▸ Fonction : Obtenir le numéro de série  
-  ▸ Paramètres : `ip`  
-
-- **f6sWepY5YsPIqDuVllQixz**  
-  ▸ Fonction : Obtenir la version du logiciel  
-  ▸ Paramètres : `ip`  
-
-- **fJmgMj32RjjCxzg3n-OmKs**  
-  ▸ Fonction : Obtenir le mode de sécurité  
-  ▸ Paramètres : `ip`  
-
-- **fAJNyeIvDxM49kypgXs9xx**  
-  ▸ Fonction : Obtenir l'état d'exécution  
-  ▸ Paramètres : `ip`  
-
-- **frXKuqREVTmRygel-MDG11**  
-  ▸ Fonction : Obtenir l'état d'exécution du programme  
-  ▸ Paramètres : `ip`  
-
----  
-
-### **2.3 Lecture des registres et des données**  
-- **fOXjbOy_B40SqwczE0zRRx**  
-  ▸ Fonction : Lire un registre Int (0~23)  
-  ▸ Paramètres : `ip`, `index` (0-23)  
-
-- **ftWfHugqIFU3zE1k4szoST**  
-  ▸ Fonction : Lire un registre Double (0~23)  
-  ▸ Paramètres : `ip`, `index` (0-23)  
-
-- **f-CXiO_NaDsWiwltfrDhks**  
-  ▸ Fonction : Lire un registre Double (0~31)  
-  ▸ Paramètres : `ip`, `index` (0-31)  
-
----  
-
-### **2.4 Contrôle des mouvements**  
-- **fq5lK3nuHMu6AR1AOolkVT**  
-  ▸ Fonction : Mouvement dans l'espace articulaire  
-  ▸ Paramètres : `ip`, `q` (angles articulaires), `a`/`v`/`t`/`r` (optionnel)  
-
-- **fepruq4N7v4MBNqsiIvLRc**  
-  ▸ Fonction : Mouvement linéaire TCP  
-  ▸ Paramètres : `ip`, `pose` (position TCP), `a`/`v`/`t`/`r` (optionnel)  
-
-- **fcKCrZ2H_lwnAe4P2uTJ4L**  
-  ▸ Fonction : Mouvement linéaire le long de l'axe X  
-  ▸ Paramètres : `ip`, `distance` (mètres)  
-
-- **f77gv6fXQGTSKbsgemu8Np**  
-  ▸ Fonction : Mouvement linéaire le long de l'axe Y  
-  ▸ Paramètres : `ip`, `distance`  
-
-- **f-bIJDZENUgzPrLJqOFvIs**  
-  ▸ Fonction : Mouvement linéaire le long de l'axe Z  
-  ▸ Paramètres : `ip`, `distance`  
-
----  
-
-### **2.5 Gestion des programmes**  
-- **ftdgwJLZQ2dYp2mB1ZtRPD**  
-  ▸ Fonction : Charger un programme  
-  ▸ Paramètres : `ip`, `program_name`  
-
-- **fl1XHdiQ-GgEJPB7rlMaHU**  
-  ▸ Fonction : Charger et exécuter un programme  
-  ▸ Paramètres : `ip`, `program_name`  
-
-- **fL8CYEkias2SbMtv0S7s-N**  
-  ▸ Fonction : Arrêter le programme en cours  
-  ▸ Paramètres : `ip`  
-
-- **fkS98Mpak4obl30wTves1K**  
-  ▸ Fonction : Mettre en pause le programme en cours  
-  ▸ Paramètres : `ip`  
-
-- **fV_tezoVRKYr9IiYnl2ezU**  
-  ▸ Fonction : Envoyer un programme script  
-  ▸ Paramètres : `ip`, `script`  
-
----  
-
-### **2.6 Surveillance des capteurs et de l'alimentation**  
-- **fW18vf-tvLsFR-8coc2e5U**  
-  ▸ Fonction : Obtenir la tension actuelle  
-  ▸ Paramètres : `ip`  
-
-- **fEK48x3yHMxEx14KQsVzjZ**  
-  ▸ Fonction : Obtenir le courant actuel  
-  ▸ Paramètres : `ip`  
-
-- **fEh1yfbkyrh-kr2PDF7XI5**  
-  ▸ Fonction : Obtenir la tension des articulations  
-  ▸ Paramètres : `ip`  
-
-- **fsmxaF8Agn8NF0mMegv3_f**  
-  ▸ Fonction : Obtenir le courant des articulations  
-  ▸ Paramètres : `ip`  
-
-- **fdGsS6kwiGlY_zybhYQWrS**  
-  ▸ Fonction : Obtenir la température des articulations  
-  ▸ Paramètres : `ip`  
-
----  
-
-### **2.7 Retour de données en temps réel**  
-- **f6danXc2Pz98ilo5gMNc44**  
-  ▸ Fonction : Obtenir les coordonnées TCP en temps réel  
-  ▸ Paramètres : `ip`  
-
-- **fwHgxwtA4blZuetfmJ3OiK**  
-  ▸ Fonction : Obtenir les angles articulaires en temps réel  
-  ▸ Paramètres : `ip`  
-
----  
 
 ## 3. Clause de non-responsabilité
 
