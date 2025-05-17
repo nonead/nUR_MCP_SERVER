@@ -133,38 +133,43 @@ Capacidad concurrente: 200+ TPS
 
 **Tabla de Clasificación de Funciones de la Herramienta nUR_MCP_SERVER:**  
 
-| ID de Herramienta (nUR_MCP_SERVER) | Categoría          | Descripción                          | Parámetros          |  
-|------------------------------------|--------------------|--------------------------------------|---------------------|  
-| ffWzqSZlUpjFfVITKvBb-b            | Control de Conexión | Conectar al Robot UR                 | `ip`: IP del Robot |  
-| fx5l9Mb_BUs_hClarGKZIo            | Control de Conexión | Desconectar Robot UR                 | `ip`: IP del Robot |  
-| f04vj-Fwbuo8s2oYu252pR            | Monitoreo de Estado | Obtener Tiempo de Actividad del Robot | `ip`: IP del Robot |  
-| f2SHZtIYF_OhS8LuslKt8D            | Operación de Registro | Leer Valor de Registro Int (0-23)    | `ip`: IP del Robot, `index`: Índice de Registro (0-23) |  
-| fjLf_89qRxYDlEKo_oXADQ            | Operación de Registro | Leer Valor de Registro Double (0-23) | `ip`: IP del Robot, `index`: Índice de Registro (0-23) |  
-| f9uXSEQB1UZMXmgIyPtVH9            | Operación de Registro | Leer Valor de Registro Double (0-31) | `ip`: IP del Robot, `index`: Índice de Registro (0-31) |  
-| fBHQbdS9p_BPv97XBAau8a            | Información del Dispositivo | Obtener Número de Serie del Robot | `ip`: IP del Robot |  
-| fcHIfX-J83SvH0V6XZ59A7            | Control de Movimiento | Obtener Coordenadas TCP en Tiempo Real | `ip`: IP del Robot |  
-| fwloSfxAGiC_4rjdaZjUng            | Control de Movimiento | Obtener Ángulos de Articulación en Tiempo Real | `ip`: IP del Robot |  
-| fFg2TP6jf3XTWytLIf9fyO            | Control de Movimiento | Enviar Comando de Pose de Articulación | `ip`: IP del Robot, `q`: Ángulos de Articulación (Radianes), `a/v/t/r`: Parámetros de Movimiento |  
-| fBevTU5BWNdVNEKgqLV5d1            | Control de Movimiento | Enviar Comando de Movimiento Lineal TCP | `ip`: IP del Robot, `pose`: Posición TCP, `a/v/t/r`: Parámetros de Movimiento |  
-| fnPhKVsDYRrB_Cf1wlsitI            | Control de Movimiento | Movimiento Lineal en Eje X           | `ip`: IP del Robot, `distance`: Distancia de Movimiento (Metros) |  
-| fO55CY6Jw_iASo5NkxTm3l            | Control de Movimiento | Movimiento Lineal en Eje Y           | `ip`: IP del Robot, `distance`: Distancia de Movimiento (Metros) |  
-| fs3ppclCfK_x0ZzFaOKHMk            | Control de Movimiento | Movimiento Lineal en Eje Z           | `ip`: IP del Robot, `distance`: Distancia de Movimiento (Metros) |  
-| f18oyor3ddLJHMdPpyer45            | Control de Programa | Cargar Programa UR                   | `ip`: IP del Robot, `program_name`: Nombre del Programa |  
-| fQyW6AYZjmMiGL0unOVK0W            | Control de Programa | Cargar y Ejecutar Programa UR        | `ip`: IP del Robot, `program_name`: Nombre del Programa |  
-| fDxcON3qGCkzR5n9jSS5vQ            | Control de Programa | Detener Programa Actual              | `ip`: IP del Robot |  
-| fXB2Q94gpe30w1JHgZh_yr            | Control de Programa | Pausar Programa Actual               | `ip`: IP del Robot |  
-| fyXhJEun99j0N-5ojAzPYu            | Monitoreo de Estado | Obtener Voltaje Actual               | `ip`: IP del Robot |  
-| fYvUCtj-7VJIdbm1FA6cg8            | Monitoreo de Estado | Obtener Corriente Actual             | `ip`: IP del Robot |  
-| fno_OQmW5X_c3HK8M3r_NV            | Monitoreo de Estado | Obtener Voltaje de Articulación      | `ip`: IP del Robot |  
-| fPc54VdscRk2hmlEc3VwYg            | Monitoreo de Estado | Obtener Corriente de Articulación    | `ip`: IP del Robot |  
-| fAKuhJVkwgI4NbTKQ-xsoM            | Monitoreo de Estado | Obtener Temperatura de Articulación  | `ip`: IP del Robot |  
-| fjZheWqG9gz8SO78UgN6v7            | Monitoreo de Estado | Obtener Estado de Operación          | `ip`: IP del Robot |  
-| f2XEU4pWT2dsXI2rMsGfEw            | Monitoreo de Estado | Obtener Estado de Ejecución de Programa | `ip`: IP del Robot |  
-| fYLTKblGKQserA-ZvLXCAt            | Información del Dispositivo | Obtener Versión de Software | `ip`: IP del Robot |  
-| f2ebXFoN8bP3Pm1zocshdN            | Información del Dispositivo | Obtener Modo de Seguridad       | `ip`: IP del Robot |  
-| f_5wAr6iv97d1jurrEmhNp            | Control de Programa | Enviar Programa de Script            | `ip`: IP del Robot, `script`: Contenido del Script |  
-| fI3ZhZJZafBt33eNGD0ydQ            | Control de Movimiento | Movimiento Circular                  | `ip`: IP del Robot, `center`: Posición TCP del Centro, `r`: Radio (Metros), `coordinate`: Tipo de Plano |  
+| ID Herramienta | Categoría | Descripción | Parámetros clave |
+|--------|----------|----------|----------|
+| fkUCFg7YmxSflgfmJawHeo | Gestión conexión | Conectar robot UR | ip:IP robot |
+| fcr4pIqoIXyxh3ko9FOsWU | Gestión conexión | Desconectar robot UR | ip:IP robot |
+| fNKAydKkxHwmGFgyrePBsN | Monitoreo estado | Obtener tiempo encendido (segundos) | ip:IP robot |
+| fYTMsGvSRpUdWmURng7kGX | Operación registro | Obtener salida registro Int (0-23) | ip:IP robot, index:índice registro |
+| fvfqDMdDJer6kpbCzwFL1D | Operación registro | Obtener salida registro Double (0-23) | ip:IP robot, index:índice registro |
+| fCJ6sRw9m0ArdZ-MCaeNWK | Operación registro | Obtener salida registro Double (0-31) | ip:IP robot, index:índice registro |
+| f_ZXAIUv-eqHelwWxrzDHe | Información dispositivo | Obtener número serie | ip:IP robot |
+| fZ2ALt5kD50gV9AdEgBrRO | Información dispositivo | Obtener modelo | ip:IP robot |
+| fEtHcw5RNF54X9RYIEU-1m | Control movimiento | Obtener coordenadas TCP tiempo real | ip:IP robot |
+| ftsb2AsiqiPqSBxHIwALOx | Control movimiento | Obtener ángulos articulación tiempo real | ip:IP robot |
+| fXmkr4PLkHKF0wgQGEHzLt | Control movimiento | Enviar comando postura articulación | ip:IP robot, q:ángulos articulación(radianes) |
+| fWdukQrgFZeK-DEcST4AwO | Control movimiento | Enviar comando movimiento lineal TCP | ip:IP robot, pose:posición TCP |
+| f2gbgju7QsymJa4wPgZQ0T | Control movimiento | Movimiento lineal eje X | ip:IP robot, distance:distancia movimiento(metros) |
+| fS6rCxVp498s5edU7jCMB3 | Control movimiento | Movimiento lineal eje Y | ip:IP robot, distance:distancia movimiento(metros) |
+| fJps7j-T3lwzXhp8p0_suy | Control movimiento | Movimiento lineal eje Z | ip:IP robot, distance:distancia movimiento(metros) |
+| fTMj5413O5CzsORAyBYXj8 | Control programa | Cargar programa UR | ip:IP robot, program_name:nombre programa |
+| fqiYJ1c9fqCs5eYd-yKEeJ | Control programa | Cargar y ejecutar programa UR | ip:IP robot, program_name:nombre programa |
+| fW6-wrPoqm2bE3bMgtLbLP | Control programa | Detener programa actual | ip:IP robot |
+| fsEmm-VX3CCY_XvnCDms7f | Control programa | Pausar programa actual | ip:IP robot |
+| f83-fUQBd-YRSdIQDpuYmW | Monitoreo estado | Obtener voltaje actual | ip:IP robot |
+| foMoD2L690vRdQxdW_gRNl | Monitoreo estado | Obtener corriente actual | ip:IP robot |
+| fDZBXqofuIb-7IjS6t2YJ2 | Monitoreo estado | Obtener voltaje articulación | ip:IP robot |
+| fgAa_kwSmXmvld6Alx39ij | Monitoreo estado | Obtener corriente articulación | ip:IP robot |
+| furAKHVnYvORJ9R7N7vpbl | Monitoreo estado | Obtener temperatura articulación | ip:IP robot |
+| fuNb7TgOgWNukjAVjusMN4 | Monitoreo estado | Obtener estado operación | ip:IP robot |
+| fD12XJtqjgI46Oufwt928c | Monitoreo estado | Obtener estado ejecución programa | ip:IP robot |
+| fMLa2mjlactTbD_CCKB1tX | Información dispositivo | Obtener versión software | ip:IP robot |
+| fWXQKGQ6J5mas9K9mGPK3x | Información dispositivo | Obtener modo seguridad | ip:IP robot |
+| f81vKugz9xnncjirTC3B6A | Control programa | Obtener lista programas | ip:IP robot, username/password:credenciales SSH |
+| ffaaQZeknwwTISLYdYqM0_ | Control programa | Enviar script programa | ip:IP robot, script:contenido script |
+| fsWlT3tCOn1ub-kUZCrq7E | Control movimiento | Movimiento circular | ip:IP robot, center:posición TCP centro, r:radio(metros) |
+| f7y1QpjnA9s1bzfLeOkTnS | Control movimiento | Dibujar cuadrado | ip:IP robot, origin:posición TCP inicio, border:longitud lado(metros) |
+| fuN_LLSc22VKXWXwbwNARo | Control movimiento | Dibujar rectángulo | ip:IP robot, origin:posición TCP inicio, width/height:ancho/alto(metros) |
 
+Nota: Todas las herramientas requieren conexión previa con el robot.
 
 ## 3. Declaración de responsabilidad
 

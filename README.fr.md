@@ -130,37 +130,43 @@ Spécifications techniques:
 
 **Présentation du tableau de classification des fonctionnalités de l'outil nUR_MCP_SERVER :**  
 
-| ID outil (nUR_MCP_SERVER) | Catégorie | Description | Paramètres clés |
-|------------------------|----------|----------|----------|
-| ffWzqSZlUpjFfVITKvBb-b | Gestion connexion | Connecter robot UR | `ip`: IP robot |
-| fx5l9Mb_BUs_hClarGKZIo | Gestion connexion | Déconnecter robot UR | `ip`: IP robot |
-| f04vj-Fwbuo8s2oYu252pR | Surveillance état | Obtenir durée fonctionnement robot | `ip`: IP robot |
-| f2SHZtIYF_OhS8LuslKt8D | Opération registre | Lire valeur registre Int(0-23) | `ip`: IP robot, `index`: index registre(0-23) |
-| fjLf_89qRxYDlEKo_oXADQ | Opération registre | Lire valeur registre Double(0-23) | `ip`: IP robot, `index`: index registre(0-23) |
-| f9uXSEQB1UZMXmgIyPtVH9 | Opération registre | Lire valeur registre Double(0-31) | `ip`: IP robot, `index`: index registre(0-31) |
-| fBHQbdS9p_BPv97XBAau8a | Info appareil | Obtenir numéro série robot | `ip`: IP robot |
-| fcHIfX-J83SvH0V6XZ59A7 | Contrôle mouvement | Obtenir coordonnées TCP temps réel | `ip`: IP robot |
-| fwloSfxAGiC_4rjdaZjUng | Contrôle mouvement | Obtenir angles articulation temps réel | `ip`: IP robot |
-| fFg2TP6jf3XTWytLIf9fyO | Contrôle mouvement | Envoyer commande posture articulation | `ip`: IP robot, `q`: angles articulation(radian), `a/v/t/r`: paramètres mouvement |
-| fBevTU5BWNdVNEKgqLV5d1 | Contrôle mouvement | Envoyer commande déplacement linéaire TCP | `ip`: IP robot, `pose`: position TCP, `a/v/t/r`: paramètres mouvement |
-| fnPhKVsDYRrB_Cf1wlsitI | Contrôle mouvement | Déplacement linéaire axe X | `ip`: IP robot, `distance`: distance(mètre) |
-| fO55CY6Jw_iASo5NkxTm3l | Contrôle mouvement | Déplacement linéaire axe Y | `ip`: IP robot, `distance`: distance(mètre) |
-| fs3ppclCfK_x0ZzFaOKHMk | Contrôle mouvement | Déplacement linéaire axe Z | `ip`: IP robot, `distance`: distance(mètre) |
-| f18oyor3ddLJHMdPpyer45 | Contrôle programme | Charger programme UR | `ip`: IP robot, `program_name`: nom programme |
-| fQyW6AYZjmMiGL0unOVK0W | Contrôle programme | Charger et exécuter programme UR | `ip`: IP robot, `program_name`: nom programme |
-| fDxcON3qGCkzR5n9jSS5vQ | Contrôle programme | Arrêter programme actuel | `ip`: IP robot |
-| fXB2Q94gpe30w1JHgZh_yr | Contrôle programme | Mettre en pause programme actuel | `ip`: IP robot |
-| fyXhJEun99j0N-5ojAzPYu | Surveillance état | Obtenir tension actuelle | `ip`: IP robot |
-| fYvUCtj-7VJIdbm1FA6cg8 | Surveillance état | Obtenir courant actuel | `ip`: IP robot |
-| fno_OQmW5X_c3HK8M3r_NV | Surveillance état | Obtenir tension articulation | `ip`: IP robot |
-| fPc54VdscRk2hmlEc3VwYg | Surveillance état | Obtenir courant articulation | `ip`: IP robot |
-| fAKuhJVkwgI4NbTKQ-xsoM | Surveillance état | Obtenir température articulation | `ip`: IP robot |
-| fjZheWqG9gz8SO78UgN6v7 | Surveillance état | Obtenir état fonctionnement | `ip`: IP robot |
-| f2XEU4pWT2dsXI2rMsGfEw | Surveillance état | Obtenir état exécution programme | `ip`: IP robot |
-| fYLTKblGKQserA-ZvLXCAt | Info appareil | Obtenir version logicielle | `ip`: IP robot |
-| f2ebXFoN8bP3Pm1zocshdN | Info appareil | Obtenir mode sécurité | `ip`: IP robot |
-| f_5wAr6iv97d1jurrEmhNp | Contrôle programme | Envoyer programme script | `ip`: IP robot, `script`: contenu script |
-| fI3ZhZJZafBt33eNGD0ydQ | Contrôle mouvement | Mouvement circulaire | `ip`: IP robot, `center`: position TCP centre, `r`: rayon(mètre), `coordinate`: type plan |
+| ID Outil | Catégorie | Description | Paramètres clés |
+|--------|----------|----------|----------|
+| fkUCFg7YmxSflgfmJawHeo | Gestion de connexion | Connecter robot UR | ip:IP du robot |
+| fcr4pIqoIXyxh3ko9FOsWU | Gestion de connexion | Déconnecter robot UR | ip:IP du robot |
+| fNKAydKkxHwmGFgyrePBsN | Surveillance d'état | Obtenir la durée de fonctionnement (secondes) | ip:IP du robot |
+| fYTMsGvSRpUdWmURng7kGX | Opération de registre | Obtenir la sortie du registre Int (0-23) | ip:IP du robot, index:index du registre |
+| fvfqDMdDJer6kpbCzwFL1D | Opération de registre | Obtenir la sortie du registre Double (0-23) | ip:IP du robot, index:index du registre |
+| fCJ6sRw9m0ArdZ-MCaeNWK | Opération de registre | Obtenir la sortie du registre Double (0-31) | ip:IP du robot, index:index du registre |
+| f_ZXAIUv-eqHelwWxrzDHe | Information appareil | Obtenir le numéro de série | ip:IP du robot |
+| fZ2ALt5kD50gV9AdEgBrRO | Information appareil | Obtenir le modèle | ip:IP du robot |
+| fEtHcw5RNF54X9RYIEU-1m | Commande de mouvement | Obtenir les coordonnées TCP en temps réel | ip:IP du robot |
+| ftsb2AsiqiPqSBxHIwALOx | Commande de mouvement | Obtenir les angles des articulations en temps réel | ip:IP du robot |
+| fXmkr4PLkHKF0wgQGEHzLt | Commande de mouvement | Envoyer la commande de posture des articulations | ip:IP du robot, q:angles des articulations(radians) |
+| fWdukQrgFZeK-DEcST4AwO | Commande de mouvement | Envoyer la commande de mouvement linéaire TCP | ip:IP du robot, pose:position TCP |
+| f2gbgju7QsymJa4wPgZQ0T | Commande de mouvement | Mouvement linéaire axe X | ip:IP du robot, distance:distance(mètres) |
+| fS6rCxVp498s5edU7jCMB3 | Commande de mouvement | Mouvement linéaire axe Y | ip:IP du robot, distance:distance(mètres) |
+| fJps7j-T3lwzXhp8p0_suy | Commande de mouvement | Mouvement linéaire axe Z | ip:IP du robot, distance:distance(mètres) |
+| fTMj5413O5CzsORAyBYXj8 | Contrôle programme | Charger le programme UR | ip:IP du robot, program_name:nom du programme |
+| fqiYJ1c9fqCs5eYd-yKEeJ | Contrôle programme | Charger et exécuter le programme UR | ip:IP du robot, program_name:nom du programme |
+| fW6-wrPoqm2bE3bMgtLbLP | Contrôle programme | Arrêter le programme actuel | ip:IP du robot |
+| fsEmm-VX3CCY_XvnCDms7f | Contrôle programme | Mettre en pause le programme actuel | ip:IP du robot |
+| f83-fUQBd-YRSdIQDpuYmW | Surveillance d'état | Obtenir la tension actuelle | ip:IP du robot |
+| foMoD2L690vRdQxdW_gRNl | Surveillance d'état | Obtenir le courant actuel | ip:IP du robot |
+| fDZBXqofuIb-7IjS6t2YJ2 | Surveillance d'état | Obtenir la tension des articulations | ip:IP du robot |
+| fgAa_kwSmXmvld6Alx39ij | Surveillance d'état | Obtenir le courant des articulations | ip:IP du robot |
+| furAKHVnYvORJ9R7N7vpbl | Surveillance d'état | Obtenir la température des articulations | ip:IP du robot |
+| fuNb7TgOgWNukjAVjusMN4 | Surveillance d'état | Obtenir l'état de fonctionnement | ip:IP du robot |
+| fD12XJtqjgI46Oufwt928c | Surveillance d'état | Obtenir l'état d'exécution du programme | ip:IP du robot |
+| fMLa2mjlactTbD_CCKB1tX | Information appareil | Obtenir la version du logiciel | ip:IP du robot |
+| fWXQKGQ6J5mas9K9mGPK3x | Information appareil | Obtenir le mode de sécurité | ip:IP du robot |
+| f81vKugz9xnncjirTC3B6A | Contrôle programme | Obtenir la liste des programmes | ip:IP du robot, username/password:identifiants SSH |
+| ffaaQZeknwwTISLYdYqM0_ | Contrôle programme | Envoyer le script du programme | ip:IP du robot, script:contenu du script |
+| fsWlT3tCOn1ub-kUZCrq7E | Commande de mouvement | Mouvement circulaire | ip:IP du robot, center:position TCP du centre, r:rayon(mètres) |
+| f7y1QpjnA9s1bzfLeOkTnS | Commande de mouvement | Dessiner un carré | ip:IP du robot, origin:position TCP de départ, border:longueur du côté(mètres) |
+| fuN_LLSc22VKXWXwbwNARo | Commande de mouvement | Dessiner un rectangle | ip:IP du robot, origin:position TCP de départ, width/height:largeur/hauteur(mètres) |
+
+Remarque : Tous les outils nécessitent une connexion préalable avec le robot.
 
 
 ## 3. Clause de non-responsabilité
