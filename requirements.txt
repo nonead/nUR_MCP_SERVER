@@ -12,3 +12,4 @@ scipy==1.15.2
 six==1.17.0
 sympy==1.14.0
 tensorflow==2.19.0
+paramiko==3.5.1

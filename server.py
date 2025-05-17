@@ -7,7 +7,7 @@ from mcp.server import Server
 from mcp.server.stdio import stdio_server
 from mcp.types import Tool, TextContent, ImageContent, EmbeddedResource
 from mcp.shared.exceptions import McpError
-
+import paramiko
 from pydantic import BaseModel
 import URBasic
 from URBasic import RobotModel, DashBoard
@@ -22,6 +22,7 @@ class URTools(str, Enum):
     DISCONNECT = "disconnect_ur"
     GET_TIME = "get_time"
     GET_SERIAL_NUMBER = "get_serial_number"
+    GET_ROBOT_MODEL = "get_robot_model"
     GET_ACTUAL_TCP_POSE = "get_actual_tcp_pose"
     GET_ACTUAL_JOINT_POSE = "get_actual_joint_pose"
     MOVEJ = "movej"
@@ -45,8 +46,11 @@ class URTools(str, Enum):
     GET_PROGRAM_STATE = "get_program_state"
     GET_UR_SOFTWARE_VERSION = "get_ur_software_version"
     GET_SAFETY_MODE = "get_safety_mode"
+    GET_PROGRAMS = "get_programs"
     SEND_PROGRAM_SCRIPT = "send_program_script"
     DRAW_CIRCLE = "draw_circle"
+    DRAW_SQUARE = "draw_square"
+    DRAW_RECTANGLE = "draw_rectangle"
 
 
 class CommandResult(BaseModel):
@@ -72,7 +76,10 @@ class URServer:
 
     def get_time(self, ip) -> CommandResult:
         """获取开机时长"""
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
 
         return CommandResult(
             txt=f"{self.robotModle[ip].RobotTimestamp():.2f}"
@@ -80,7 +87,10 @@ class URServer:
 
     def movej(self, ip, q, a=1, v=1, t=0, r=0):
         """发送新的关节姿态到UR机器人"""
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         cmd = f"movej({q},{a},{v},{t},{r})"
         self.robot[ip].movej(q, a, v, t, r)
         result = self.movejConfirm(ip, q)
@@ -95,7 +105,10 @@ class URServer:
 
     def load_urp(self, ip, name):
         """加载指定UR程序"""
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         cmd = f"{name}.urp"
         self.robot[ip].robotConnector.DashboardClient.ur_load(cmd)
         return CommandResult(
@@ -104,7 +117,10 @@ class URServer:
 
     def start_ur(self, ip, name):
         """加载并执行指定UR程序"""
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         cmd = f"{name}.urp"
         self.robot[ip].robotConnector.DashboardClient.ur_load(cmd)
         result = self.robot[ip].robotConnector.DashboardClient.last_respond
@@ -120,14 +136,20 @@ class URServer:
 
     def stop_ur(self, ip):
         """停止执行"""
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         self.robot[ip].robotConnector.DashboardClient.ur_stop()
         return CommandResult(
             txt=self.robot[ip].robotConnector.DashboardClient.last_respond
         )
 
     def pause_ur(self, ip):
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         self.robot[ip].robotConnector.DashboardClient.ur_pause()
         return CommandResult(
             txt=self.robot[ip].robotConnector.DashboardClient.last_respond
@@ -135,7 +157,10 @@ class URServer:
 
     def movel(self, ip, pose, a=1, v=1, t=0, r=0):
         """直线移动"""
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
 
         self.robot[ip].movel(pose, a, v, t, r)
         result = self.movelConfirm(ip, pose)
@@ -165,13 +190,32 @@ class URServer:
         self.robot[ip] = robot
         self.robotModle[ip] = robotModle
 
+        # if self.robot.get(ip, "unknown") == "unknown" or not self.robot[
+        #     ip].robotConnector.RealTimeClient.IsRtcConnected() or self.robot[
+        #     ip].robotConnector.DashboardClient.dbs_is_running() or self.robot[
+        #     ip].robotConnector.RTDE.isRunning():
+        #     return CommandResult(
+        #         txt=f"连接失败。IP:{host}"
+        #     )
+        self.robot[ip].robotConnector.DashboardClient.ur_is_remote_control()
+        remote = self.robot[ip].robotConnector.DashboardClient.last_respond.lower()
+        print(f"remote:{remote}")
+        if remote != 'true' and not remote.startswith('could not understand'):
+            self.disconnect_ur(ip)
+            return CommandResult(
+                txt=f"请检查机器人是否处于远程控制模式。IP:{host}"
+            )
+
         return CommandResult(
             txt=f"连接成功。IP:{host}"
         )
 
     def get_actual_tcp_pose(self, ip):
         """获取当前TCP位置"""
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
 
         return CommandResult(
             txt=f"当前TCP姿态： {self.robot[ip].get_actual_tcp_pose()}"
@@ -179,14 +223,20 @@ class URServer:
 
     def get_actual_joint_pose(self, ip):
         """获取当前关节角度"""
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         return CommandResult(
             txt=f"当前关节姿态 {self.robot[ip].get_actual_joint_positions()}"
         )
 
     def movel_x(self, ip, distance):
         """命令TCP沿X轴方向移动"""
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         pose = self.robot[ip].get_actual_tcp_pose()
         pose[0] = pose[0] + distance
         self.robot[ip].movel(pose)
@@ -203,7 +253,10 @@ class URServer:
 
     def get_serial_number(self, ip):
         """获取机器人序列号"""
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         self.robot[ip].robotConnector.DashboardClient.ur_serial_number()
         return CommandResult(
             txt=f"IP为{ip}的优傲机器人的序列号为： {self.robot[ip].robotConnector.DashboardClient.last_respond}"
@@ -211,7 +264,10 @@ class URServer:
 
     def movel_y(self, ip, distance):
         """命令TCP沿Y轴方向移动"""
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         pose = self.robot[ip].get_actual_tcp_pose()
         pose[1] = pose[1] + distance
 
@@ -229,7 +285,10 @@ class URServer:
 
     def movel_z(self, ip, distance):
         """命令TCP沿Z轴方向移动"""
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         pose = self.robot[ip].get_actual_tcp_pose()
         pose[2] = pose[2] + distance
         self.robot[ip].movel(pose)
@@ -246,7 +305,10 @@ class URServer:
 
     def get_output_int_register(self, ip, index):
         """获取Int寄存器的值"""
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         return CommandResult(
             txt=f"{self.robotModle[ip].OutputIntRegister(index)}"
         )
@@ -264,14 +326,20 @@ class URServer:
 
     def get_output_double_register(self, ip, index):
         """获取Double寄存器的值"""
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         return CommandResult(
             txt=f"{self.robotModle[ip].OutputDoubleRegister(index)}"
         )
 
     def get_output_bit_register(self, ip, index):
         """获取Bool寄存器的值"""
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         bits = self.robotModle[ip].OutputBitRegister()
         return CommandResult(
             txt=f"{bits[index]}"
@@ -279,44 +347,65 @@ class URServer:
 
     def get_actual_robot_voltage(self, ip):
         """获取机器人电压"""
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         return CommandResult(
             txt=f"{self.robotModle[ip].ActualRobotVoltage()}（伏特）"
         )
 
     def get_actual_robot_current(self, ip):
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         return CommandResult(
             txt=f"{self.robotModle[ip].ActualRobotCurrent()}（安培）"
         )
 
     def get_actual_joint_voltage(self, ip):
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         return CommandResult(
             txt=f"{self.robotModle[ip].ActualJointVoltage()}（伏特）"
         )
 
     def get_actual_joint_current(self, ip):
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         return CommandResult(
             txt=f"{self.robotModle[ip].ActualJointVoltage()}（安培）"
         )
 
     def get_joint_temperatures(self, ip):
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         return CommandResult(
             txt=f"{self.robotModle[ip].JointTemperatures()}（摄氏度）"
         )
 
     def get_robot_mode(self, ip):
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         self.robot[ip].robotConnector.DashboardClient.ur_robotmode()
         return CommandResult(
             txt=f"IP为{ip}的优傲机器人的运行状态为： {self.robot[ip].robotConnector.DashboardClient.last_respond}"
         )
 
     def get_program_state(self, ip):
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         self.robot[ip].robotConnector.DashboardClient.ur_get_loaded_program()
         prog_name = self.robot[ip].robotConnector.DashboardClient.last_respond
         self.robot[ip].robotConnector.DashboardClient.ur_programState()
@@ -337,7 +426,10 @@ class URServer:
         )
 
     def get_ur_software_version(self, ip):
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         self.robot[ip].robotConnector.DashboardClient.ur_polyscopeVersion()
         result = self.robot[ip].robotConnector.DashboardClient.last_respond
         return CommandResult(
@@ -345,7 +437,10 @@ class URServer:
         )
 
     def get_safety_mode(self, ip):
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         self.robot[ip].robotConnector.DashboardClient.ur_safetymode()
         result = self.robot[ip].robotConnector.DashboardClient.last_respond
         return CommandResult(
@@ -353,7 +448,10 @@ class URServer:
         )
 
     def send_program_script(self, ip, script):
-        self.link_check(ip)
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         self.robot[ip].robotConnector.RealTimeClient.SendProgram(script)
 
         return CommandResult(
@@ -457,15 +555,16 @@ class URServer:
                                 return True
         return False
 
-    def draw_circle(self, ip, center, r, coordinate="x"):
-        self.link_check(ip)
+    def draw_circle(self, ip, center, r, coordinate="z"):
+        '''给定圆心位置和半径，在水平或竖直方向画一个圆'''
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
         wp_1 = [center[0],center[1],center[2],center[3],center[4],center[5]]
         wp_2 = [center[0],center[1],center[2],center[3],center[4],center[5]]
         wp_3 = [center[0],center[1],center[2],center[3],center[4],center[5]]
         wp_4 = [center[0],center[1],center[2],center[3],center[4],center[5]]
-        x = 0
-        y = 0
-        z = 0
         cmd = ''
         if coordinate.lower() == "z":
             wp_1[2] = wp_1[2] + r
@@ -492,6 +591,114 @@ class URServer:
             txt=f"命令已发送：{cmd}"
         )
 
+    def draw_square(self, ip, origin, border, coordinate="z"):
+        '''给定起点位置和边长，在水平或竖直方向画一个正方形'''
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
+        wp_1 = [origin[0], origin[1], origin[2], origin[3], origin[4], origin[5]]
+        wp_2 = [origin[0], origin[1], origin[2], origin[3], origin[4], origin[5]]
+        wp_3 = [origin[0], origin[1], origin[2], origin[3], origin[4], origin[5]]
+        if coordinate.lower() == "z":
+            wp_1[1] = wp_1[1] + border
+
+            wp_2[1] = wp_2[1] + border
+            wp_2[3] = wp_2[3] - border
+
+            wp_3[3] = wp_3[3] - border
+
+        else:
+            wp_1[1] = wp_1[1] + border
+
+            wp_2[1] = wp_2[1] + border
+            wp_2[0] = wp_2[0] + border
+
+            wp_3[0] = wp_3[0] + border
+
+        cmd = (f"movel(p{str(origin)}, a=1, v=0.25)\nmovel(p{str(wp_1)}, a=1, v=0.25)\n"
+               f"movel(p{str(wp_2)}, a=1, v=0.25)\nmovel(p{str(wp_3)}, a=1, v=0.25)\n"
+               f"movel(p{str(origin)}, a=1, v=0.25)")
+        self.robot[ip].robotConnector.RealTimeClient.SendProgram(cmd)
+        return CommandResult(
+            txt=f"命令已发送：{cmd}"
+        )
+
+    def draw_rectangle(self, ip, origin, width,height, coordinate="z"):
+        if '连接失败' in self.link_check(ip):
+            return CommandResult(
+                txt=f"与机器人的连接已断开。"
+            )
+        wp_1 = [origin[0], origin[1], origin[2], origin[3], origin[4], origin[5]]
+        wp_2 = [origin[0], origin[1], origin[2], origin[3], origin[4], origin[5]]
+        wp_3 = [origin[0], origin[1], origin[2], origin[3], origin[4], origin[5]]
+        if coordinate.lower() == "z":
+            wp_1[1] = wp_1[1] + width
+
+            wp_2[1] = wp_2[1] + width
+            wp_2[3] = wp_2[3] - height
+
+            wp_3[3] = wp_3[3] - height
+
+        else:
+            wp_1[1] = wp_1[1] + width
+
+            wp_2[1] = wp_2[1] + width
+            wp_2[0] = wp_2[0] + height
+
+            wp_3[0] = wp_3[0] + height
+
+        cmd = (f"movel(p{str(origin)}, a=1, v=0.25)\nmovel(p{str(wp_1)}, a=1, v=0.25)\n"
+               f"movel(p{str(wp_2)}, a=1, v=0.25)\nmovel(p{str(wp_3)}, a=1, v=0.25)\n"
+               f"movel(p{str(origin)}, a=1, v=0.25)")
+        self.robot[ip].robotConnector.RealTimeClient.SendProgram(cmd)
+        return CommandResult(
+            txt=f"命令已发送：{cmd}"
+        )
+
+    def get_robot_model(self, ip):
+        self.robot[ip].robotConnector.DashboardClient.ur_get_robot_model()
+        model = self.robot[ip].robotConnector.DashboardClient.last_respond
+        self.robot[ip].robotConnector.DashboardClient.ur_is_remote_control()
+        e=self.robot[ip].robotConnector.DashboardClient.last_respond.lower()
+        if e == 'true' or e == 'false':
+            model = f"{model}e"
+        return model
+
+    def get_programs(self, ip, username='root', password='easybot'):
+        try:
+            ssh = paramiko.SSHClient()
+            ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            ssh.connect(hostname=ip, port=22, username=username, password=password)
+
+            # 创建交互式 shell
+            shell = ssh.invoke_shell()
+
+            # 执行多个命令
+            shell.send('cd /programs\n')
+            shell.send('ls -1\n')
+
+            # 获取输出
+            import time
+            time.sleep(1)  # 等待命令执行
+            output = shell.recv(65535).decode()
+            ssh.close()
+
+            files = []
+            for file in output.split('\n'):
+                name = file.replace(' ', '').replace('\r', '')
+                if name.endswith('.urp'):
+                    files.append(name)
+
+            return CommandResult(
+                txt=f"命令已发送：{str(files)}"
+                )
+        except Exception as e:
+            return CommandResult(
+                txt=f"程序列表获取失败。"
+            )
+
+
 
 async def serve():
     """启动mcp服务"""
@@ -504,7 +711,7 @@ async def serve():
         return [
             Tool(
                 name=URTools.CONNECT.value,
-                description="连接UR机器人，连接成功之后才可以发送其它命令。执行失败时停止动作。",
+                description="连接UR机器人，连接成功之后才可以发送其它命令。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -518,7 +725,7 @@ async def serve():
             ),
             Tool(
                 name=URTools.DISCONNECT.value,
-                description="断开与当前UR机器人的连接。执行失败时停止动作。",
+                description="断开与当前UR机器人的连接。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -532,7 +739,7 @@ async def serve():
             ),
             Tool(
                 name=URTools.GET_TIME.value,
-                description="获取UR机器人的开机时长。执行失败时停止动作。",
+                description="获取UR机器人的开机时长（秒）。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -546,7 +753,7 @@ async def serve():
             ),
             Tool(
                 name=URTools.GET_OUTPUT_INT_REGISTER.value,
-                description="获取UR机器人的Int寄存器输出。Int类型输出共24个，地址分别为0~23，从0开始。执行失败时停止动作。",
+                description="获取UR机器人的Int寄存器输出。Int类型输出共24个，地址分别为0~23，从0开始。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -564,7 +771,7 @@ async def serve():
             ),
             Tool(
                 name=URTools.GET_OUTPUT_DOUBLE_REGISTER.value,
-                description="获取UR机器人的Double寄存器输出。Double类型输出共24个，地址分别为0~23，从0开始。执行失败时停止动作。",
+                description="获取UR机器人的Double寄存器输出。Double类型输出共24个，地址分别为0~23，从0开始。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -582,7 +789,7 @@ async def serve():
             ),
             Tool(
                 name=URTools.GET_OUTPUT_BIT_REGISTER.value,
-                description="获取UR机器人的Double寄存器输出。Double类型输出共32个，地址分别为0~31，从0开始。执行失败时停止动作。",
+                description="获取UR机器人的Double寄存器输出。Double类型输出共32个，地址分别为0~31，从0开始。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -600,7 +807,21 @@ async def serve():
             ),
             Tool(
                 name=URTools.GET_SERIAL_NUMBER.value,
-                description="获取UR机器人的序列号。执行失败时停止动作。",
+                description="获取UR机器人的序列号。",
+                inputSchema={
+                    "type": "object",
+                    "properties": {
+                        "ip": {
+                            "type": "string",
+                            "description": f"机器人IP",
+                        }
+                    },
+                    "required": ["ip"],
+                },
+            ),
+            Tool(
+                name=URTools.GET_ROBOT_MODEL.value,
+                description="获取UR机器人的型号。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -614,7 +835,7 @@ async def serve():
             ),
             Tool(
                 name=URTools.GET_ACTUAL_TCP_POSE.value,
-                description="获取UR机器人的实时TCP坐标。执行失败时停止动作。",
+                description="获取UR机器人的实时TCP坐标。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -628,7 +849,7 @@ async def serve():
             ),
             Tool(
                 name=URTools.GET_ACTUAL_JOINT_POSE.value,
-                description="获取UR机器人的实时关节角度。执行失败时停止动作。",
+                description="获取UR机器人的实时关节角度。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -642,7 +863,7 @@ async def serve():
             ),
             Tool(
                 name=URTools.MOVEJ.value,
-                description="发送一个关节姿态给UR，使UR移动到这个姿态位置。执行失败时停止动作。",
+                description="发送一个关节姿态给UR，使UR移动到这个姿态位置。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -678,7 +899,7 @@ async def serve():
                 },
             ), Tool(
                 name=URTools.MOVEL.value,
-                description="发送一个TCP位置给UR，使UR的TCP沿直线移动到这个位置。执行失败时停止动作。",
+                description="发送一个TCP位置给UR，使UR的TCP沿直线移动到这个位置。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -714,7 +935,7 @@ async def serve():
                 },
             ), Tool(
                 name=URTools.MOVEL_X.value,
-                description="沿X轴方向，直线移动一段距离。执行失败时停止动作。",
+                description="沿X轴方向，直线移动一段距离。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -731,7 +952,7 @@ async def serve():
                 },
             ), Tool(
                 name=URTools.MOVEL_Y.value,
-                description="沿Y轴方向，直线移动一段距离。执行失败时停止动作。",
+                description="沿Y轴方向，直线移动一段距离。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -748,7 +969,7 @@ async def serve():
                 },
             ), Tool(
                 name=URTools.MOVEL_Z.value,
-                description="沿Z轴方向，直线移动一段距离。执行失败时停止动作。",
+                description="沿Z轴方向，直线移动一段距离。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -765,7 +986,7 @@ async def serve():
                 },
             ), Tool(
                 name=URTools.LOAD_URP.value,
-                description="加载UR程序。执行失败时停止动作。",
+                description="加载UR程序。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -782,7 +1003,7 @@ async def serve():
                 },
             ), Tool(
                 name=URTools.START_UR.value,
-                description="加载UR程序并且执行。执行失败时停止动作。",
+                description="加载UR程序并且执行。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -799,7 +1020,7 @@ async def serve():
                 },
             ), Tool(
                 name=URTools.STOP_UR.value,
-                description="命令UR机器人停止执行当前程序。执行失败时停止动作。",
+                description="命令UR机器人停止执行当前程序。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -812,7 +1033,7 @@ async def serve():
                 },
             ), Tool(
                 name=URTools.PAUSE_UR.value,
-                description="命令UR机器人暂停执行当前程序。执行失败时停止动作。",
+                description="命令UR机器人暂停执行当前程序。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -825,7 +1046,7 @@ async def serve():
                 },
             ), Tool(
                 name=URTools.GET_ACTUAL_ROBOT_VOLTAGE.value,
-                description="获取UR机器人的当前电压。执行失败时停止动作。",
+                description="获取UR机器人的当前电压。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -838,7 +1059,7 @@ async def serve():
                 },
             ), Tool(
                 name=URTools.GET_ACTUAL_ROBOT_CURRENT.value,
-                description="获取UR机器人的当前电流。执行失败时停止动作。",
+                description="获取UR机器人的当前电流。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -851,7 +1072,7 @@ async def serve():
                 },
             ), Tool(
                 name=URTools.GET_ACTUAL_JOINT_VOLTAGE.value,
-                description="获取UR机器人各个关节的当前电压。执行失败时停止动作。",
+                description="获取UR机器人各个关节的当前电压。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -864,7 +1085,7 @@ async def serve():
                 },
             ), Tool(
                 name=URTools.GET_ACTUAL_JOINT_CURRENT.value,
-                description="获取UR机器人各个关节的当前电流。执行失败时停止动作。",
+                description="获取UR机器人各个关节的当前电流。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -877,7 +1098,7 @@ async def serve():
                 },
             ), Tool(
                 name=URTools.GET_ACTUAL_JOINT_TEMPERATURES.value,
-                description="获取UR机器人各个关节的当前温度。执行失败时停止动作。",
+                description="获取UR机器人各个关节的当前温度。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -890,7 +1111,7 @@ async def serve():
                 },
             ), Tool(
                 name=URTools.GET_ROBOT_MODE.value,
-                description="获取UR机器人当前运行状态。执行失败时停止动作。",
+                description="获取UR机器人当前运行状态。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -903,7 +1124,7 @@ async def serve():
                 },
             ), Tool(
                 name=URTools.GET_PROGRAM_STATE.value,
-                description="获取UR机器人的程序执行状态。执行失败时停止动作。",
+                description="获取UR机器人的程序执行状态。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -916,7 +1137,7 @@ async def serve():
                 },
             ), Tool(
                 name=URTools.GET_UR_SOFTWARE_VERSION.value,
-                description="获取UR机器人的软件版本。执行失败时停止动作。",
+                description="获取UR机器人的软件版本。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -929,7 +1150,7 @@ async def serve():
                 },
             ), Tool(
                 name=URTools.GET_SAFETY_MODE.value,
-                description="获取UR机器人的安全模式。执行失败时停止动作。",
+                description="获取UR机器人的安全模式。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -940,9 +1161,30 @@ async def serve():
                     },
                     "required": ["ip"],
                 },
+            ),Tool(
+                name=URTools.GET_PROGRAMS.value,
+                description="获取UR机器人的程序列表。",
+                inputSchema={
+                    "type": "object",
+                    "properties": {
+                        "ip": {
+                            "type": "string",
+                            "description": f"机器人IP",
+                        },
+                        "username": {
+                            "type": "string",
+                            "description": f"SSH用户名,默认值：root",
+                        },
+                        "password": {
+                            "type": "string",
+                            "description": f"SSH密码，默认值：easybot",
+                        }
+                    },
+                    "required": ["ip"],
+                },
             ), Tool(
                 name=URTools.SEND_PROGRAM_SCRIPT.value,
-                description="向UR机器人发送程序脚本。执行失败时停止动作。",
+                description="向UR机器人发送程序脚本。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -960,7 +1202,7 @@ async def serve():
             ),
             Tool(
                 name=URTools.DRAW_CIRCLE.value,
-                description="命令机器人在x画圆。执行失败时停止动作。",
+                description="命令机器人在水平或竖直平面上画圆。",
                 inputSchema={
                     "type": "object",
                     "properties": {
@@ -981,10 +1223,72 @@ async def serve():
                         },
                         "coordinate": {
                             "type": "string",
-                            "description": f"圆所在的平面。x：圆心所在的与基座平行的水平平面,其它：圆心所在的与基座的垂直平面。",
+                            "description": f"圆所在的平面。z：圆形所在的平面与基座所在平面垂直,其它：圆形所在的平面与基座所在平面平行。默认值：z。",
                         }
                     },
                     "required": ["ip", "center", "r"],
+                },
+            ),
+            Tool(
+                name=URTools.DRAW_SQUARE.value,
+                description="命令机器人在水平或竖直平面上画正方形。",
+                inputSchema={
+                    "type": "object",
+                    "properties": {
+                        "ip": {
+                            "type": "string",
+                            "description": f"机器人IP",
+                        },
+                        "origin": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            },
+                            "description": f"正方形左上方的顶点，画正方形的起点。",
+                        },
+                        "border": {
+                            "type": "number",
+                            "description": f"正方形的边长（米）",
+                        },
+                        "coordinate": {
+                            "type": "string",
+                            "description": f"正方形所在的平面。z：正方形所在的平面与基座所在平面垂直,其它：正方形所在的平面与基座所在平面平行。默认值：z。",
+                        }
+                    },
+                    "required": ["ip", "origin", "border"],
+                },
+            ),
+            Tool(
+                name=URTools.DRAW_RECTANGLE.value,
+                description="命令机器人在水平或竖直平面上画矩形。",
+                inputSchema={
+                    "type": "object",
+                    "properties": {
+                        "ip": {
+                            "type": "string",
+                            "description": f"机器人IP",
+                        },
+                        "origin": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            },
+                            "description": f"矩形左上方的顶点，画矩形的起点。",
+                        },
+                        "width": {
+                            "type": "number",
+                            "description": f"矩形的长（米）",
+                        },
+                        "height": {
+                            "type": "number",
+                            "description": f"矩形的宽（米）",
+                        },
+                        "coordinate": {
+                            "type": "string",
+                            "description": f"矩形所在的平面。z：矩形所在的平面与基座所在平面垂直,其它：矩形所在的平面与基座所在平面平行。默认值：z。",
+                        }
+                    },
+                    "required": ["ip", "origin", "width", "height"],
                 },
             ),
         ]
@@ -998,6 +1302,7 @@ async def serve():
             match name:
 
                 case URTools.GET_TIME.value:
+                    '''时间'''
                     if not all(
                             k in arguments
                             for k in ["ip"]
@@ -1005,13 +1310,23 @@ async def serve():
                         raise ValueError("Missing required arguments")
                     result = ur_server.get_time(arguments["ip"])
                 case URTools.GET_SERIAL_NUMBER.value:
+                    '''序列号'''
                     if not all(
                             k in arguments
                             for k in ["ip"]
                     ):
                         raise ValueError("Missing required arguments")
                     result = ur_server.get_serial_number(arguments["ip"])
+                case URTools.GET_ROBOT_MODEL.value:
+                    '''型号'''
+                    if not all(
+                            k in arguments
+                            for k in ["ip"]
+                    ):
+                        raise ValueError("Missing required arguments")
+                    result = ur_server.get_robot_model(arguments["ip"])
                 case URTools.CONNECT.value:
+                    '''连接机器人'''
                     if not all(
                             k in arguments
                             for k in ["ip"]
@@ -1019,6 +1334,7 @@ async def serve():
                         raise ValueError("Missing required arguments")
                     result = ur_server.connect_ur(arguments["ip"])
                 case URTools.DISCONNECT.value:
+                    '''断开连接'''
                     if not all(
                             k in arguments
                             for k in ["ip"]
@@ -1026,6 +1342,7 @@ async def serve():
                         raise ValueError("Missing required arguments")
                     result = ur_server.disconnect_ur(arguments["ip"])
                 case URTools.GET_ACTUAL_TCP_POSE.value:
+                    '''获取TCP姿态'''
                     if not all(
                             k in arguments
                             for k in ["ip"]
@@ -1033,6 +1350,7 @@ async def serve():
                         raise ValueError("Missing required arguments")
                     result = ur_server.get_actual_tcp_pose(arguments["ip"])
                 case URTools.GET_ACTUAL_JOINT_POSE.value:
+                    '''序列号'''
                     if not all(
                             k in arguments
                             for k in ["ip"]
@@ -1040,6 +1358,7 @@ async def serve():
                         raise ValueError("Missing required arguments")
                     result = ur_server.get_actual_joint_pose(arguments["ip"])
                 case URTools.MOVEJ.value:
+                    '''MOVEJ'''
                     if not all(
                             k in arguments
                             for k in ["ip", "q"]
@@ -1069,6 +1388,7 @@ async def serve():
                     )
 
                 case URTools.MOVEL.value:
+                    '''MOVEL'''
                     if not all(
                             k in arguments
                             for k in ["ip", "pose"]
@@ -1098,7 +1418,7 @@ async def serve():
                     )
 
                 case URTools.MOVEL_X.value:
-
+                    '''沿X轴方向运动'''
                     if not all(
                             k in arguments
                             for k in ["ip", "distance"]
@@ -1109,7 +1429,7 @@ async def serve():
                         arguments["distance"]
                     )
                 case URTools.MOVEL_Y.value:
-
+                    '''沿Y轴方向运动'''
                     if not all(
                             k in arguments
                             for k in ["ip", "distance"]
@@ -1120,7 +1440,7 @@ async def serve():
                         arguments["distance"]
                     )
                 case URTools.MOVEL_Z.value:
-
+                    '''沿Z轴方向运动'''
                     if not all(
                             k in arguments
                             for k in ["ip", "distance"]
@@ -1132,6 +1452,7 @@ async def serve():
                     )
 
                 case URTools.LOAD_URP.value:
+                    '''加载程序'''
                     if not all(
                             k in arguments
                             for k in ["ip", "program_name"]
@@ -1144,6 +1465,7 @@ async def serve():
                     )
 
                 case URTools.START_UR.value:
+                    '''加载并启动'''
                     if not all(
                             k in arguments
                             for k in ["ip", "program_name"]
@@ -1156,6 +1478,7 @@ async def serve():
                     )
 
                 case URTools.STOP_UR.value:
+                    '''停止'''
                     if not all(
                             k in arguments
                             for k in ["ip"]
@@ -1166,6 +1489,7 @@ async def serve():
                         arguments["ip"]
                     )
                 case URTools.PAUSE_UR.value:
+                    '''暂停'''
                     if not all(
                             k in arguments
                             for k in ["ip"]
@@ -1175,6 +1499,7 @@ async def serve():
                         arguments["ip"]
                     )
                 case URTools.GET_OUTPUT_INT_REGISTER.value:
+                    '''获取整数寄存器的值'''
                     if not all(
                             k in arguments
                             for k in ["ip", "index"]
@@ -1182,6 +1507,7 @@ async def serve():
                         raise ValueError("Missing required arguments")
                     result = ur_server.get_output_int_register(arguments["ip"], arguments["index"])
                 case URTools.GET_OUTPUT_DOUBLE_REGISTER.value:
+                    '''获取浮点寄存器的值'''
                     if not all(
                             k in arguments
                             for k in ["ip", "index"]
@@ -1189,6 +1515,7 @@ async def serve():
                         raise ValueError("Missing required arguments")
                     result = ur_server.get_output_double_register(arguments["index"])
                 case URTools.GET_OUTPUT_BIT_REGISTER.value:
+                    '''获取布尔寄存器的值'''
                     if not all(
                             k in arguments
                             for k in ["ip", "index"]
@@ -1196,6 +1523,7 @@ async def serve():
                         raise ValueError("Missing required arguments")
                     result = ur_server.get_output_bit_register(arguments["ip"], arguments["index"])
                 case URTools.GET_ACTUAL_ROBOT_VOLTAGE.value:
+                    '''机器人电压'''
                     if not all(
                             k in arguments
                             for k in ["ip"]
@@ -1203,6 +1531,7 @@ async def serve():
                         raise ValueError("Missing required arguments")
                     result = ur_server.get_actual_robot_voltage(arguments["ip"])
                 case URTools.GET_ACTUAL_ROBOT_CURRENT.value:
+                    '''机器人电流'''
                     if not all(
                             k in arguments
                             for k in ["ip"]
@@ -1210,6 +1539,7 @@ async def serve():
                         raise ValueError("Missing required arguments")
                     result = ur_server.get_actual_robot_current(arguments["ip"])
                 case URTools.GET_ACTUAL_JOINT_VOLTAGE.value:
+                    '''关节电压'''
                     if not all(
                             k in arguments
                             for k in ["ip"]
@@ -1217,6 +1547,7 @@ async def serve():
                         raise ValueError("Missing required arguments")
                     result = ur_server.get_actual_joint_voltage(arguments["ip"])
                 case URTools.GET_ACTUAL_JOINT_CURRENT.value:
+                    '''关节电流'''
                     if not all(
                             k in arguments
                             for k in ["ip"]
@@ -1224,6 +1555,7 @@ async def serve():
                         raise ValueError("Missing required arguments")
                     result = ur_server.get_actual_joint_current(arguments["ip"])
                 case URTools.GET_ACTUAL_JOINT_TEMPERATURES.value:
+                    '''关节温度'''
                     if not all(
                             k in arguments
                             for k in ["ip"]
@@ -1231,6 +1563,7 @@ async def serve():
                         raise ValueError("Missing required arguments")
                     result = ur_server.get_joint_temperatures(arguments["ip"])
                 case URTools.GET_ROBOT_MODE.value:
+                    '''机器人运行状态'''
                     if not all(
                             k in arguments
                             for k in ["ip"]
@@ -1238,6 +1571,7 @@ async def serve():
                         raise ValueError("Missing required arguments")
                     result = ur_server.get_robot_mode(arguments["ip"])
                 case URTools.GET_PROGRAM_STATE.value:
+                    '''机器人程序状态'''
                     if not all(
                             k in arguments
                             for k in ["ip"]
@@ -1245,6 +1579,7 @@ async def serve():
                         raise ValueError("Missing required arguments")
                     result = ur_server.get_program_state(arguments["ip"])
                 case URTools.GET_UR_SOFTWARE_VERSION.value:
+                    '''机器人软件版本'''
                     if not all(
                             k in arguments
                             for k in ["ip"]
@@ -1252,13 +1587,23 @@ async def serve():
                         raise ValueError("Missing required arguments")
                     result = ur_server.get_ur_software_version(arguments["ip"])
                 case URTools.GET_SAFETY_MODE.value:
+                    '''安全模式'''
                     if not all(
                             k in arguments
                             for k in ["ip"]
                     ):
                         raise ValueError("Missing required arguments")
                     result = ur_server.get_safety_mode(arguments["ip"])
+                case URTools.GET_PROGRAMS.value:
+                    '''获取程序列表'''
+                    if not all(
+                            k in arguments
+                            for k in ["ip"]
+                    ):
+                        raise ValueError("Missing required arguments")
+                    result = ur_server.get_programs(arguments["ip"],arguments["username"],arguments["password"])
                 case URTools.SEND_PROGRAM_SCRIPT.value:
+                    '''向机器人发送脚本'''
                     if not all(
                             k in arguments
                             for k in ["ip", "script"]
@@ -1266,6 +1611,7 @@ async def serve():
                         raise ValueError("Missing required arguments")
                     result = ur_server.send_program_script(arguments["ip"], arguments["script"])
                 case URTools.DRAW_CIRCLE.value:
+                    '''画圆'''
                     if not all(
                             k in arguments
                             for k in ["ip", "center", "r"]
@@ -1273,6 +1619,24 @@ async def serve():
                         raise ValueError("Missing required arguments")
                     result = ur_server.draw_circle(arguments["ip"], arguments["center"], arguments["r"]
                                                    , arguments["coordinate"])
+                case URTools.DRAW_SQUARE.value:
+                    '''画正方形'''
+                    if not all(
+                            k in arguments
+                            for k in ["ip", "origin", "border"]
+                    ):
+                        raise ValueError("Missing required arguments")
+                    result = ur_server.draw_square(arguments["ip"], arguments["origin"], arguments["border"]
+                                                   , arguments["coordinate"])
+                case URTools.DRAW_RECTANGLE.value:
+                    '''画矩形'''
+                    if not all(
+                            k in arguments
+                            for k in ["ip", "origin", "width","height"]
+                    ):
+                        raise ValueError("Missing required arguments")
+                    result = ur_server.draw_rectangle(arguments["ip"], arguments["origin"], arguments["width"]
+                                                   , arguments["height"], arguments["coordinate"])
                 case _:
                     raise ValueError(f"Unknown tool: {name}")
 
