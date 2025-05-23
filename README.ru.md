@@ -20,11 +20,11 @@
 </p>
 
 <p align="center">
-    <a href='https://gitee.com/nonead/nUR_MCP_SERVER/releases'>
-      <img src='https://img.shields.io/github/v/release/nonead/nUR_MCP_SERVER.svg?label=Gitee%20Release&color=blue' alt="Gitee Release"></img>
+    <a href='https://gitee.com/nonead/Nonead-Universal-Robots-MCP/releases'>
+      <img src='https://img.shields.io/github/v/release/nonead/Nonead-Universal-Robots-MCP.svg?label=Gitee%20Release&color=blue' alt="Gitee Release"></img>
     </a>
-    <a href="https://github.com/nonead/nUR_MCP_SERVER/releases">
-      <img src="https://img.shields.io/github/v/release/nonead/nUR_MCP_SERVER.svg?label=GitHub%20Release" alt="GitHub Release"></img>
+    <a href="https://github.com/NoneadChina/Nonead-Universal-Robots-MCP/releases">
+      <img src="https://img.shields.io/github/v/release/nonead/Nonead-Universal-Robots-MCP.svg?label=GitHub%20Release" alt="GitHub Release"></img>
     </a>
     <a href='https://www.python.org/downloads/'>
       <img src='https://img.shields.io/pypi/pyversions/RPALite'></img>
@@ -32,23 +32,23 @@
     <a href='https://www.universal-robots.cn'>
       <img src='https://img.shields.io/badge/PolyScope-3.x_&_5.x-71A8CF'></img>
     </a>
-    <a href="https://gitee.com/nonead/nUR_MCP_SERVER/wikis/pages">
+    <a href="https://gitee.com/nonead/Nonead-Universal-Robots-MCP/wikis/pages">
       <img src="https://img.shields.io/badge/User%20Guide-1e8b93?logo=readthedocs&logoColor=f5f5f5" alt="User Guide"></img>
     </a>
     <a href="./LICENSE">
       <img height="20" src="https://img.shields.io/badge/License-User_Segmented_Dual_Licensing-blue" alt="license"></img>
     </a>    
-    <a href="https://gitee.com/nonead/nUR_MCP_SERVER">
-      <img height="20" src="https://gitee.com/nonead/nUR_MCP_SERVER/badge/fork.svg?theme=dark" alt="Gitee Forks"></img>
+    <a href="https://gitee.com/nonead/Nonead-Universal-Robots-MCP">
+      <img height="20" src="https://gitee.com/nonead/Nonead-Universal-Robots-MCP/badge/fork.svg?theme=dark" alt="Gitee Forks"></img>
     </a>
-    <a href="https://gitee.com/nonead/nUR_MCP_SERVER">
-      <img height="20" src="https://gitee.com/nonead/nUR_MCP_SERVER/badge/star.svg?theme=dark" alt="Gitee Stars"></img>
+    <a href="https://gitee.com/nonead/Nonead-Universal-Robots-MCP">
+      <img height="20" src="https://gitee.com/nonead/Nonead-Universal-Robots-MCP/badge/star.svg?theme=dark" alt="Gitee Stars"></img>
     </a>
-    <a href="https://github.com/nonead/nUR_MCP_SERVER">
-      <img src="https://img.shields.io/github/forks/nonead/nUR_MCP_SERVER?label=Forks&style=flat-square" alt="Github Forks"></img>
+    <a href="https://github.com/NoneadChina/Nonead-Universal-Robots-MCP">
+      <img src="https://img.shields.io/github/forks/nonead/Nonead-Universal-Robots-MCP?label=Forks&style=flat-square" alt="Github Forks"></img>
     </a>
-    <a href='https://github.com/nonead/nUR_MCP_SERVER'>
-      <img src="https://img.shields.io/github/stars/nonead/nUR_MCP_SERVER.svg?style=flat-square&label=Stars&logo=github" alt="Github Stars"/></img>
+    <a href='https://github.com/NoneadChina/Nonead-Universal-Robots-MCP'>
+      <img src="https://img.shields.io/github/stars/nonead/Nonead-Universal-Robots-MCP.svg?style=flat-square&label=Stars&logo=github" alt="Github Stars"/></img>
     </a>
 </p>
 
@@ -262,7 +262,7 @@ nUR_MCP_SERVER - это промежуточное программное обе
 4. Установите bun 1.2.8 или новее.
 5. Установите MCP Server:
 ```
-     git clone https://gitee.com/nonead/nUR_MCP_SERVER.git
+     git clone https://gitee.com/nonead/Nonead-Universal-Robots-MCP.git
      cd nUR_MCP_SERVER
      pip install -r requirements.txt
 ```
@@ -489,8 +489,8 @@ MCP превосходит традиционные методы интегра�
 Гибкость настройки: Возможность создания пользовательских MCP Серверов
 ## 7. Контакты
 
-**GitHub**: <https://github.com/nonead/nUR_MCP_SERVER>  
-**gitee**: <https://gitee.com/nonead/nUR_MCP_SERVER>  
+**GitHub**: <https://github.com/NoneadChina/Nonead-Universal-Robots-MCP>  
+**gitee**: <https://gitee.com/nonead/Nonead-Universal-Robots-MCP>  
 **Официальный сайт**: <https://www.nonead.com>  
 
 <img src="./images/QR.gif" alt="Контакт: Nonead Tech WeChat" width="200">  
