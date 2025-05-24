@@ -23,7 +23,7 @@
     <a href='https://gitee.com/nonead/Nonead-Universal-Robots-MCP/releases'>
       <img src='https://img.shields.io/github/v/release/nonead/Nonead-Universal-Robots-MCP.svg?label=Gitee%20Release&color=blue' alt="Gitee Release"></img>
     </a>
-    <a href="https://github.com/NoneadChina/Nonead-Universal-Robots-MCP/releases">
+    <a href="https://github.com/nonead/Nonead-Universal-Robots-MCP/releases">
       <img src="https://img.shields.io/github/v/release/nonead/Nonead-Universal-Robots-MCP.svg?label=GitHub%20Release" alt="GitHub Release"></img>
     </a>
     <a href='https://www.python.org/downloads/'>
@@ -44,10 +44,10 @@
     <a href="https://gitee.com/nonead/Nonead-Universal-Robots-MCP">
       <img height="20" src="https://gitee.com/nonead/Nonead-Universal-Robots-MCP/badge/star.svg?theme=dark" alt="Gitee Stars"></img>
     </a>
-    <a href="https://github.com/NoneadChina/Nonead-Universal-Robots-MCP">
+    <a href="https://github.com/nonead/Nonead-Universal-Robots-MCP">
       <img src="https://img.shields.io/github/forks/nonead/Nonead-Universal-Robots-MCP?label=Forks&style=flat-square" alt="Github Forks"></img>
     </a>
-    <a href='https://github.com/NoneadChina/Nonead-Universal-Robots-MCP'>
+    <a href='https://github.com/nonead/Nonead-Universal-Robots-MCP'>
       <img src="https://img.shields.io/github/stars/nonead/Nonead-Universal-Robots-MCP.svg?style=flat-square&label=Stars&logo=github" alt="Github Stars"/></img>
     </a>
 </p>
@@ -489,7 +489,7 @@ MCP เหนือกว่าวิธีการแบบเดิมใน�
 ความสามารถในการปรับแต่ง: การพัฒนาเซิร์ฟเวอร์ MCP ที่กำหนดเอง  
 ## 7. ติดต่อเรา
 
-**GitHub**: <https://github.com/NoneadChina/Nonead-Universal-Robots-MCP>  
+**GitHub**: <https://github.com/nonead/Nonead-Universal-Robots-MCP>  
 **gitee**: <https://gitee.com/nonead/Nonead-Universal-Robots-MCP>  
 **เว็บไซต์ทางการ**: <https://www.nonead.com>  
 
