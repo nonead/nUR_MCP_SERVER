@@ -778,16 +778,16 @@ end
         if (wait):
             self.sync()
         return self.robotConnector.RobotModel.ActualQ()
-        c_pose = self.robotConnector.RobotModel.ActualQ
-
-        pose = []
-        pose.append(ctypes.c_double(c_pose[0]).value)
-        pose.append(ctypes.c_double(c_pose[1]).value)
-        pose.append(ctypes.c_double(c_pose[2]).value)
-        pose.append(ctypes.c_double(c_pose[3]).value)
-        pose.append(ctypes.c_double(c_pose[4]).value)
-        pose.append(ctypes.c_double(c_pose[5]).value)
-        return pose
+        # c_pose = self.robotConnector.RobotModel.ActualQ
+        #
+        # pose = []
+        # pose.append(ctypes.c_double(c_pose[0]).value)
+        # pose.append(ctypes.c_double(c_pose[1]).value)
+        # pose.append(ctypes.c_double(c_pose[2]).value)
+        # pose.append(ctypes.c_double(c_pose[3]).value)
+        # pose.append(ctypes.c_double(c_pose[4]).value)
+        # pose.append(ctypes.c_double(c_pose[5]).value)
+        # return pose
 
     def get_actual_joint_speeds(self, wait=True):
         '''
@@ -820,16 +820,16 @@ end
         if (wait):
             self.sync()
         return self.robotConnector.RobotModel.ActualTCPPose()
-        c_pose = self.robotConnector.RobotModel.ActualTCPPose
-
-        pose = []
-        pose.append(ctypes.c_double(c_pose[0]).value)
-        pose.append(ctypes.c_double(c_pose[1]).value)
-        pose.append(ctypes.c_double(c_pose[2]).value)
-        pose.append(ctypes.c_double(c_pose[3]).value)
-        pose.append(ctypes.c_double(c_pose[4]).value)
-        pose.append(ctypes.c_double(c_pose[5]).value)
-        return pose
+        # c_pose = self.robotConnector.RobotModel.ActualTCPPose
+        #
+        # pose = []
+        # pose.append(ctypes.c_double(c_pose[0]).value)
+        # pose.append(ctypes.c_double(c_pose[1]).value)
+        # pose.append(ctypes.c_double(c_pose[2]).value)
+        # pose.append(ctypes.c_double(c_pose[3]).value)
+        # pose.append(ctypes.c_double(c_pose[4]).value)
+        # pose.append(ctypes.c_double(c_pose[5]).value)
+        # return pose
 
     def get_actual_tcp_speed(self, wait=True):
         '''

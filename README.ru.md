@@ -275,7 +275,7 @@ MacOS: ~/Library/Application Support/Claude/claude_desktop_config.json
     {
       "mcpServers": {
         "nUR_MCP_SERVER": {
-          "command": "python",
+          "command": "uvx",
           "args": ["/home/nonead/MCP_Server/nUR_MCP_SERVER/main.py"]
         }
       }
@@ -286,7 +286,7 @@ Windows: %APPDATA%/Claude/claude_desktop_config.json
     {
       "mcpServers": {
         "nUR_MCP_SERVER": {
-          "command": "python",
+          "command": "uvx",
           "args": ["D:\\MyProgram\\MCP_SERVER\\nUR_MCP_SERVER\\main.py"]
         }
       }
@@ -311,7 +311,7 @@ Windows: %APPDATA%/Claude/claude_desktop_config.json
         "nUR_MCP_Server",
         "Universal-Robots"
       ],
-      "command": "python",
+      "command": "uvx",
       "args": [
         "/home/nonead/MCP_Server/nUR_MCP_SERVER/main.py"
       ]
@@ -337,7 +337,7 @@ Windows: %APPDATA%/Claude/claude_desktop_config.json
         "nUR_MCP_Server",
         "Universal-Robots"
       ],
-      "command": "python",
+      "command": "uvx",
       "args": [
         "D:\\MyProgram\\MCP_SERVER\\nUR_MCP_SERVER\\main.py"
       ]
@@ -352,7 +352,7 @@ MacOS & Linux:
     {
       "mcpServers": {
         "nUR_MCP_SERVER": {
-            "command": "python",
+            "command": "uvx",
             "args": ["/home/nonead/MCP_Server/nUR_MCP_SERVER/main.py"]
          }
       }
@@ -363,7 +363,7 @@ Windows:
     {
       "mcpServers": {
         "nUR_MCP_SERVER": {
-            "command": "python",
+            "command": "uvx",
             "args": ["D:\\MyProgram\\MCP_SERVER\\nUR_MCP_SERVER\\main.py"]
          }
       }

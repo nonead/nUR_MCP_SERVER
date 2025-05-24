@@ -330,6 +330,21 @@ class DashBoard(threading.Thread):
         "serial number: XXXXXXX" OR ""
         '''
         self.__send('get serial number\n')
+
+    def ur_is_remote_control(self):
+        '''
+
+        Returns the remote-control status of the robot.
+        If the robot is in remote control it returns false and
+        if remote control is disabled or robot is in local control it returns false.
+        '''
+        self.__send('is in remote control\n')
+
+    def ur_get_robot_model(self):
+        '''
+        Returns the robot model
+        '''
+        self.__send('get robot model\n')
     
         
         
